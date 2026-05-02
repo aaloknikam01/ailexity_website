@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ailexity - Website Development Excellence</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(94, 82, 64, 0.12);
+            --color-secondary-hover: rgba(94, 82, 64, 0.2);
+            --color-secondary-active: rgba(94, 82, 64, 0.25);
+            --color-border: rgba(94, 82, 64, 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-card-border: rgba(94, 82, 64, 0.12);
+            --color-card-border-inner: rgba(94, 82, 64, 0.12);
+            --color-error: var(--color-red-500);
+            --color-success: var(--color-teal-500);
+            --color-warning: var(--color-orange-500);
+            --color-info: var(--color-slate-500);
+            --color-focus-ring: rgba(33, 128, 141, 0.4);
+
+            --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-size-xs: 11px;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-md: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --letter-spacing-tight: -0.01em;
+
+            --space-0: 0;
+            --space-1: 1px;
+            --space-2: 2px;
+            --space-4: 4px;
+            --space-6: 6px;
+            --space-8: 8px;
+            --space-10: 10px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+
+            --radius-sm: 6px;
+            --radius-base: 8px;
+            --radius-md: 10px;
+            --radius-lg: 12px;
+            --radius-full: 9999px;
+
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+            --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+            --duration-fast: 150ms;
+            --duration-normal: 250ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+            --container-sm: 640px;
+            --container-md: 768px;
+            --container-lg: 1024px;
+            --container-xl: 1280px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: var(--font-family-base);
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-normal);
+            color: var(--color-text);
+            background-color: var(--color-background);
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            line-height: var(--line-height-normal);
+            color: var(--color-text);
+            background-color: var(--color-background);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-family-base);
+            font-weight: var(--font-weight-semibold);
+            line-height: var(--line-height-tight);
+            letter-spacing: var(--letter-spacing-tight);
+            color: var(--color-text);
+        }
+
+        h1 { font-size: var(--font-size-4xl); }
+        h2 { font-size: var(--font-size-3xl); }
+        h3 { font-size: var(--font-size-2xl); }
+        h4 { font-size: var(--font-size-xl); }
+        h5 { font-size: var(--font-size-lg); }
+        h6 { font-size: var(--font-size-md); }
+
+        p {
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-normal);
+            color: var(--color-text-secondary);
+        }
+
+        .container {
+            max-width: var(--container-xl);
+            margin: 0 auto;
+            padding: 0 var(--space-16);
+        }
+
+        /* Navbar styles */
+        .navbar {
+            transition: all 0.3s ease-in-out;
+            background-color: transparent !important;
+        }
+
+        .navbar .navbar-nav .nav-link {
+            color: #ffffff !important;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar .navbar-nav .nav-link:hover {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        .navbar.scrolled {
+            background-color: #ffffff !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .navbar.scrolled .navbar-nav .nav-link {
+            color: #333333 !important;
+        }
+
+        .navbar.scrolled .navbar-nav .nav-link:hover {
+            color: #007bff !important;
+        }
+
+        .navbar.scrolled .navbar-brand img {
+            filter: brightness(0) saturate(100%);
+        }
+
+        .navbar-brand img {
+            height: 40px;
+            width: auto;
+        }
+
+        .navbar-toggler {
+            border: none;
+            padding: 0.25rem 0.5rem;
+        }
+
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+        }
+
+        .navbar-nav .btn {
+            margin-left: 1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--space-8) var(--space-16);
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            line-height: var(--line-height-normal);
+            border: 1px solid transparent;
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            transition: all var(--duration-normal) var(--ease-standard);
+            text-decoration: none;
+            background-color: var(--color-primary);
+            color: var(--color-btn-primary-text);
+        }
+
+        .btn:hover {
+            background-color: var(--color-primary-hover);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-contact {
+            background-color: var(--color-primary);
+            color: var(--color-btn-primary-text);
+        }
+
+        .btn-contact-large {
+            padding: var(--space-12) var(--space-24);
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .hero {
+            background-image: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 120px 0 80px;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(19, 52, 59, 0.7);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: var(--color-white);
+        }
+
+        .hero-title {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-8);
+            color: var(--color-white);
+        }
+
+        .hero-tagline {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-medium);
+            margin-bottom: var(--space-16);
+            color: var(--color-teal-300);
+        }
+
+        .hero-description {
+            font-size: var(--font-size-lg);
+            max-width: 600px;
+            margin: 0 auto;
+            color: var(--color-gray-200);
+        }
+
+        .services {
+            padding: var(--space-32) 0;
+            background-color: var(--color-surface);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--space-24);
+            margin-top: var(--space-32);
+        }
+
+        .service-card {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-24);
+            position: relative;
+            transition: all var(--duration-normal) var(--ease-standard);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--color-primary);
+        }
+
+        .service-number {
+            position: absolute;
+            top: var(--space-16);
+            right: var(--space-16);
+            width: 40px;
+            height: 40px;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .service-title {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-8);
+            color: var(--color-text);
+        }
+
+        .service-description {
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-normal);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-16);
+        }
+
+        .service-price {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin-bottom: var(--space-16);
+        }
+
+        .service-features {
+            list-style: none;
+            margin-bottom: var(--space-20);
+        }
+
+        .service-features li {
+            padding: var(--space-4) 0;
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            position: relative;
+            padding-left: var(--space-20);
+        }
+
+        .service-features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--color-success);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .about {
+            padding: var(--space-32) 0;
+            background-color: var(--color-background);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-32);
+            align-items: center;
+        }
+
+        .about-title {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-8);
+            color: var(--color-text);
+        }
+
+        .about-subtitle {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-16);
+            color: var(--color-primary);
+        }
+
+        .about-description {
+            font-size: var(--font-size-base);
+            line-height: var(--line-height-normal);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-20);
+        }
+
+        .about-points {
+            list-style: none;
+        }
+
+        .about-points li {
+            padding: var(--space-4) 0;
+            font-size: var(--font-size-base);
+            color: var(--color-text-secondary);
+            position: relative;
+            padding-left: var(--space-20);
+        }
+
+        .about-points li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--color-primary);
+            font-weight: var(--font-weight-bold);
+            font-size: var(--font-size-lg);
+        }
+
+        .about-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .placeholder-image {
+            width: 100%;
+            height: 300px;
+            background-color: var(--color-secondary);
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px dashed var(--color-border);
+        }
+
+        .placeholder-text {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+            font-weight: var(--font-weight-medium);
+        }
+
+        .industries {
+            padding: var(--space-32) 0;
+            background-color: var(--color-surface);
+        }
+
+        .section-title {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            text-align: center;
+            margin-bottom: var(--space-32);
+            color: var(--color-text);
+        }
+
+        .industries-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-16);
+        }
+
+        .industry-item {
+            background-color: var(--color-white);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-base);
+            padding: var(--space-20);
+            text-align: center;
+            transition: all var(--duration-normal) var(--ease-standard);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .industry-item:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--color-primary);
+        }
+
+        .industry-item h4 {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-8);
+            color: var(--color-text);
+        }
+
+        .industry-price {
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+        }
+
+        .process {
+            padding: var(--space-32) 0;
+            background-color: var(--color-background);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-24);
+            margin-top: var(--space-32);
+        }
+
+        .process-step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            border-radius: var(--radius-full);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-bold);
+            margin: 0 auto var(--space-16);
+        }
+
+        .step-title {
+            font-size: var(--font-size-lg);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-8);
+            color: var(--color-text);
+        }
+
+        .step-description {
+            font-size: var(--font-size-base);
+            color: var(--color-text-secondary);
+            line-height: var(--line-height-normal);
+        }
+
+        .contact {
+            padding: var(--space-32) 0;
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            text-align: center;
+        }
+
+        .contact-content h2 {
+            font-size: var(--font-size-3xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-16);
+            color: var(--color-white);
+        }
+
+        .contact-content p {
+            font-size: var(--font-size-lg);
+            margin-bottom: var(--space-24);
+            color: var(--color-gray-200);
+        }
+
+        .contact .btn {
+            background-color: var(--color-white);
+            color: var(--color-primary);
+            font-weight: var(--font-weight-semibold);
+        }
+
+        .contact .btn:hover {
+            background-color: var(--color-gray-200);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: var(--font-size-3xl); }
+            .hero-tagline { font-size: var(--font-size-lg); }
+            .services-grid { grid-template-columns: 1fr; }
+            .about-content { grid-template-columns: 1fr; }
+            .about-title { font-size: var(--font-size-2xl); }
+            .about-subtitle { font-size: var(--font-size-lg); }
+            .section-title { font-size: var(--font-size-2xl); }
+            .industries-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+            .process-steps { grid-template-columns: 1fr; }
+            .placeholder-image { height: 200px; }
+            .container { padding: 0 var(--space-8); }
+        }
+
+        @media (max-width: 480px) {
+            .hero { padding: 100px 0 60px; }
+            .services, .about, .industries, .process, .contact { padding: var(--space-16) 0; }
+            .service-card { padding: var(--space-16); }
+            .hero-title { font-size: var(--font-size-2xl); }
+        }
+    </style>
+</head>
+<body>
+    <!-- page Navigation -->
+    <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img id="navbar-logo" src="assets/imgs/ailexity logo white.png" alt="">
+            </a>
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">                     
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">Our Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#industries">Industries</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#process">Process</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="ml-4 nav-link btn btn-primary btn-sm rounded" href="index.html#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Our Services</h1>
+                <p class="hero-tagline">Website & Software Development Excellence</p>
+                <p class="hero-description">Custom websites and business software solutions built for performance, efficiency, and seamless user experience using modern technologies</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title mb-4">Website Development</h2>
+            <div class="services-grid">
+                <div class="service-card" data-number="01">
+                    <div class="service-number">01</div>
+                    <h3 class="service-title">Static Websites</h3>
+                    <p class="service-description">Professional static websites with clean design, perfect for businesses needing essential online presence with fast loading speeds.</p>
+                    <div class="service-price">Contact for pricing</div>
+                    <ul class="service-features">
+                        <li>Responsive Design</li>
+                        <li>Fast Loading</li>
+                        <li>SEO Optimized</li>
+                        <li>Mobile Friendly</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-number="02">
+                    <div class="service-number">02</div>
+                    <h3 class="service-title">Dynamic Websites</h3>
+                    <p class="service-description">Interactive websites with content management systems, admin panels, and database functionality for growing businesses.</p>
+                    <div class="service-price">Contact for pricing</div>
+                    <ul class="service-features">
+                        <li>CMS Integration</li>
+                        <li>Admin Panel</li>
+                        <li>User Management</li>
+                        <li>Database Driven</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-number="03">
+                    <div class="service-number">03</div>
+                    <h3 class="service-title">E-commerce Solutions</h3>
+                    <p class="service-description">Complete online stores with shopping carts, payment gateways, inventory management, and order processing systems.</p>
+                    <div class="service-price">Contact for pricing</div>
+                    <ul class="service-features">
+                        <li>Payment Gateway</li>
+                        <li>Inventory System</li>
+                        <li>Order Management</li>
+                        <li>Product Catalog</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-number="04">
+                    <div class="service-number">04</div>
+                    <h3 class="service-title">WordPress Development</h3>
+                    <p class="service-description">Custom WordPress websites with premium themes, plugins, WooCommerce integration, and comprehensive content management.</p>
+                    <div class="service-price">Contact for pricing</div>
+                    <ul class="service-features">
+                        <li>Custom Themes</li>
+                        <li>Plugin Integration</li>
+                        <li>WooCommerce</li>
+                        <li>Content Management</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-number="05">
+                    <div class="service-number">05</div>
+                    <h3 class="service-title">Custom Applications</h3>
+                    <p class="service-description">Fully customized web solutions built from scratch with unique requirements, advanced functionality, and scalable architecture.</p>
+                    <div class="service-price">Contact for pricing</div>
+                    <ul class="service-features">
+                        <li>Custom Development</li>
+                        <li>API Integration</li>
+                        <li>Scalable Architecture</li>
+                        <li>Advanced Features</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-number="06">
+                    <div class="service-number">06</div>
+                    <h3 class="service-title">Digital Solutions</h3>
+                    <p class="service-description">Comprehensive digital services including domain registration, hosting, SSL certificates, maintenance, and ongoing support.</p>
+                    <div class="service-price">Contact for pricing</div>
+                    <ul class="service-features">
+                        <li>Domain & Hosting</li>
+                        <li>SSL Security</li>
+                        <li>Maintenance</li>
+                        <li>24/7 Support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 class="section-title mt-5 mb-4">Business Software Solutions</h2>
+            <div class="services-grid">
+                <div class="service-card" data-number="07">
+                    <div class="service-number">07</div>
+                    <h3 class="service-title">POS Systems</h3>
+                    <p class="service-description">Custom Point of Sale systems for retail, restaurants, and service businesses with inventory management and sales analytics.</p>
+                    <div class="service-price">Contact for pricing</div>
+                    <ul class="service-features">
+                        <li>Inventory Management</li>
+                        <li>Sales Tracking</li>
+                        <li>Customer Database</li>
+                        <li>Financial Reporting</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-number="08">
+                    <div class="service-number">08</div>
+                    <h3 class="service-title">CRM Solutions</h3>
+                    <p class="service-description">Customer Relationship Management systems designed to streamline sales processes, customer support, and business growth.</p>
+                    <div class="service-price">Contact for pricing</div>
+                    <ul class="service-features">
+                        <li>Lead Management</li>
+                        <li>Customer Support</li>
+                        <li>Sales Pipeline</li>
+                        <li>Marketing Automation</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-number="09">
+                    <div class="service-number">09</div>
+                    <h3 class="service-title">ERP Systems</h3>
+                    <p class="service-description">Enterprise Resource Planning solutions that integrate core business processes including finance, HR, supply chain, and operations.</p>
+                    <div class="service-price">Contact for pricing</div>
+                    <ul class="service-features">
+                        <li>Finance Management</li>
+                        <li>HR & Payroll</li>
+                        <li>Supply Chain</li>
+                        <li>Business Intelligence</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-number="10">
+                    <div class="service-number">10</div>
+                    <h3 class="service-title">Learning Management</h3>
+                    <p class="service-description">Learning Management Systems for educational institutions and corporate training with course creation, tracking, and assessment tools.</p>
+                    <div class="service-price">Contact for pricing</div>
+                    <ul class="service-features">
+                        <li>Course Management</li>
+                        <li>Student Progress Tracking</li>
+                        <li>Assessment Tools</li>
+                        <li>Certification Management</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-number="11">
+                    <div class="service-number">11</div>
+                    <h3 class="service-title">Appointment Systems</h3>
+                    <p class="service-description">Booking and appointment management solutions for healthcare providers, salons, consultancies, and service businesses.</p>
+                    <div class="service-price">Contact for pricing</div>
+                    <ul class="service-features">
+                        <li>Online Booking</li>
+                        <li>Calendar Integration</li>
+                        <li>Automated Reminders</li>
+                        <li>Staff Management</li>
+                    </ul>
+                </div>
+
+                <div class="service-card" data-number="12">
+                    <div class="service-number">12</div>
+                    <h3 class="service-title">Custom Software</h3>
+                    <p class="service-description">Tailor-made software solutions designed to address specific business challenges and streamline unique operational processes.</p>
+                    <div class="service-price">Contact for pricing</div>
+                    <ul class="service-features">
+                        <li>Bespoke Development</li>
+                        <li>Legacy System Integration</li>
+                        <li>Workflow Automation</li>
+                        <li>Data Migration</li>
+                    </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="about-title">About Company</h2>
+                    <h3 class="about-subtitle">Crafting Website Experiences that Drive Results</h3>
+                    <p class="about-description">At Ailexity, we specialize in delivering cutting-edge website development services that help brands stand out in the digital landscape. From small business websites to complex enterprise solutions, we offer end-to-end web development with strategic thinking and growth-focused design.</p>
+                    <ul class="about-points">
+                        <li>Professional website & software development across all categories</li>
+                        <li>Custom business software solutions (POS, CRM, ERP & more)</li>
+                        <li>Industry-specific solutions for diverse sectors</li>
+                        <li>Complete digital ecosystem with ongoing support</li>
+                    </ul>
+                </div>
+                <div class="about-visual">
+                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Ailexity Team" class="img-fluid rounded shadow" style="width: 100%; height: auto;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section id="industries" class="industries">
+        <div class="container">
+            <h2 class="section-title">Industry-Specific Solutions</h2>
+            <div class="industries-grid">
+                <div class="industry-item">
+                    <h4>Local Business</h4>
+                    <div class="industry-price">Custom pricing available</div>
+                </div>
+                <div class="industry-item">
+                    <h4>Healthcare & Clinics</h4>
+                    <div class="industry-price">Custom pricing available</div>
+                </div>
+                <div class="industry-item">
+                    <h4>Educational Institutions</h4>
+                    <div class="industry-price">Custom pricing available</div>
+                </div>
+                <div class="industry-item">
+                    <h4>Restaurant & Food</h4>
+                    <div class="industry-price">Custom pricing available</div>
+                </div>
+                <div class="industry-item">
+                    <h4>Real Estate</h4>
+                    <div class="industry-price">Custom pricing available</div>
+                </div>
+                <div class="industry-item">
+                    <h4>E-commerce Stores</h4>
+                    <div class="industry-price">Custom pricing available</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <h2 class="section-title">Development Process</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h4 class="step-title">Consultation</h4>
+                    <p class="step-description">Understanding your business requirements and project goals</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h4 class="step-title">Design & Planning</h4>
+                    <p class="step-description">Creating wireframes, mockups and project roadmap</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h4 class="step-title">Development</h4>
+                    <p class="step-description">Building your website using latest technologies</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">04</div>
+                    <h4 class="step-title">Testing & Quality</h4>
+                    <p class="step-description">Comprehensive testing across devices and browsers</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">05</div>
+                    <h4 class="step-title">Launch & Support</h4>
+                    <p class="step-description">Going live with ongoing maintenance and support</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-content">
+                <h2>Ready to Start Your Project?</h2>
+                <p>Let's discuss your website development needs and create something amazing together.</p>
+                <a href="index.html#contact" class="btn btn-contact-large">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Ailexity Website Interactive Features
+        document.addEventListener('DOMContentLoaded', function() {
+            
+            // Smooth scrolling for internal links
+            function smoothScroll() {
+                const links = document.querySelectorAll('a[href^="#"]');
+                
+                links.forEach(link => {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        const targetId = this.getAttribute('href');
+                        const targetElement = document.querySelector(targetId);
+                        
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start'
+                            });
+                        }
+                    });
+                });
+            }
+            
+            // Enhanced card interactions
+            function setupCardInteractions() {
+                const serviceCards = document.querySelectorAll('.service-card');
+                
+                serviceCards.forEach(card => {
+                    card.addEventListener('mouseenter', function() {
+                        this.style.transform = 'translateY(-8px) scale(1.02)';
+                        this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                    });
+                    
+                    card.addEventListener('mouseleave', function() {
+                        this.style.transform = 'translateY(0) scale(1)';
+                        this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
+                    });
+                });
+            }
+            
+            // Scroll-triggered animations
+            function setupScrollAnimations() {
+                const observerOptions = {
+                    threshold: 0.1,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+                
+                const observer = new IntersectionObserver(function(entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                            entry.target.style.transition = 'all 0.6s ease-out';
+                        }
+                    });
+                }, observerOptions);
+                
+                // Elements to animate on scroll
+                const animateElements = document.querySelectorAll('.service-card, .about-content, .industry-item, .process-step');
+                
+                animateElements.forEach((element, index) => {
+                    element.style.opacity = '0';
+                    element.style.transform = 'translateY(30px)';
+                    element.style.transitionDelay = `${index * 0.1}s`;
+                    observer.observe(element);
+                });
+            }
+            
+            // Contact button functionality
+            function setupContactButtons() {
+                const contactButtons = document.querySelectorAll('.btn-contact');
+                
+                contactButtons.forEach(button => {
+                    button.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        
+                        // Add click animation
+                        this.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            this.style.transform = 'scale(1)';
+                        }, 150);
+                        
+                        // Simulate contact action (in real app, this would open a modal or redirect)
+                        setTimeout(() => {
+                            alert('Thank you for your interest! We will contact you soon.');
+                        }, 200);
+                    });
+                });
+            }
+            
+            // Navbar scroll effect
+            function setupNavbarScroll() {
+                const navbar = document.querySelector('.navbar');
+                const navbarLogo = document.getElementById("navbar-logo");
+                const originalLogo = "assets/imgs/ailexity logo white.png";
+                const scrolledLogo = "assets/imgs/ailexity logo.png";
+                
+                window.addEventListener("scroll", function () {
+                    if (window.scrollY > 50) {
+                        navbar.classList.add('scrolled');
+                        navbarLogo.src = scrolledLogo;
+                    } else {
+                        navbar.classList.remove('scrolled');
+                        navbarLogo.src = originalLogo;
+                    }
+                });
+            }
+            
+            // Industry items hover effect
+            function setupIndustryHover() {
+                const industryItems = document.querySelectorAll('.industry-item');
+                
+                industryItems.forEach(item => {
+                    item.addEventListener('mouseenter', function() {
+                        this.style.borderColor = '#FF6B47';
+                        this.style.borderWidth = '2px';
+                    });
+                    
+                    item.addEventListener('mouseleave', function() {
+                        this.style.borderColor = '#f0f0f0';
+                        this.style.borderWidth = '1px';
+                    });
+                });
+            }
+            
+            // Process steps animation
+            function setupProcessAnimation() {
+                const processSteps = document.querySelectorAll('.process-step');
+                
+                processSteps.forEach((step, index) => {
+                    step.addEventListener('mouseenter', function() {
+                        const stepNumber = this.querySelector('.step-number');
+                        stepNumber.style.transform = 'scale(1.1) rotate(5deg)';
+                        stepNumber.style.background = '#e55a3d';
+                    });
+                    
+                    step.addEventListener('mouseleave', function() {
+                        const stepNumber = this.querySelector('.step-number');
+                        stepNumber.style.transform = 'scale(1) rotate(0deg)';
+                        stepNumber.style.background = '#FF6B47';
+                    });
+                });
+            }
+            
+            // Loading animation for service features
+            function setupFeatureAnimation() {
+                const serviceCards = document.querySelectorAll('.service-card');
+                
+                serviceCards.forEach(card => {
+                    const features = card.querySelectorAll('.service-features li');
+                    
+                    card.addEventListener('mouseenter', function() {
+                        features.forEach((feature, index) => {
+                            setTimeout(() => {
+                                feature.style.transform = 'translateX(5px)';
+                                feature.style.color = '#FF6B47';
+                            }, index * 50);
+                        });
+                    });
+                    
+                    card.addEventListener('mouseleave', function() {
+                        features.forEach(feature => {
+                            feature.style.transform = 'translateX(0)';
+                            feature.style.color = '#666666';
+                        });
+                    });
+                });
+            }
+            
+            // Initialize all features
+            smoothScroll();
+            setupCardInteractions();
+            setupScrollAnimations();
+            setupContactButtons();
+            setupNavbarScroll();
+            setupIndustryHover();
+            setupProcessAnimation();
+            setupFeatureAnimation();
+            
+            // Performance optimization: Debounce scroll events
+            function debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            }
+            
+            // Add a subtle parallax effect to hero section
+            function setupParallax() {
+                const hero = document.querySelector('.hero');
+                
+                window.addEventListener('scroll', debounce(() => {
+                    const scrolled = window.pageYOffset;
+                    const rate = scrolled * -0.5;
+                    
+                    if (hero && scrolled < window.innerHeight) {
+                        hero.style.transform = `translateY(${rate}px)`;
+                    }
+                }, 10));
+            }
+            
+            setupParallax();
+            
+            // Add typing effect to hero tagline
+            function typeWriter() {
+                const tagline = document.querySelector('.hero-tagline');
+                const text = tagline.textContent;
+                tagline.textContent = '';
+                
+                let i = 0;
+                const timer = setInterval(() => {
+                    if (i < text.length) {
+                        tagline.textContent += text.charAt(i);
+                        i++;
+                    } else {
+                        clearInterval(timer);
+                    }
+                }, 100);
+            }
+            
+            // Start typing effect after a short delay
+            setTimeout(typeWriter, 500);
+            
+            console.log('Ailexity website loaded successfully!');
+        });
+    </script>
+    
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

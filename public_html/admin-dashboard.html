@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Ailexity Admin Dashboard - Manage students and track analytics">
+    <meta name="author" content="Ailexity">
+    <title>Admin Dashboard - Ailexity</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + Ailexity main styles -->
+	<link rel="stylesheet" href="assets/css/ailexity.css">
+    <link rel="icon" type="image/png" href="assets/imgs/favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 260px;
+            background: linear-gradient(180deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            overflow-y: auto;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+
+        .sidebar-header {
+            padding: 25px 20px;
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .sidebar-header h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .sidebar-header small {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+        }
+
+        .sidebar-menu {
+            list-style: none;
+            padding: 20px 0;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 5px;
+        }
+
+        .sidebar-menu a {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .sidebar-menu a:hover,
+        .sidebar-menu a.active {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-left: 4px solid #ff6b35;
+            padding-left: 16px;
+        }
+
+        .sidebar-menu a i {
+            margin-right: 12px;
+            font-size: 1.2rem;
+        }
+
+        /* Main Content */
+        .main-content {
+            margin-left: 260px;
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar h2 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #2c3e50;
+        }
+
+        .admin-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .admin-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logout-btn {
+            background: #dc3545;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .logout-btn:hover {
+            background: #c82333;
+            transform: translateY(-2px);
+        }
+
+        /* Stats Cards */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .stat-info h3 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin: 0 0 5px 0;
+        }
+
+        .stat-info p {
+            color: #7f8c8d;
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        .stat-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .stat-icon.blue {
+            background: rgba(52, 152, 219, 0.1);
+            color: #3498db;
+        }
+
+        .stat-icon.green {
+            background: rgba(46, 204, 113, 0.1);
+            color: #2ecc71;
+        }
+
+        .stat-icon.orange {
+            background: rgba(255, 107, 53, 0.1);
+            color: #ff6b35;
+        }
+
+        .stat-icon.purple {
+            background: rgba(155, 89, 182, 0.1);
+            color: #9b59b6;
+        }
+
+        /* Charts Section */
+        .charts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .chart-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .chart-card h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .chart-placeholder {
+            height: 300px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #7f8c8d;
+        }
+
+        /* Tables */
+        .table-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .table-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .table-header h3 {
+            color: #2c3e50;
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-box input {
+            padding: 8px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            width: 250px;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #ff6b35;
+        }
+
+        .btn-export {
+            background: #ff6b35;
+            color: white;
+            padding: 8px 20px;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-export:hover {
+            background: #ff8c42;
+            transform: translateY(-2px);
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .data-table thead {
+            background: #f8f9fa;
+        }
+
+        .data-table th {
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            color: #2c3e50;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .data-table td {
+            padding: 15px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #555;
+        }
+
+        .data-table tbody tr {
+            transition: background 0.3s;
+        }
+
+        .data-table tbody tr:hover {
+            background: #f8f9fa;
+        }
+
+        .badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .badge.active {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .badge.completed {
+            background: #cce5ff;
+            color: #004085;
+        }
+
+        .badge.in-progress {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .progress-bar-container {
+            width: 100%;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b35 0%, #ff8c42 100%);
+            transition: width 0.3s;
+        }
+
+        .action-btn {
+            padding: 6px 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            transition: all 0.3s;
+            margin-right: 5px;
+        }
+
+        .btn-view {
+            background: #3498db;
+            color: white;
+        }
+
+        .btn-view:hover {
+            background: #2980b9;
+        }
+
+        .btn-edit {
+            background: #f39c12;
+            color: white;
+        }
+
+        .btn-edit:hover {
+            background: #e67e22;
+        }
+
+        .btn-delete {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .btn-delete:hover {
+            background: #c0392b;
+        }
+
+        /* Student Detail Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 3% auto;
+            padding: 0;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            color: white;
+            padding: 25px 30px;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .modal-close {
+            font-size: 28px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .modal-close:hover {
+            transform: rotate(90deg);
+        }
+
+        .modal-body {
+            padding: 30px;
+        }
+
+        .student-info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .info-item label {
+            display: block;
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+
+        .info-item strong {
+            font-size: 1.1rem;
+            color: #2c3e50;
+        }
+
+        .course-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .course-list-item {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .login-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .login-card {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-card h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #ff6b35;
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.mobile-open {
+                transform: translateX(0);
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-box input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Section -->
+    <section id="loginSection" class="login-section" style="display: none;">
+        <div class="login-card">
+            <h2>Redirecting...</h2>
+            <p style="text-align: center; color: #7f8c8d; margin-top: 20px;">
+                Please login to access the dashboard
+            </p>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <div id="dashboardSection" style="display: none;">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>Ailexity</h3>
+                <small>Admin Dashboard</small>
+            </div>
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="#" class="active" data-section="overview">
+                        <i class="ti-dashboard"></i>
+                        <span>Overview</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-section="students">
+                        <i class="ti-user"></i>
+                        <span>Students</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-section="courses">
+                        <i class="ti-book"></i>
+                        <span>Courses</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-section="analytics">
+                        <i class="ti-bar-chart"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-section="certificates">
+                        <i class="ti-medall"></i>
+                        <span>Certificates</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-section="settings">
+                        <i class="ti-settings"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h2 id="pageTitle">Dashboard Overview</h2>
+                <div class="admin-info">
+                    <div class="admin-avatar">A</div>
+                    <div>
+                        <strong id="adminName">Admin</strong>
+                        <div style="font-size: 0.85rem; color: #7f8c8d;">Super Admin</div>
+                    </div>
+                    <button class="logout-btn" id="adminLogoutBtn">Logout</button>
+                </div>
+            </div>
+
+            <!-- Overview Section -->
+            <div id="overviewSection" class="content-section">
+                <!-- Stats Cards -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3 id="totalStudents">0</h3>
+                            <p>Total Students</p>
+                        </div>
+                        <div class="stat-icon blue">
+                            <i class="ti-user"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3 id="totalEnrollments">0</h3>
+                            <p>Total Enrollments</p>
+                        </div>
+                        <div class="stat-icon green">
+                            <i class="ti-book"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3 id="completedCourses">0</h3>
+                            <p>Completed Courses</p>
+                        </div>
+                        <div class="stat-icon orange">
+                            <i class="ti-check-box"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3 id="certificatesIssued">0</h3>
+                            <p>Certificates Issued</p>
+                        </div>
+                        <div class="stat-icon purple">
+                            <i class="ti-medall"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts -->
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Student Enrollment Trend</h3>
+                        <div class="chart-placeholder">
+                            <canvas id="enrollmentChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Course Completion Rate</h3>
+                        <div class="chart-placeholder">
+                            <canvas id="completionChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="table-card">
+                    <div class="table-header">
+                        <h3>Recent Student Activity</h3>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Course</th>
+                                <th>Activity</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recentActivityTable">
+                            <tr>
+                                <td colspan="5" style="text-align: center; color: #7f8c8d;">Loading activity...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Students Section -->
+            <div id="studentsSection" class="content-section" style="display: none;">
+                <div class="table-card">
+                    <div class="table-header">
+                        <h3>All Students</h3>
+                        <div class="search-box">
+                            <input type="text" id="studentSearch" placeholder="Search students...">
+                            <button class="btn-export" id="exportStudents">
+                                <i class="ti-download"></i> Export
+                            </button>
+                        </div>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Enrolled Courses</th>
+                                <th>Completed</th>
+                                <th>Progress</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentsTable">
+                            <tr>
+                                <td colspan="7" style="text-align: center; color: #7f8c8d;">No students found</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Courses Section -->
+            <div id="coursesSection" class="content-section" style="display: none;">
+                <div class="table-card">
+                    <div class="table-header">
+                        <h3>Course Statistics</h3>
+                        <button class="btn-export" id="exportCourses">
+                            <i class="ti-download"></i> Export
+                        </button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Course Name</th>
+                                <th>Category</th>
+                                <th>Enrolled</th>
+                                <th>Completed</th>
+                                <th>Completion Rate</th>
+                                <th>Avg. Progress</th>
+                            </tr>
+                        </thead>
+                        <tbody id="coursesTable">
+                            <tr>
+                                <td colspan="6" style="text-align: center; color: #7f8c8d;">Loading courses...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Analytics Section -->
+            <div id="analyticsSection" class="content-section" style="display: none;">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3 id="avgCompletionRate">0%</h3>
+                            <p>Avg. Completion Rate</p>
+                        </div>
+                        <div class="stat-icon blue">
+                            <i class="ti-stats-up"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3 id="activeStudents">0</h3>
+                            <p>Active Students (30d)</p>
+                        </div>
+                        <div class="stat-icon green">
+                            <i class="ti-pulse"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3 id="avgStudyTime">0h</h3>
+                            <p>Avg. Study Time</p>
+                        </div>
+                        <div class="stat-icon orange">
+                            <i class="ti-time"></i>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-info">
+                            <h3 id="engagementRate">0%</h3>
+                            <p>Engagement Rate</p>
+                        </div>
+                        <div class="stat-icon purple">
+                            <i class="ti-heart"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-grid">
+                    <div class="chart-card">
+                        <h3>Course Category Distribution</h3>
+                        <div class="chart-placeholder">
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Student Progress Distribution</h3>
+                        <div class="chart-placeholder">
+                            <canvas id="progressChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Certificates Section -->
+            <div id="certificatesSection" class="content-section" style="display: none;">
+                <div class="table-card">
+                    <div class="table-header">
+                        <h3>Issued Certificates</h3>
+                        <button class="btn-export" id="exportCertificates">
+                            <i class="ti-download"></i> Export
+                        </button>
+                    </div>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Student Name</th>
+                                <th>Course</th>
+                                <th>Issued Date</th>
+                                <th>Certificate ID</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="certificatesTable">
+                            <tr>
+                                <td colspan="5" style="text-align: center; color: #7f8c8d;">No certificates issued yet</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Settings Section -->
+            <div id="settingsSection" class="content-section" style="display: none;">
+                <div class="table-card">
+                    <h3>System Settings</h3>
+                    <p style="color: #7f8c8d; margin-top: 10px;">Manage system settings and configurations</p>
+                    <div style="margin-top: 30px;">
+                        <button class="btn-export">Update Settings</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Student Detail Modal -->
+    <div id="studentModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalStudentName">Student Details</h3>
+                <span class="modal-close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="student-info-grid">
+                    <div class="info-item">
+                        <label>Email</label>
+                        <strong id="modalStudentEmail">-</strong>
+                    </div>
+                    <div class="info-item">
+                        <label>Total Courses</label>
+                        <strong id="modalTotalCourses">0</strong>
+                    </div>
+                    <div class="info-item">
+                        <label>Completed</label>
+                        <strong id="modalCompletedCourses">0</strong>
+                    </div>
+                    <div class="info-item">
+                        <label>Overall Progress</label>
+                        <strong id="modalOverallProgress">0%</strong>
+                    </div>
+                </div>
+
+                <h4 style="margin: 30px 0 15px 0;">Enrolled Courses</h4>
+                <ul class="course-list" id="modalCourseList">
+                    <li style="text-align: center; color: #7f8c8d; padding: 20px;">No courses enrolled</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <script>
+        // Admin credentials (in production, this should be server-side)
+        const ADMIN_CREDENTIALS = {
+            username: 'admin',
+            password: 'admin123'
+        };
+
+        // Check if admin is logged in
+        let isAdminLoggedIn = localStorage.getItem('ailexityAdminLoggedIn') === 'true';
+
+        $(document).ready(function() {
+            if (isAdminLoggedIn) {
+                showDashboard();
+            } else {
+                showLogin();
+            }
+
+            setupEventListeners();
+        });
+
+        function showLogin() {
+            // Show login section
+            $('#loginSection').show();
+            $('#dashboardSection').hide();
+        }
+
+        function showDashboard() {
+            $('#loginSection').hide();
+            $('#dashboardSection').show();
+            loadDashboardData();
+        }
+
+        function setupEventListeners() {
+            // Admin Logout
+            $('#adminLogoutBtn').click(function() {
+                localStorage.removeItem('ailexityAdminLoggedIn');
+                isAdminLoggedIn = false;
+                showLogin();
+            });
+
+            // Sidebar Navigation
+            $('.sidebar-menu a').click(function(e) {
+                e.preventDefault();
+                const section = $(this).data('section');
+                
+                $('.sidebar-menu a').removeClass('active');
+                $(this).addClass('active');
+                
+                $('.content-section').hide();
+                $(`#${section}Section`).show();
+                
+                // Update page title
+                const titles = {
+                    overview: 'Dashboard Overview',
+                    students: 'Students Management',
+                    courses: 'Courses Statistics',
+                    analytics: 'Analytics & Reports',
+                    certificates: 'Certificates Management',
+                    settings: 'System Settings'
+                };
+                $('#pageTitle').text(titles[section]);
+            });
+
+            // Student Search
+            $('#studentSearch').on('input', function() {
+                const searchTerm = $(this).val().toLowerCase();
+                $('#studentsTable tr').each(function() {
+                    const text = $(this).text().toLowerCase();
+                    $(this).toggle(text.indexOf(searchTerm) > -1);
+                });
+            });
+
+            // View Student Details
+            $(document).on('click', '.btn-view', function() {
+                const email = $(this).data('email');
+                showStudentDetails(email);
+            });
+
+            // Modal Close
+            $('.modal-close').click(function() {
+                $('.modal').hide();
+            });
+
+            $(window).click(function(e) {
+                if ($(e.target).hasClass('modal')) {
+                    $('.modal').hide();
+                }
+            });
+
+            // Export Functions
+            $('#exportStudents').click(() => exportToCSV('students'));
+            $('#exportCourses').click(() => exportToCSV('courses'));
+            $('#exportCertificates').click(() => exportToCSV('certificates'));
+        }
+
+        function loadDashboardData() {
+            // Get all users data
+            const users = JSON.parse(localStorage.getItem('ailexityAcademyUsers') || '[]');
+            
+            // Calculate statistics
+            let totalStudents = users.length;
+            let totalEnrollments = 0;
+            let completedCourses = 0;
+            let certificatesIssued = 0;
+
+            users.forEach(user => {
+                const progressKey = `ailexityAcademyProgress_${user.email}`;
+                const progress = JSON.parse(localStorage.getItem(progressKey) || '{}');
+                
+                const enrolledCount = Object.keys(progress).length;
+                totalEnrollments += enrolledCount;
+                
+                Object.values(progress).forEach(p => {
+                    if (p.progress === 100) {
+                        completedCourses++;
+                        certificatesIssued++;
+                    }
+                });
+            });
+
+            // Update stats
+            $('#totalStudents').text(totalStudents);
+            $('#totalEnrollments').text(totalEnrollments);
+            $('#completedCourses').text(completedCourses);
+            $('#certificatesIssued').text(certificatesIssued);
+
+            // Load tables
+            loadStudentsTable();
+            loadCoursesTable();
+            loadRecentActivity();
+            loadCertificatesTable();
+            loadAnalytics();
+        }
+
+        function loadStudentsTable() {
+            const users = JSON.parse(localStorage.getItem('ailexityAcademyUsers') || '[]');
+            const tbody = $('#studentsTable');
+            tbody.empty();
+
+            if (users.length === 0) {
+                tbody.html('<tr><td colspan="7" style="text-align: center; color: #7f8c8d;">No students registered yet</td></tr>');
+                return;
+            }
+
+            users.forEach(user => {
+                const progressKey = `ailexityAcademyProgress_${user.email}`;
+                const progress = JSON.parse(localStorage.getItem(progressKey) || '{}');
+                
+                const enrolledCount = Object.keys(progress).length;
+                const completedCount = Object.values(progress).filter(p => p.progress === 100).length;
+                
+                let totalProgress = 0;
+                if (enrolledCount > 0) {
+                    const progressSum = Object.values(progress).reduce((sum, p) => sum + p.progress, 0);
+                    totalProgress = Math.round(progressSum / enrolledCount);
+                }
+
+                tbody.append(`
+                    <tr>
+                        <td><strong>${user.name}</strong></td>
+                        <td>${user.email}</td>
+                        <td>${enrolledCount}</td>
+                        <td>${completedCount}</td>
+                        <td>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill" style="width: ${totalProgress}%"></div>
+                            </div>
+                            <small style="color: #7f8c8d;">${totalProgress}%</small>
+                        </td>
+                        <td><span class="badge active">Active</span></td>
+                        <td>
+                            <button class="action-btn btn-view" data-email="${user.email}">View</button>
+                            <button class="action-btn btn-edit">Edit</button>
+                        </td>
+                    </tr>
+                `);
+            });
+        }
+
+        function loadCoursesTable() {
+            const coursesData = [
+                { id: 1, title: "Full Stack Web Development", category: "development" },
+                { id: 2, title: "Machine Learning with Python", category: "ai" },
+                { id: 3, title: "UI/UX Design Masterclass", category: "design" },
+                { id: 4, title: "Digital Marketing Mastery", category: "marketing" },
+                { id: 5, title: "Cloud Computing with AWS", category: "development" },
+                { id: 6, title: "Data Science & Analytics", category: "ai" }
+            ];
+
+            const users = JSON.parse(localStorage.getItem('ailexityAcademyUsers') || '[]');
+            const tbody = $('#coursesTable');
+            tbody.empty();
+
+            coursesData.forEach(course => {
+                let enrolled = 0;
+                let completed = 0;
+                let totalProgress = 0;
+                let progressCount = 0;
+
+                users.forEach(user => {
+                    const progressKey = `ailexityAcademyProgress_${user.email}`;
+                    const progress = JSON.parse(localStorage.getItem(progressKey) || '{}');
+                    
+                    if (progress[course.id]) {
+                        enrolled++;
+                        progressCount++;
+                        totalProgress += progress[course.id].progress;
+                        
+                        if (progress[course.id].progress === 100) {
+                            completed++;
+                        }
+                    }
+                });
+
+                const completionRate = enrolled > 0 ? Math.round((completed / enrolled) * 100) : 0;
+                const avgProgress = progressCount > 0 ? Math.round(totalProgress / progressCount) : 0;
+
+                tbody.append(`
+                    <tr>
+                        <td><strong>${course.title}</strong></td>
+                        <td><span class="badge in-progress">${course.category}</span></td>
+                        <td>${enrolled}</td>
+                        <td>${completed}</td>
+                        <td>
+                            <div class="progress-bar-container">
+                                <div class="progress-bar-fill" style="width: ${completionRate}%"></div>
+                            </div>
+                            <small style="color: #7f8c8d;">${completionRate}%</small>
+                        </td>
+                        <td>${avgProgress}%</td>
+                    </tr>
+                `);
+            });
+        }
+
+        function loadRecentActivity() {
+            const tbody = $('#recentActivityTable');
+            tbody.html(`
+                <tr>
+                    <td>John Doe</td>
+                    <td>Full Stack Web Development</td>
+                    <td>Completed Lesson 5</td>
+                    <td>2 hours ago</td>
+                    <td><span class="badge in-progress">In Progress</span></td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>Machine Learning with Python</td>
+                    <td>Course Completed</td>
+                    <td>5 hours ago</td>
+                    <td><span class="badge completed">Completed</span></td>
+                </tr>
+                <tr>
+                    <td>Mike Johnson</td>
+                    <td>UI/UX Design Masterclass</td>
+                    <td>Enrolled in Course</td>
+                    <td>1 day ago</td>
+                    <td><span class="badge active">Active</span></td>
+                </tr>
+            `);
+        }
+
+        function loadCertificatesTable() {
+            const users = JSON.parse(localStorage.getItem('ailexityAcademyUsers') || '[]');
+            const tbody = $('#certificatesTable');
+            tbody.empty();
+
+            const coursesData = [
+                { id: 1, title: "Full Stack Web Development" },
+                { id: 2, title: "Machine Learning with Python" },
+                { id: 3, title: "UI/UX Design Masterclass" },
+                { id: 4, title: "Digital Marketing Mastery" },
+                { id: 5, title: "Cloud Computing with AWS" },
+                { id: 6, title: "Data Science & Analytics" }
+            ];
+
+            let certificateCount = 0;
+
+            users.forEach(user => {
+                const progressKey = `ailexityAcademyProgress_${user.email}`;
+                const progress = JSON.parse(localStorage.getItem(progressKey) || '{}');
+                
+                Object.keys(progress).forEach(courseId => {
+                    if (progress[courseId].progress === 100) {
+                        const course = coursesData.find(c => c.id === parseInt(courseId));
+                        const certId = `CERT-${courseId}-${user.email.substring(0, 5).toUpperCase()}`;
+                        
+                        tbody.append(`
+                            <tr>
+                                <td><strong>${user.name}</strong></td>
+                                <td>${course ? course.title : 'Unknown Course'}</td>
+                                <td>${new Date().toLocaleDateString()}</td>
+                                <td><code>${certId}</code></td>
+                                <td>
+                                    <button class="action-btn btn-view">View</button>
+                                    <button class="action-btn btn-export">Download</button>
+                                </td>
+                            </tr>
+                        `);
+                        certificateCount++;
+                    }
+                });
+            });
+
+            if (certificateCount === 0) {
+                tbody.html('<tr><td colspan="5" style="text-align: center; color: #7f8c8d;">No certificates issued yet</td></tr>');
+            }
+        }
+
+        function loadAnalytics() {
+            const users = JSON.parse(localStorage.getItem('ailexityAcademyUsers') || '[]');
+            
+            let totalEnrollments = 0;
+            let totalProgress = 0;
+            let completedCount = 0;
+
+            users.forEach(user => {
+                const progressKey = `ailexityAcademyProgress_${user.email}`;
+                const progress = JSON.parse(localStorage.getItem(progressKey) || '{}');
+                
+                Object.values(progress).forEach(p => {
+                    totalEnrollments++;
+                    totalProgress += p.progress;
+                    if (p.progress === 100) completedCount++;
+                });
+            });
+
+            const avgCompletionRate = totalEnrollments > 0 ? Math.round((completedCount / totalEnrollments) * 100) : 0;
+            const activeStudents = users.length;
+            const avgStudyTime = Math.floor(Math.random() * 20) + 10; // Mock data
+            const engagementRate = users.length > 0 ? Math.round((activeStudents / users.length) * 100) : 0;
+
+            $('#avgCompletionRate').text(avgCompletionRate + '%');
+            $('#activeStudents').text(activeStudents);
+            $('#avgStudyTime').text(avgStudyTime + 'h');
+            $('#engagementRate').text(engagementRate + '%');
+        }
+
+        function showStudentDetails(email) {
+            const users = JSON.parse(localStorage.getItem('ailexityAcademyUsers') || '[]');
+            const user = users.find(u => u.email === email);
+            
+            if (!user) return;
+
+            const progressKey = `ailexityAcademyProgress_${email}`;
+            const progress = JSON.parse(localStorage.getItem(progressKey) || '{}');
+
+            const coursesData = [
+                { id: 1, title: "Full Stack Web Development" },
+                { id: 2, title: "Machine Learning with Python" },
+                { id: 3, title: "UI/UX Design Masterclass" },
+                { id: 4, title: "Digital Marketing Mastery" },
+                { id: 5, title: "Cloud Computing with AWS" },
+                { id: 6, title: "Data Science & Analytics" }
+            ];
+
+            const enrolledCount = Object.keys(progress).length;
+            const completedCount = Object.values(progress).filter(p => p.progress === 100).length;
+            
+            let totalProgress = 0;
+            if (enrolledCount > 0) {
+                const progressSum = Object.values(progress).reduce((sum, p) => sum + p.progress, 0);
+                totalProgress = Math.round(progressSum / enrolledCount);
+            }
+
+            $('#modalStudentName').text(user.name);
+            $('#modalStudentEmail').text(user.email);
+            $('#modalTotalCourses').text(enrolledCount);
+            $('#modalCompletedCourses').text(completedCount);
+            $('#modalOverallProgress').text(totalProgress + '%');
+
+            const courseList = $('#modalCourseList');
+            courseList.empty();
+
+            if (enrolledCount === 0) {
+                courseList.html('<li style="text-align: center; color: #7f8c8d; padding: 20px;">No courses enrolled</li>');
+            } else {
+                Object.keys(progress).forEach(courseId => {
+                    const course = coursesData.find(c => c.id === parseInt(courseId));
+                    const courseProgress = progress[courseId];
+                    
+                    courseList.append(`
+                        <li class="course-list-item">
+                            <div>
+                                <strong>${course ? course.title : 'Unknown Course'}</strong>
+                                <div class="progress-bar-container" style="margin-top: 8px;">
+                                    <div class="progress-bar-fill" style="width: ${courseProgress.progress}%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <strong>${courseProgress.progress}%</strong>
+                            </div>
+                        </li>
+                    `);
+                });
+            }
+
+            $('#studentModal').show();
+        }
+
+        function exportToCSV(type) {
+            alert(`Exporting ${type} data to CSV... (Feature demonstration)`);
+            // In production, this would generate and download actual CSV files
+        }
+    </script>
+
+</body>
+</html>

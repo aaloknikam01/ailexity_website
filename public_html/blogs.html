@@ -1,0 +1,1523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Explore the latest insights and trends in web development, digital marketing, and technology from Ailexity.">
+    <meta name="keywords" content="Ailexity, blog, web development, digital marketing, technology trends, insights">
+    <meta name="author" content="Ailexity">
+    <title>Blog - Ailexity</title>
+    <!-- font icons -->
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <!-- Bootstrap + Ailexity main styles -->
+	<link rel="stylesheet" href="assets/css/ailexity.css">
+    <link rel="icon" type="image/png" href="assets/imgs/favicon.png">
+    <style>
+        /* Prevent horizontal overflow */
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Make images and sections responsive */
+img, .container, section, {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Ensure no hardcoded widths overflow */
+* {
+    box-sizing: border-box;
+}
+
+/* Navbar scroll effect */
+.navbar {
+    transition: all 0.3s ease-in-out;
+    background-color: transparent !important;
+}
+
+.navbar .navbar-nav .nav-link {
+    color: #ffffff !important;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar .navbar-nav .nav-link:hover {
+    color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.navbar.scrolled {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar.scrolled .navbar-nav .nav-link {
+    color: #333333 !important;
+}
+
+.navbar.scrolled .navbar-nav .nav-link:hover {
+    color: #007bff !important;
+}
+
+.navbar.scrolled .navbar-brand img {
+    filter: brightness(0) saturate(100%);
+}
+
+/* Blog specific styles */
+.blog-hero {
+    background-image: url('https://images.unsplash.com/photo-1707343848552-893e05dba6ac?fm=jpg&q=80&w=2992&h=922&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxzZWFyY2h8MXx8dHJhdmVsfGVufDB8fDB8fHwy&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: calc(67vh + 70px);
+    position: relative;
+    margin-top: 0;
+    color: white;
+}
+
+.blog-hero .overlay {
+    background: rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+}
+
+.blog-hero .shape svg {
+    position: absolute;
+    bottom: -28px;
+    left: 0;
+    width: 100%;
+    z-index: 9;
+}
+
+.blog-hero .shape svg path {
+    fill: #fff;
+}
+
+/* Remove the blogs section top curve since hero now has the curve */
+.blogs-heading-section {
+    padding: 120px 0 120px 0;
+    background-color: #fff;
+    position: relative;
+    z-index: 1;
+    margin-bottom: -60px;
+}
+
+.blog-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.blog-card img {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.blog-meta {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 10px;
+}
+
+.read-more-btn {
+    color: #ff6b35;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.read-more-btn:hover {
+    color: #009a1a;
+    text-decoration: none;
+}
+
+.category-tag {
+    background: #ff6b35;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Blog Modal Styles */
+.blog-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 2% auto;
+    padding: 0;
+    border: none;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.modal-close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    z-index: 10000;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.modal-close:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.modal-image {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 15px 15px 0 0;
+    position: relative;
+}
+
+.modal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.modal-meta {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.modal-category-tag {
+    background: #ff6b35;
+    color: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.modal-date {
+    color: #6c757d;
+    font-size: 0.95rem;
+}
+
+.modal-body h2 {
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    line-height: 1.3;
+}
+
+.modal-text {
+    color: #555;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.modal-text p {
+    margin-bottom: 20px;
+}
+
+.modal-text h3 {
+    color: #333;
+    margin: 25px 0 15px 0;
+    font-size: 1.4rem;
+}
+
+.modal-text ul, .modal-text ol {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.modal-text li {
+    margin-bottom: 8px;
+}
+
+/* Responsive Modal */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 5% auto;
+    }
+    
+    .modal-body {
+        padding: 20px;
+    }
+    
+    .modal-image {
+        height: 250px;
+    }
+    
+    .modal-body h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Blogs Heading Section - Updated to work with hero curve */
+
+.blogs-bottom-shape {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.blogs-bottom-shape svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
+}
+
+.blogs-bottom-shape .shape-fill {
+    fill: #fff;
+}
+
+.blogs-main-heading {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #333;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+    z-index: 10;
+}
+
+.blogs-main-heading::after {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 4px;
+    background-color: #ff6b35;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+@media (max-width: 1199.98px) {
+    .blog-hero .shape svg {
+        bottom: -15px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .blog-hero .shape svg {
+        bottom: 0;
+    }
+}
+    
+    .blogs-heading-section {
+        padding: 40px 0 80px 0;
+        margin-bottom: -40px;
+    }
+    
+    .blogs-bottom-shape svg {
+        height: 40px;
+    }
+    
+    .blogs-main-heading {
+        font-size: 2.5rem;
+    }
+}
+
+    </style>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+
+    <!-- page Navigation -->
+    <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <img id="navbar-logo" src="assets/imgs/ailexity logo white.png" alt="">
+            </a>
+            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="careers.html">Careers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="ml-4 nav-link btn btn-primary btn-sm rounded" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Hero Section -->
+    <section class="blog-hero">
+        <div class="overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1 class="display-4 mb-3">Latest Insights</h1>
+                        <p class="lead">Explore trends in web development, digital marketing, and technology</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="shape">
+            <svg viewBox="0 0 1500 200">
+                <path d="m 0,240 h 1500.4828 v -71.92164 c 0,0 -286.2763,-81.79324 -743.19024,-81.79324 C 300.37862,86.28512 0,168.07836 0,168.07836 Z"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Blogs Heading Section -->
+    <section class="blogs-heading-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="blogs-main-heading">Blogs</h2>
+                </div>
+            </div>
+        </div>
+        <div class="blogs-bottom-shape">
+            <svg viewBox="0 0 1500 200">
+                <path d="m 0,240 h 1500.4828 v -71.92164 c 0,0 -286.2763,-81.79324 -743.19024,-81.79324 C 300.37862,86.28512 0,168.07836 0,168.07836 Z" class="shape-fill"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Blog Posts Section -->
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <!-- Blog Post 1 - Generative AI & Agentic AI -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card blog-card">
+                        <img src="https://images.unsplash.com/photo-1739805591936-39f03383c9a9?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjl8fGdlbmVyYXRpdmUlMjBhaXxlbnwwfHwwfHx8MA%3D%3D&auto=format&fit=crop&q=60&w=600" class="card-img-top" alt="Generative AI">
+                        <div class="card-body">
+                            <span class="category-tag">AI Technology</span>
+                            <div class="blog-meta">October 18, 2025 • 6 min read</div>
+                            <h5 class="card-title">Generative AI & Agentic AI: The New Digital Workforce</h5>
+                            <p class="card-text">How AI models now create content, code, design, and act autonomously as "AI agents" - transforming workflows and business operations.</p>
+                            <a href="#" class="read-more-btn">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 2 - Edge Computing & IoT -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card blog-card">
+                        <img src="https://media.istockphoto.com/id/1219768469/photo/man-using-laptop-on-top-of-mountain.jpg?s=612x612&w=0&k=20&c=f6XEE-DaCFm1FreZ5sKburOe1xZuOTa2FlpF8izx4Vg=" class="card-img-top" alt="Edge Computing">
+                        <div class="card-body">
+                            <span class="category-tag">IoT</span>
+                            <div class="blog-meta">October 15, 2025 • 5 min read</div>
+                            <h5 class="card-title">Edge Computing & IoT: Intelligence at the Source</h5>
+                            <p class="card-text">How data processing at the edge is revolutionizing industrial applications, with AI-powered devices making real-time decisions without cloud dependence.</p>
+                            <a href="#" class="read-more-btn">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 - Extended Reality -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card blog-card">
+                        <img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?q=80&w=1712&auto=format&fit=crop" class="card-img-top" alt="Extended Reality">
+                        <div class="card-body">
+                            <span class="category-tag">XR Technology</span>
+                            <div class="blog-meta">October 12, 2025 • 7 min read</div>
+                            <h5 class="card-title">Extended Reality: When Virtual Meets Physical</h5>
+                            <p class="card-text">The evolution of AR, VR, and MR technologies and how they're transforming education, retail, industrial training, and creating mixed-reality workplaces.</p>
+                            <a href="#" class="read-more-btn">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 4 - Quantum Computing -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card blog-card">
+                        <img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=1770&auto=format&fit=crop" class="card-img-top" alt="Quantum Computing">
+                        <div class="card-body">
+                            <span class="category-tag">Quantum Tech</span>
+                            <div class="blog-meta">October 10, 2025 • 8 min read</div>
+                            <h5 class="card-title">Quantum Computing & Post-Quantum Cryptography</h5>
+                            <p class="card-text">From laboratory experiments to commercial applications - how quantum computing is evolving and why businesses need to prepare for post-quantum security.</p>
+                            <a href="#" class="read-more-btn">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 5 - Green Tech -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card blog-card">
+                        <img src="https://images.unsplash.com/photo-1473893604213-3df9c15611c0?q=80&w=1771&auto=format&fit=crop" class="card-img-top" alt="Green Tech">
+                        <div class="card-body">
+                            <span class="category-tag">Sustainability</span>
+                            <div class="blog-meta">October 8, 2025 • 6 min read</div>
+                            <h5 class="card-title">Sustainable & Green Tech: Computing with Conscience</h5>
+                            <p class="card-text">How eco-friendly data centers, renewable energy integration, and carbon-neutral software engineering are reshaping the technology landscape.</p>
+                            <a href="#" class="read-more-btn">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 6 - AI Cybersecurity -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card blog-card">
+                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1770&auto=format&fit=crop" class="card-img-top" alt="AI Cybersecurity">
+                        <div class="card-body">
+                            <span class="category-tag">Cybersecurity</span>
+                            <div class="blog-meta">October 5, 2025 • 7 min read</div>
+                            <h5 class="card-title">AI-Driven Cybersecurity: The Digital Immune System</h5>
+                            <p class="card-text">How artificial intelligence is revolutionizing threat detection and prevention, creating self-healing networks and quantum-secure communications.</p>
+                            <a href="#" class="read-more-btn">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 7 - 5G/6G & Smart Infrastructure -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card blog-card">
+                        <img src="https://media.istockphoto.com/id/1306156001/photo/telecommunication-tower-with-mesh-dots-glittering-particles-for-wireless-telecommunication.jpg?s=612x612&w=0&k=20&c=cJxfNnADfIH8DZl8TZ6MG_nHhEFFfK9cNwtcsYxmni0=" class="card-img-top" alt="5G/6G Technology">
+                        <div class="card-body">
+                            <span class="category-tag">Connectivity</span>
+                            <div class="blog-meta">October 3, 2025 • 5 min read</div>
+                            <h5 class="card-title">5G/6G & Smart Infrastructure: The Connected Future</h5>
+                            <p class="card-text">How advanced networks are enabling holographic communication, ultra-low latency applications, and transforming cities into intelligent ecosystems.</p>
+                            <a href="#" class="read-more-btn">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 8 - Neural Interfaces -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card blog-card">
+                        <img src="https://images.unsplash.com/photo-1600267204091-5c1ab8b10c02?q=80&w=1770&auto=format&fit=crop" class="card-img-top" alt="Neural Interfaces">
+                        <div class="card-body">
+                            <span class="category-tag">Human Augmentation</span>
+                            <div class="blog-meta">September 30, 2025 • 8 min read</div>
+                            <h5 class="card-title">Neural Interfaces & Human-Augmentation Tech</h5>
+                            <p class="card-text">The evolving frontier of brain-computer interfaces, neuro-prosthetics, and hybrid AI-human interaction systems transforming how we interact with technology.</p>
+                            <a href="#" class="read-more-btn">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 9 - Digital Twins -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card blog-card">
+                        <img src="https://media.istockphoto.com/id/2217404317/photo/technology-trends.jpg?s=612x612&w=0&k=20&c=5IFh9cJ5Xi74XuTFrFuhnMXFlmByeELqyFHYgz1bWY0=" class="card-img-top" alt="Digital Twins">
+                        <div class="card-body">
+                            <span class="category-tag">Simulation Tech</span>
+                            <div class="blog-meta">September 28, 2025 • 6 min read</div>
+                            <h5 class="card-title">Digital Twins & Simulation-Driven Systems</h5>
+                            <p class="card-text">How virtual replicas of physical systems are enabling unprecedented optimization, from factory floors to entire city infrastructures.</p>
+                            <a href="#" class="read-more-btn">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Blog Post 10 - Automation & Robotics -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card blog-card">
+                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1770&auto=format&fit=crop" class="card-img-top" alt="Automation & Robotics">
+                        <div class="card-body">
+                            <span class="category-tag">Robotics</span>
+                            <div class="blog-meta">September 25, 2025 • 7 min read</div>
+                            <h5 class="card-title">Automation & Robotics: The Collaborative Revolution</h5>
+                            <p class="card-text">How collaborative robots (cobots) and automated systems are transforming manufacturing, healthcare, logistics, and creating new human-machine partnerships.</p>
+                            <a href="#" class="read-more-btn">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 11 - AI Personal Agents -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card blog-card">
+                        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=1770&auto=format&fit=crop" class="card-img-top" alt="AI Personal Agents">
+                        <div class="card-body">
+                            <span class="category-tag">AI Assistants</span>
+                            <div class="blog-meta">September 22, 2025 • 6 min read</div>
+                            <h5 class="card-title">AI Personal Agents & Digital Humans</h5>
+                            <p class="card-text">The next evolution of digital assistants - personalized companions that remember, plan, and act on your behalf with unprecedented contextual awareness.</p>
+                            <a href="#" class="read-more-btn">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 12 - Decentralized Internet -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card blog-card">
+                        <img src="https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=1932&auto=format&fit=crop" class="card-img-top" alt="Decentralized Internet">
+                        <div class="card-body">
+                            <span class="category-tag">Web3</span>
+                            <div class="blog-meta">September 20, 2025 • 8 min read</div>
+                            <h5 class="card-title">Decentralized Internet: Web3 & Smart Contracts</h5>
+                            <p class="card-text">Moving beyond centralized platforms towards blockchain-based ownership models with transparent governance and user-controlled digital assets.</p>
+                            <a href="#" class="read-more-btn">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Blog Post 13 - Synthetic Biology -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card blog-card">
+                        <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1770&auto=format&fit=crop" class="card-img-top" alt="Synthetic Biology">
+                        <div class="card-body">
+                            <span class="category-tag">BioTech</span>
+                            <div class="blog-meta">September 18, 2025 • 7 min read</div>
+                            <h5 class="card-title">Synthetic Biology & Bio-Computing</h5>
+                            <p class="card-text">How DNA and biological systems are becoming computational platforms, enabling lab-grown materials, biocomputers, and unprecedented healthcare innovations.</p>
+                            <a href="#" class="read-more-btn">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 14 - Autonomous Mobility -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card blog-card">
+                        <img src="https://images.unsplash.com/photo-1587169544748-d21bd810f57e?q=80&w=1974&auto=format&fit=crop" class="card-img-top" alt="Autonomous Mobility">
+                        <div class="card-body">
+                            <span class="category-tag">Transportation</span>
+                            <div class="blog-meta">September 15, 2025 • 6 min read</div>
+                            <h5 class="card-title">Autonomous Mobility & Smart Transportation</h5>
+                            <p class="card-text">The integration of AI, EVs, and smart infrastructure creating intelligent transport systems with self-driving logistics and V2I networks.</p>
+                            <a href="#" class="read-more-btn">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Blog Post 15 - Spatial Computing -->
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card blog-card">
+                        <img src="https://images.tristatetechnology.com/blog-images/uploads/2025/06/real-world-case-studies-ai-integration-in-action.jpg" class="card-img-top" alt="Spatial Computing">
+                        <div class="card-body">
+                            <span class="category-tag">AI Integration</span>
+                            <div class="blog-meta">September 12, 2025 • 7 min read</div>
+                            <h5 class="card-title">Spatial Computing & Real-World AI Integration</h5>
+                            <p class="card-text">The seamless fusion of AR, AI, and environmental mapping creating context-aware systems that understand and interact with the physical world.</p>
+                            <a href="#" class="read-more-btn">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Back to Home Button -->
+            <div class="text-center mt-5">
+                <a href="index.html#blog" class="btn btn-outline-primary btn-lg rounded">Back to Home</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Modal -->
+    <div id="blogModal" class="blog-modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <div class="modal-image">
+                <img id="modalImage" src="" alt="">
+            </div>
+            <div class="modal-body">
+                <div class="modal-meta">
+                    <span id="modalCategory" class="modal-category-tag"></span>
+                    <div id="modalDate" class="modal-date"></div>
+                </div>
+                <h2 id="modalTitle"></h2>
+                <div id="modalContent" class="modal-text"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section has-img-bg pb-0" style="background-image: url('https://i.gifer.com/DuN8.gif'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5 my-3">
+                    <h6 class="mb-0">Phone</h6>
+                    <p class="mb-4">+91 9270587627 (Aalok Nikam)<br>+91 8554956773 (Aditya Suryawanshi)</p>
+
+                    <h6 class="mb-0">Address</h6>
+                    <p class="mb-4">1704 tower-21, Joyville Hadapsar Annexe Shewalewadi Pune, Maharashtra - 412307</p>
+
+                    <h6 class="mb-0">Email</h6>
+                    <p class="mb-0">ailexity.info@gmail.com</p>
+                    <p></p>
+                </div>
+                <div class="col-md-7">
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <h4 class="mb-4">Drop Us A Message</h4>
+                        <div class="form-row">
+                            <input type="hidden" name="access_key" value="261ec8bf-07dc-4292-802b-68f5535e9bf8">
+                            <div class="form-group col-sm-4">
+                                <input type="text" class="form-control text-white rounded-0 bg-transparent" name="name" placeholder="Name">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <input type="email" class="form-control text-white rounded-0 bg-transparent" name="Email" placeholder="Email">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <input type="text" class="form-control text-white rounded-0 bg-transparent" name="subject" placeholder="Subject">
+                            </div>
+                            <div class="form-group col-sm-4">
+                                <input type="number" maxlength="10" inputmode="numeric" class="form-control text-white rounded-0 bg-transparent" name="Phone" placeholder="Phone">
+                            </div>
+                            <div class="form-group col-12">
+                                <textarea name="message" id="" cols="30" rows="4" class="form-control text-white rounded-0 bg-transparent" placeholder="Message"></textarea>
+
+                            </div>
+                            <div class="form-group col-12 mb-0">
+                                <button type="submit" class="btn btn-primary rounded w-md mt-3">Send</button>
+                            </div>                          
+                        </div>                          
+                    </form>
+                </div>
+            </div>
+            <!-- Page Footer -->
+            <footer class="mt-5 py-4 border-top border-secondary">
+                <p class="mb-0 small">&copy; <script>document.write(new Date().getFullYear())</script>, Ailexity Created By <a href="https://www.instagram.com/ailexity.info/" target="_blank">Ailexity.</a>  All rights reserved </p>     
+            </footer>
+            <!-- End of Page Footer -->  
+        </div>
+    </section>
+	
+	<!-- core  -->
+    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+
+    <!-- bootstrap 3 affix -->
+	<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+
+    <!-- Isotope -->
+    <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
+
+    <!-- Ailexity js -->
+    <script src="assets/js/ailexity.js"></script>
+
+    <script >
+        document.addEventListener("DOMContentLoaded", function () {
+            const navbarLogo = document.getElementById("navbar-logo");
+            const originalLogo = "assets/imgs/ailexity logo white.png";
+            const scrolledLogo = "assets/imgs/ailexity logo.png";
+    
+            window.addEventListener("scroll", function () {
+                if (window.scrollY > 50) {
+                    navbarLogo.src = scrolledLogo;
+                } else {
+                    navbarLogo.src = originalLogo;
+                }
+            });
+
+            // Blog Modal Functionality
+            const modal = document.getElementById('blogModal');
+            const modalClose = document.querySelector('.modal-close');
+            const modalImage = document.getElementById('modalImage');
+            const modalCategory = document.getElementById('modalCategory');
+            const modalDate = document.getElementById('modalDate');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalContent = document.getElementById('modalContent');
+
+            // Blog data with detailed content
+            const blogData = {
+                1: {
+                    image: "https://images.unsplash.com/photo-1677442135136-760c813260bb?q=80&w=1932&auto=format&fit=crop",
+                    category: "AI Technology",
+                    date: "October 18, 2025 • 6 min read",
+                    title: "Generative AI & Agentic AI: The New Digital Workforce",
+                    content: `
+                        <p>The evolution of AI has taken a dramatic leap forward in 2025, with generative and agentic AI models transforming how businesses operate and create value.</p>
+                        
+                        <h3>Beyond Content Generation</h3>
+                        <p>While early generative AI systems could create text, images, and code, today's advanced models can design complex systems, author comprehensive software applications, and generate creative works indistinguishable from human-created content.</p>
+                        
+                        <h3>The Rise of AI Agents</h3>
+                        <p>Agentic AI represents the next frontier - autonomous systems that can plan, execute, and adapt their approach to complete complex tasks. These digital agents operate with minimal human supervision, performing duties ranging from customer support to complex data analysis and decision-making.</p>
+                        
+                        <h3>Multi-Agent Collaboration</h3>
+                        <p>Perhaps most revolutionary is the emergence of multi-agent systems where specialized AI agents collaborate to solve problems too complex for any single agent. These systems mimic human team dynamics but operate at machine speed and scale.</p>
+                        
+                        <h3>Business Integration Strategies</h3>
+                        <p>Organizations implementing generative and agentic AI are seeing productivity increases of 35-70%. Successful implementation strategies typically involve:</p>
+                        <ul>
+                            <li>Starting with well-defined, bounded problems</li>
+                            <li>Maintaining human oversight during initial deployment</li>
+                            <li>Gradually expanding agent autonomy as performance and reliability are validated</li>
+                            <li>Creating hybrid human-AI workflows that leverage the strengths of both</li>
+                        </ul>
+                        
+                        <p>As these technologies continue to mature, we expect to see personalized AI assistants becoming commonplace across industries, fundamentally reshaping how organizations operate and deliver value.</p>
+                    `
+                },
+                2: {
+                    image: "https://images.unsplash.com/photo-1598708146638-83ae96bf56cd?q=80&w=1770&auto=format&fit=crop",
+                    category: "IoT",
+                    date: "October 15, 2025 • 5 min read",
+                    title: "Edge Computing & IoT: Intelligence at the Source",
+                    content: `
+                        <p>The combination of edge computing and IoT is creating a paradigm shift in how data is processed, analyzed, and acted upon in real-time environments.</p>
+                        
+                        <h3>Moving Beyond Cloud Dependence</h3>
+                        <p>While cloud computing revolutionized data processing, the latency inherent in sending data to distant servers has become a bottleneck for time-sensitive applications. Edge computing resolves this by bringing processing power directly to where data is generated—at the network edge.</p>
+                        
+                        <h3>Real-Time Decision Making</h3>
+                        <p>In 2025, we're seeing remarkable advances in edge AI capabilities that enable complex analytics and decision-making without cloud connectivity. This is transforming industries where milliseconds matter:</p>
+                        <ul>
+                            <li>Manufacturing facilities with real-time quality control systems</li>
+                            <li>Autonomous vehicles making split-second navigation decisions</li>
+                            <li>Healthcare devices monitoring patient vitals with immediate response capability</li>
+                            <li>Smart city infrastructure managing traffic flow, energy usage, and emergency services</li>
+                        </ul>
+                        
+                        <h3>Distributed Intelligence Architecture</h3>
+                        <p>The most innovative implementations are using a tiered intelligence approach where processing is distributed across devices, local edge nodes, and cloud resources based on computational requirements, time sensitivity, and connectivity status.</p>
+                        
+                        <h3>Privacy and Security Benefits</h3>
+                        <p>By processing sensitive data locally rather than sending it to the cloud, edge computing provides inherent privacy advantages and reduces attack surfaces. This localized approach is helping organizations comply with increasingly stringent data sovereignty regulations.</p>
+                        
+                        <h3>Implementation Challenges</h3>
+                        <p>Despite its advantages, edge deployment presents unique challenges including device management at scale, security patching, and limited computational resources. Successful implementations typically involve purpose-built hardware, containerized applications, and sophisticated orchestration platforms.</p>
+                        
+                        <p>As 5G networks continue to mature and specialized edge AI hardware becomes more powerful and energy-efficient, we expect the boundary between cloud and edge to further blur, creating seamless computing experiences regardless of connectivity status.</p>
+                    `
+                },
+                3: {
+                    image: "https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?q=80&w=1712&auto=format&fit=crop",
+                    category: "XR Technology",
+                    date: "October 12, 2025 • 7 min read",
+                    title: "Extended Reality: When Virtual Meets Physical",
+                    content: `
+                        <p>The boundaries between physical and digital worlds are dissolving as Extended Reality (XR) technologies - encompassing Virtual Reality (VR), Augmented Reality (AR), and Mixed Reality (MR) - transform how we work, learn, and interact.</p>
+                        
+                        <h3>Beyond Gaming and Entertainment</h3>
+                        <p>While XR's roots lie in gaming and entertainment, 2025 has seen these technologies mature into essential business tools. The technology has evolved from novelty to necessity across industries:</p>
+                        <ul>
+                            <li>Healthcare: Surgical training and planning in detailed virtual environments</li>
+                            <li>Engineering: Complex visualization and collaborative design across distributed teams</li>
+                            <li>Retail: Virtual try-before-you-buy experiences that reduce returns by up to 40%</li>
+                            <li>Education: Immersive learning environments that improve retention by 75%</li>
+                        </ul>
+                        
+                        <h3>Mixed Reality Workplaces</h3>
+                        <p>As hardware becomes more comfortable and affordable, mixed reality is transforming how we collaborate. The latest generation of lightweight, all-day wearable glasses seamlessly blend digital content with physical environments, enabling persistent digital workspaces that follow users throughout their day.</p>
+                        
+                        <h3>Spatial Computing Integration</h3>
+                        <p>The integration of spatial computing with XR is creating environments where digital objects understand and interact with physical spaces. Rooms become interfaces, with every surface potentially hosting contextual information and interactive elements.</p>
+                        
+                        <h3>Haptic Feedback Evolution</h3>
+                        <p>Perhaps most exciting is the evolution of haptic technology. Advanced feedback systems now simulate texture, resistance, and even temperature, dramatically increasing presence in virtual environments and enabling remote physical tasks previously impossible.</p>
+                        
+                        <h3>Accessibility Considerations</h3>
+                        <p>As XR becomes essential to workplace and educational environments, ensuring accessibility for all users is critical. Leading platforms now offer features like automatic text transcription, alternate input methods, and personalized sensory adjustments to accommodate different abilities.</p>
+                        
+                        <p>The coming years will likely see XR devices continue their path toward miniaturization and normalization, potentially replacing smartphones as our primary digital interface within the next decade.</p>
+                    `
+                },
+                4: {
+                    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=1770&auto=format&fit=crop",
+                    category: "Quantum Tech",
+                    date: "October 10, 2025 • 8 min read",
+                    title: "Quantum Computing & Post-Quantum Cryptography",
+                    content: `
+                        <p>Quantum computing has progressed from theoretical possibility to practical reality in 2025, with implications that span industries and fundamentally challenge our digital security paradigms.</p>
+                        
+                        <h3>Quantum Computing Goes Mainstream</h3>
+                        <p>While early quantum computers were limited to specialized research applications, today's systems with 1,000+ stable qubits are solving previously intractable problems across domains:</p>
+                        <ul>
+                            <li>Pharmaceutical companies accelerating drug discovery by simulating molecular interactions with unprecedented precision</li>
+                            <li>Financial institutions optimizing trading strategies and risk models across complex global markets</li>
+                            <li>Logistics firms calculating optimal routing solutions that were mathematically impossible with classical computing</li>
+                            <li>Materials scientists designing new compounds with precisely engineered properties</li>
+                        </ul>
+                        
+                        <h3>Hybrid Computing Models</h3>
+                        <p>Rather than replacing classical systems, most implementations use quantum-classical hybrid approaches. Classical computers handle routine tasks while offloading specific algorithms to quantum processors, creating systems that leverage the strengths of both paradigms.</p>
+                        
+                        <h3>The Cryptographic Challenge</h3>
+                        <p>Perhaps most urgently, quantum computing threatens many encryption systems that secure our digital infrastructure. Shor's algorithm running on sufficiently powerful quantum computers can break RSA and ECC encryption, potentially compromising everything from secure communications to cryptocurrency wallets.</p>
+                        
+                        <h3>Post-Quantum Cryptography</h3>
+                        <p>In response, post-quantum cryptographic standards have emerged based on mathematical problems believed to resist quantum attacks. Organizations are now implementing quantum-resistant algorithms including:</p>
+                        <ul>
+                            <li>Lattice-based cryptography</li>
+                            <li>Hash-based signature schemes</li>
+                            <li>Code-based cryptographic systems</li>
+                            <li>Multivariate polynomial cryptography</li>
+                        </ul>
+                        
+                        <h3>Preparing Your Organization</h3>
+                        <p>Forward-thinking organizations are taking a "crypto agility" approach—building systems that can rapidly switch between cryptographic algorithms as standards evolve and vulnerabilities emerge. This migration represents one of the largest and most critical infrastructure updates in computing history.</p>
+                        
+                        <p>While full-scale quantum computers capable of breaking current encryption may still be years away, the lengthy timeline required for cryptographic transitions means organizations must begin implementing quantum-resistant solutions today.</p>
+                    `
+                },
+                5: {
+                    image: "https://images.unsplash.com/photo-1473893604213-3df9c15611c0?q=80&w=1771&auto=format&fit=crop",
+                    category: "Sustainability",
+                    date: "October 8, 2025 • 6 min read",
+                    title: "Sustainable & Green Tech: Computing with Conscience",
+                    content: `
+                        <p>Environmental sustainability has moved from peripheral concern to central strategic priority for technology companies and IT departments in 2025, driven by regulatory pressures, stakeholder demands, and genuine climate urgency.</p>
+                        
+                        <h3>Carbon-Aware Computing</h3>
+                        <p>Carbon-aware computing represents a fundamental shift in how we design and operate technology systems. Modern platforms now automatically schedule compute-intensive workloads to align with periods of abundant renewable energy, reducing both carbon footprint and operating costs.</p>
+                        
+                        <h3>Green Data Centers</h3>
+                        <p>Data centers have historically been energy-intensive operations, but innovative approaches are transforming the industry:</p>
+                        <ul>
+                            <li>Liquid immersion cooling reducing energy consumption by up to 40%</li>
+                            <li>AI-optimized systems that dynamically adjust cooling based on workload and environmental conditions</li>
+                            <li>On-site renewable energy generation paired with advanced energy storage</li>
+                            <li>Waste heat recovery systems powering nearby buildings and communities</li>
+                        </ul>
+                        
+                        <h3>Sustainable Software Engineering</h3>
+                        <p>A new discipline of sustainable software engineering has emerged, focusing on creating code that minimizes resource consumption. This approach includes:</p>
+                        <ul>
+                            <li>Algorithmic efficiency optimization</li>
+                            <li>Right-sizing of cloud resources based on actual needs</li>
+                            <li>Energy profiling and optimization during development</li>
+                            <li>Data lifecycle management to reduce storage bloat</li>
+                        </ul>
+                        
+                        <h3>Circular Electronics</h3>
+                        <p>The linear take-make-dispose model is being replaced by circular approaches across the technology lifecycle:</p>
+                        <ul>
+                            <li>Modular device design enabling component-level repair and upgrades</li>
+                            <li>Sophisticated recycling processes recovering rare earth elements and precious metals</li>
+                            <li>Refurbishment programs extending product lifecycles</li>
+                            <li>Material passport systems tracking components throughout their lifecycle</li>
+                        </ul>
+                        
+                        <h3>Business Benefits</h3>
+                        <p>Organizations implementing green technology strategies are finding that sustainability and profitability are increasingly aligned. Benefits include regulatory compliance, reduced operational costs, enhanced brand reputation, and improved ability to attract both customers and talent who prioritize environmental responsibility.</p>
+                        
+                        <p>As we move through the decade, we expect to see sustainability metrics becoming as fundamental to technology evaluation as performance, security, and cost considerations have traditionally been.</p>
+                    `
+                },
+                6: {
+                    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1770&auto=format&fit=crop",
+                    category: "Cybersecurity",
+                    date: "October 5, 2025 • 7 min read",
+                    title: "AI-Driven Cybersecurity: The Digital Immune System",
+                    content: `
+                        <p>As digital threats evolve in complexity and sophistication, traditional security approaches are being revolutionized by AI-powered systems that can detect, respond to, and even predict attacks with unprecedented speed and accuracy.</p>
+                        
+                        <h3>Beyond Signature-Based Detection</h3>
+                        <p>Traditional cybersecurity relied heavily on signature-based detection - identifying known threat patterns. Today's AI security systems use behavioral analysis and anomaly detection to identify previously unknown threats based on unusual patterns and behaviors.</p>
+                        
+                        <h3>Autonomous Security Operations</h3>
+                        <p>Security Operations Centers (SOCs) are being transformed by autonomous systems capable of:</p>
+                        <ul>
+                            <li>Continuous threat hunting across networks without human direction</li>
+                            <li>Automatic prioritization of alerts based on risk scoring algorithms</li>
+                            <li>Immediate isolation of compromised systems to contain breaches</li>
+                            <li>Automatic patch deployment and vulnerability remediation</li>
+                        </ul>
+                        
+                        <h3>Self-Healing Networks</h3>
+                        <p>Perhaps most revolutionary is the emergence of self-healing networks that can detect compromised components and automatically restore them to known-good states, all while maintaining operational continuity. These systems combine:</p>
+                        <ul>
+                            <li>Continuous verification of system integrity</li>
+                            <li>Automated backup and recovery processes</li>
+                            <li>Dynamic reconfiguration to route around compromised segments</li>
+                            <li>Post-incident forensic analysis to prevent recurrence</li>
+                        </ul>
+                        
+                        <h3>The AI Security Arms Race</h3>
+                        <p>As defensive AI capabilities improve, attackers are developing their own AI-powered tools. This has created an unprecedented security arms race where both attackers and defenders continuously evolve their capabilities:</p>
+                        <ul>
+                            <li>Attackers using generative AI to craft highly convincing phishing campaigns</li>
+                            <li>Defenders employing similar models to detect synthetic content</li>
+                            <li>Both sides leveraging reinforcement learning to develop novel tactics</li>
+                        </ul>
+                        
+                        <h3>Human-AI Security Teams</h3>
+                        <p>The most effective security approaches combine AI capabilities with human expertise. AI handles the massive volume of routine threats and data analysis, while human analysts focus on strategic decisions, novel threat analysis, and governance.</p>
+                        
+                        <p>As we move further into this AI-driven security landscape, organizations that effectively blend technological capabilities with human oversight will establish the most resilient security postures against an increasingly sophisticated threat landscape.</p>
+                    `
+                },
+                7: {
+                    image: "https://images.unsplash.com/photo-1552252220-510e9a3da595?q=80&w=1772&auto=format&fit=crop",
+                    category: "Connectivity",
+                    date: "October 3, 2025 • 5 min read",
+                    title: "5G/6G & Smart Infrastructure: The Connected Future",
+                    content: `
+                        <p>The evolution of connectivity technologies is fundamentally transforming how we build, manage, and interact with our environment, creating unprecedented opportunities for innovation and efficiency.</p>
+                        
+                        <h3>Beyond Speed: 5G Matures</h3>
+                        <p>While early 5G deployments focused primarily on consumer speed improvements, the technology has matured to deliver its full potential across three critical dimensions:</p>
+                        <ul>
+                            <li><strong>Enhanced Mobile Broadband (eMBB):</strong> Gigabit speeds enabling new media formats and experiences</li>
+                            <li><strong>Ultra-Reliable Low-Latency Communications (URLLC):</strong> Sub-millisecond responsiveness for critical applications</li>
+                            <li><strong>Massive Machine-Type Communications (mMTC):</strong> Supporting up to 1 million connected devices per square kilometer</li>
+                        </ul>
+                        
+                        <h3>6G on the Horizon</h3>
+                        <p>As 5G implementation continues, 6G research is advancing rapidly with early prototypes demonstrating capabilities that will likely define connectivity in the 2030s:</p>
+                        <ul>
+                            <li>Terahertz frequency bands enabling 100+ Gbps speeds</li>
+                            <li>Integrated sensing and communication capabilities</li>
+                            <li>3D network coverage extending to air, space, and sea</li>
+                            <li>AI-native network architecture with distributed intelligence</li>
+                        </ul>
+                        
+                        <h3>Smart Cities Become Reality</h3>
+                        <p>Advanced connectivity is enabling truly intelligent urban environments that can sense, analyze, and respond to conditions in real-time:</p>
+                        <ul>
+                            <li>Dynamic traffic management systems reducing congestion by 30-40%</li>
+                            <li>Predictive maintenance for critical infrastructure</li>
+                            <li>Networked environmental monitoring with automated response systems</li>
+                            <li>Public safety applications including gunshot detection and emergency response optimization</li>
+                        </ul>
+                        
+                        <h3>Private Networks Revolution</h3>
+                        <p>Perhaps most transformative for enterprises is the proliferation of private 5G networks. These dedicated networks offer unprecedented control, security, and reliability for mission-critical applications:</p>
+                        <ul>
+                            <li>Smart factories with fully wireless production lines</li>
+                            <li>Ports and logistics hubs with autonomous vehicle fleets</li>
+                            <li>Hospitals implementing connected medical devices and augmented reality surgical tools</li>
+                            <li>Venues delivering interactive spectator experiences</li>
+                        </ul>
+                        
+                        <p>As these technologies continue to mature, we're moving toward a world where connectivity becomes an invisible yet essential utility—as fundamental to operations as electricity, with similar transformative impact across industries and daily life.</p>
+                    `
+                },
+                8: {
+                    image: "https://images.unsplash.com/photo-1600267204091-5c1ab8b10c02?q=80&w=1770&auto=format&fit=crop",
+                    category: "Human Augmentation",
+                    date: "September 30, 2025 • 8 min read",
+                    title: "Neural Interfaces & Human-Augmentation Tech",
+                    content: `
+                        <p>The boundary between human cognition and digital systems is blurring as neural interface technologies move from research labs to practical applications, creating unprecedented opportunities for human augmentation and therapeutic interventions.</p>
+                        
+                        <h3>Beyond Medical Applications</h3>
+                        <p>Neural interfaces have established their value in medical contexts, helping those with paralysis control prosthetics or communicate. Now, we're seeing the technology expand into broader applications:</p>
+                        <ul>
+                            <li>High-bandwidth brain-computer interfaces allowing direct mental control of digital systems</li>
+                            <li>Sensory augmentation devices that translate digital information into neural signals</li>
+                            <li>Cognitive enhancement systems that supplement human memory and information processing</li>
+                            <li>Emotional regulation technology for mental health applications</li>
+                        </ul>
+                        
+                        <h3>Non-Invasive Breakthrough</h3>
+                        <p>While early brain-computer interfaces required surgical implantation, recent breakthroughs in non-invasive technologies are dramatically expanding accessibility:</p>
+                        <ul>
+                            <li>Advanced EEG systems with machine learning signal processing</li>
+                            <li>Functional ultrasound imaging for deep brain activity detection</li>
+                            <li>Optical imaging techniques with improved spatial resolution</li>
+                            <li>Transcranial magnetic stimulation with precise targeting capabilities</li>
+                        </ul>
+                        
+                        <h3>Enhanced Human Capabilities</h3>
+                        <p>Current applications are demonstrating remarkable capabilities:</p>
+                        <ul>
+                            <li>Direct brain-to-brain communication between individuals</li>
+                            <li>"Sixth sense" devices that detect and communicate information beyond normal human perception</li>
+                            <li>Memory augmentation systems that enhance recall and learning</li>
+                            <li>Sensory substitution technology that transforms one type of sensory input to another (e.g., visual information converted to tactile sensations)</li>
+                        </ul>
+                        
+                        <h3>Ethical and Regulatory Framework</h3>
+                        <p>The rapid advancement of these technologies has prompted the development of comprehensive regulatory frameworks and ethical guidelines addressing:</p>
+                        <ul>
+                            <li>Data ownership and neural privacy protection</li>
+                            <li>Informed consent for neural data collection</li>
+                            <li>Equitable access to augmentation technologies</li>
+                            <li>Cognitive liberty and the right to mental privacy</li>
+                            <li>Standards for neural security to prevent unauthorized access or manipulation</li>
+                        </ul>
+                        
+                        <p>As these technologies continue to advance, we're moving toward a world where the distinction between human cognition and artificial intelligence becomes increasingly fluid, creating new modes of human-machine collaboration and augmented intelligence that may fundamentally transform how we think, work, and interact.</p>
+                    `
+                },
+                9: {
+                    image: "https://images.unsplash.com/photo-1499675208885-66a75ad1f162?q=80&w=1749&auto=format&fit=crop",
+                    category: "Simulation Tech",
+                    date: "September 28, 2025 • 6 min read",
+                    title: "Digital Twins & Simulation-Driven Systems",
+                    content: `
+                        <p>Digital twin technology—creating virtual replicas of physical systems that update in real-time—has evolved from experimental concept to essential infrastructure across industries, enabling unprecedented levels of monitoring, optimization, and predictive capability.</p>
+                        
+                        <h3>Beyond Static Models</h3>
+                        <p>Unlike traditional simulation models, today's digital twins maintain a continuous connection to their physical counterparts through IoT sensors, creating living digital replicas that evolve alongside physical systems. This bidirectional relationship enables:</p>
+                        <ul>
+                            <li>Real-time monitoring and anomaly detection</li>
+                            <li>Predictive maintenance with failure forecasting weeks or months in advance</li>
+                            <li>What-if scenario testing without disrupting physical operations</li>
+                            <li>Optimization of complex systems across multiple variables simultaneously</li>
+                        </ul>
+                        
+                        <h3>Industry Transformations</h3>
+                        <p>Digital twin implementation is reshaping operations across sectors:</p>
+                        <ul>
+                            <li><strong>Manufacturing:</strong> Factory-wide twins optimizing production lines with 15-30% efficiency improvements</li>
+                            <li><strong>Healthcare:</strong> Patient-specific twins enabling personalized treatment planning and drug development</li>
+                            <li><strong>Urban Planning:</strong> City-scale twins modeling traffic, utilities, and environmental factors to optimize resource allocation</li>
+                            <li><strong>Energy:</strong> Power grid twins balancing load, predicting failures, and optimizing renewable integration</li>
+                        </ul>
+                        
+                        <h3>The Rise of Composite Twins</h3>
+                        <p>Perhaps most powerful is the emergence of composite digital twins—interconnected models that span organizational boundaries and entire supply chains. These systems enable unprecedented coordination between entities that were previously siloed.</p>
+                        
+                        <h3>Real-time Simulation Challenges</h3>
+                        <p>Creating high-fidelity twins that operate in real-time presents significant computational challenges. Solutions include:</p>
+                        <ul>
+                            <li>Edge-cloud hybrid architectures that distribute computational workloads</li>
+                            <li>Physics-informed machine learning models that balance accuracy with performance</li>
+                            <li>Multi-fidelity modeling approaches that adjust detail levels based on current needs</li>
+                            <li>Advanced visualization technologies that make complex simulation data interpretable</li>
+                        </ul>
+                        
+                        <h3>Digital Twin Ecosystems</h3>
+                        <p>As the technology matures, we're seeing the development of digital twin platforms and ecosystems that standardize implementation, facilitate data exchange, and enable integration between different twin implementations. These platforms are dramatically reducing the barrier to entry for organizations wanting to implement twin technology.</p>
+                        
+                        <p>Looking ahead, digital twins are likely to become a fundamental layer of digital infrastructure—as essential to complex system management as databases are to information management today.</p>
+                    `
+                }
+            };
+
+            // Add remaining blog entries
+            
+            blogData[10] = {
+                image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=1770&auto=format&fit=crop",
+                category: "Robotics",
+                date: "September 25, 2025 • 7 min read",
+                title: "Automation & Robotics: The Collaborative Revolution",
+                content: `
+                    <p>The robotics landscape of 2025 is radically different from previous generations, with systems that are more adaptable, autonomous, and collaborative than ever before—transforming industries and creating new paradigms for human-machine partnerships.</p>
+                    
+                    <h3>Collaborative Robotics Evolution</h3>
+                    <p>Collaborative robots (cobots) have evolved beyond simple human-safe automation to become true workplace partners that can:</p>
+                    <ul>
+                        <li>Learn new tasks through demonstration rather than programming</li>
+                        <li>Adapt to changing environments and requirements in real-time</li>
+                        <li>Understand natural language instructions and spatial context</li>
+                        <li>Work safely alongside humans without physical barriers or safety cages</li>
+                    </ul>
+                    
+                    <h3>Adaptive Manufacturing</h3>
+                    <p>In manufacturing, flexible automation is enabling mass customization at unprecedented scale. Modern robotic systems can:</p>
+                    <ul>
+                        <li>Reconfigure production lines within minutes rather than days</li>
+                        <li>Handle thousands of product variations without retooling</li>
+                        <li>Perform quality inspections with superhuman precision</li>
+                        <li>Self-diagnose and sometimes self-repair to minimize downtime</li>
+                    </ul>
+                    
+                    <h3>Autonomous Mobile Systems</h3>
+                    <p>Beyond fixed installations, autonomous mobile robots are transforming logistics and services:</p>
+                    <ul>
+                        <li>Warehouse systems that intelligently coordinate fleets of hundreds of robots</li>
+                        <li>Last-mile delivery robots navigating complex urban environments</li>
+                        <li>Service robots in healthcare, hospitality, and retail environments</li>
+                        <li>Agricultural robots performing precision farming operations</li>
+                    </ul>
+                    
+                    <h3>Human Augmentation</h3>
+                    <p>Perhaps most promising is the rise of robotic systems designed explicitly to augment human capabilities:</p>
+                    <ul>
+                        <li>Exoskeletons reducing workplace injuries while enhancing strength and endurance</li>
+                        <li>Telepresence robots enabling remote physical presence and manipulation</li>
+                        <li>Robotic surgical assistants enhancing precision in healthcare</li>
+                        <li>AI-robotic training systems that accelerate skill development</li>
+                    </ul>
+                    
+                    <h3>Democratization of Robotics</h3>
+                    <p>As with many technologies, robotics is becoming increasingly accessible. Robot-as-a-Service (RaaS) models, intuitive programming interfaces, and modular hardware are allowing even small businesses to implement advanced automation without massive capital investment or specialized expertise.</p>
+                    
+                    <p>The future workforce will likely be characterized not by humans being replaced by robots, but by new forms of human-machine collaboration that combine the creative problem-solving and adaptability of humans with the precision, endurance, and computational capabilities of robotic systems.</p>
+                `
+            };
+            
+            blogData[11] = {
+                image: "https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?q=80&w=1770&auto=format&fit=crop",
+                category: "AI Assistants",
+                date: "September 22, 2025 • 6 min read",
+                title: "AI Personal Agents & Digital Humans",
+                content: `
+                    <p>AI personal agents have evolved far beyond simple voice assistants into sophisticated digital entities that understand context, maintain ongoing memory, and can act autonomously on behalf of their users across digital and physical domains.</p>
+                    
+                    <h3>Persistent Contextual Intelligence</h3>
+                    <p>Unlike earlier digital assistants that processed requests as isolated interactions, today's AI agents maintain rich contextual awareness:</p>
+                    <ul>
+                        <li>Longitudinal memory that builds detailed user models over months and years</li>
+                        <li>Understanding of personal preferences that continuously refines with interaction</li>
+                        <li>Awareness of situational context including location, time, and social setting</li>
+                        <li>Recognition of emotional states and appropriate response adjustment</li>
+                    </ul>
+                    
+                    <h3>From Reactive to Proactive</h3>
+                    <p>Modern AI agents have shifted from reactive request-handling to proactive assistance:</p>
+                    <ul>
+                        <li>Anticipating needs based on patterns and contextual cues</li>
+                        <li>Autonomously handling routine tasks without explicit requests</li>
+                        <li>Offering relevant information before it's requested</li>
+                        <li>Learning from feedback to refine proactive interventions</li>
+                    </ul>
+                    
+                    <h3>Digital Human Interfaces</h3>
+                    <p>As these systems become more sophisticated, their interfaces are evolving toward more natural human-like interactions:</p>
+                    <ul>
+                        <li>Photorealistic digital human avatars with nuanced facial expressions and gestures</li>
+                        <li>Natural conversation capabilities including humor, empathy, and cultural awareness</li>
+                        <li>Voice synthesis indistinguishable from human speech in tone and emotion</li>
+                        <li>Multimodal communication adapting to the user's preferred interaction style</li>
+                    </ul>
+                    
+                    <h3>Cross-Platform Agency</h3>
+                    <p>Perhaps most significant is the ability of these agents to operate across multiple platforms and domains:</p>
+                    <ul>
+                        <li>Maintaining consistent persona and memory across devices and services</li>
+                        <li>Managing digital identity and authentication seamlessly</li>
+                        <li>Coordinating complex workflows spanning multiple applications and services</li>
+                        <li>Interfacing with physical systems and IoT devices to bridge digital and physical worlds</li>
+                    </ul>
+                    
+                    <h3>Privacy and Control</h3>
+                    <p>As these agents become more capable, user control and privacy protection become paramount. Leading platforms now emphasize:</p>
+                    <ul>
+                        <li>On-device processing for sensitive information</li>
+                        <li>Transparent logging of all agent actions</li>
+                        <li>Granular permission controls</li>
+                        <li>Clear delineation between personalization data and private information</li>
+                    </ul>
+                    
+                    <p>Looking ahead, we expect AI personal agents to become the primary interface through which many people interact with technology—a personalized intelligence layer that simplifies complexity and acts as a trusted digital extension of the user.</p>
+                `
+            };
+            
+            blogData[12] = {
+                image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=1932&auto=format&fit=crop",
+                category: "Web3",
+                date: "September 20, 2025 • 8 min read",
+                title: "Decentralized Internet: Web3 & Smart Contracts",
+                content: `
+                    <p>The internet is undergoing a fundamental restructuring as Web3 technologies mature, shifting from centralized platforms to decentralized protocols that prioritize user ownership, transparent governance, and programmable value transfer.</p>
+                    
+                    <h3>Beyond Speculation: Practical Applications</h3>
+                    <p>While early blockchain discussions centered around cryptocurrencies, today's Web3 ecosystem has evolved to address practical challenges across domains:</p>
+                    <ul>
+                        <li>Digital identity systems that give users control over their credentials and reputation</li>
+                        <li>Supply chain transparency networks ensuring ethical sourcing and authenticity</li>
+                        <li>Creator economies where artists directly monetize relationships with their audiences</li>
+                        <li>Decentralized infrastructure providing censorship-resistant services</li>
+                    </ul>
+                    
+                    <h3>Smart Contract Evolution</h3>
+                    <p>Smart contracts—self-executing agreements with terms directly written into code—have matured dramatically:</p>
+                    <ul>
+                        <li>Improved security through formal verification techniques</li>
+                        <li>Cross-chain interoperability enabling complex multi-system workflows</li>
+                        <li>Sophisticated privacy mechanisms for sensitive business logic</li>
+                        <li>Optimized execution environments reducing cost and environmental impact</li>
+                    </ul>
+                    
+                    <h3>Decentralized Autonomous Organizations</h3>
+                    <p>DAOs (Decentralized Autonomous Organizations) have evolved from experimental concepts to practical governance structures:</p>
+                    <ul>
+                        <li>Sophisticated voting mechanisms including quadratic and conviction voting</li>
+                        <li>Reputation-based systems that reward long-term participation</li>
+                        <li>Hybrid governance models combining automation with human judgment</li>
+                        <li>Legal frameworks providing real-world recognition and protection</li>
+                    </ul>
+                    
+                    <h3>Mainstream Integration</h3>
+                    <p>Perhaps most significant is how Web3 technologies are being integrated into existing systems:</p>
+                    <ul>
+                        <li>Major enterprise systems incorporating blockchain for specific high-value workflows</li>
+                        <li>Financial institutions offering digital asset services alongside traditional offerings</li>
+                        <li>Government adoption for transparent record-keeping and citizen services</li>
+                        <li>Consumer applications with Web3 capabilities beneath user-friendly interfaces</li>
+                    </ul>
+                    
+                    <h3>User Experience Breakthrough</h3>
+                    <p>After years of development, Web3 interfaces have finally achieved usability comparable to traditional applications, removing a critical barrier to adoption:</p>
+                    <ul>
+                        <li>Account abstraction eliminating complex key management</li>
+                        <li>Social recovery systems preventing catastrophic key loss</li>
+                        <li>Transaction bundling for seamless multi-step operations</li>
+                        <li>Progressive decentralization approaches that ease onboarding</li>
+                    </ul>
+                    
+                    <p>The coming years will likely see continued convergence between Web2 and Web3 paradigms, with users benefiting from decentralized capabilities without necessarily understanding the underlying technology—much as today's internet users benefit from HTTPS without understanding cryptography.</p>
+                `
+            };
+            
+            blogData[13] = {
+                image: "https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?q=80&w=1770&auto=format&fit=crop",
+                category: "BioTech",
+                date: "September 18, 2025 • 7 min read",
+                title: "Synthetic Biology & Bio-Computing",
+                content: `
+                    <p>The convergence of biology and information technology has accelerated dramatically, creating entirely new capabilities at the intersection of life sciences and computing that are transforming medicine, materials science, and even computation itself.</p>
+                    
+                    <h3>Programmable Biology</h3>
+                    <p>Advances in DNA synthesis, CRISPR gene editing, and computational modeling have transformed biology into a programmable medium:</p>
+                    <ul>
+                        <li>Custom-designed microorganisms that produce complex molecules impossible with traditional chemistry</li>
+                        <li>Cell-free systems that harness biological machinery outside living cells</li>
+                        <li>Genome engineering with predictable, modular outcomes</li>
+                        <li>Biosensors that detect specific molecules with unprecedented sensitivity</li>
+                    </ul>
+                    
+                    <h3>Bio-based Materials Revolution</h3>
+                    <p>Synthetic biology is enabling a new generation of sustainable materials with remarkable properties:</p>
+                    <ul>
+                        <li>Microbe-produced alternatives to petroleum-based plastics</li>
+                        <li>Self-healing materials inspired by biological systems</li>
+                        <li>Programmed protein structures with precise nanoscale architectures</li>
+                        <li>Carbon-negative building materials grown rather than manufactured</li>
+                    </ul>
+                    
+                    <h3>DNA Data Storage</h3>
+                    <p>Perhaps most revolutionary is the emergence of DNA as a data storage medium:</p>
+                    <ul>
+                        <li>Information density millions of times greater than conventional storage</li>
+                        <li>Millennia-scale durability compared to decades for electronic media</li>
+                        <li>Minimal energy requirements for long-term archival</li>
+                        <li>Naturally occurring error-correction mechanisms</li>
+                    </ul>
+                    
+                    <h3>Biological Computing</h3>
+                    <p>Beyond storage, biological systems are being engineered to perform actual computation:</p>
+                    <ul>
+                        <li>Cell-based logic gates and circuits processing molecular signals</li>
+                        <li>Parallel processing capabilities inherent in biological systems</li>
+                        <li>Novel algorithms inspired by biological processes</li>
+                        <li>Hybrid bio-electronic systems combining strengths of both domains</li>
+                    </ul>
+                    
+                    <h3>Responsible Innovation</h3>
+                    <p>As these technologies advance, the field has developed robust frameworks for responsible innovation:</p>
+                    <ul>
+                        <li>Standardized safety and containment protocols</li>
+                        <li>Built-in biological safeguards preventing uncontrolled proliferation</li>
+                        <li>International governance frameworks addressing ethical concerns</li>
+                        <li>Open science approaches ensuring broad benefit and scrutiny</li>
+                    </ul>
+                    
+                    <p>The synthesis of biology and information technology represents one of the most profound technological convergences of our era, with implications that extend from healthcare and agriculture to energy, manufacturing, and computing—potentially addressing some of humanity's most pressing challenges through programmable living systems.</p>
+                `
+            };
+            
+            blogData[14] = {
+                image: "https://images.unsplash.com/photo-1587169544748-d21bd810f57e?q=80&w=1974&auto=format&fit=crop",
+                category: "Transportation",
+                date: "September 15, 2025 • 6 min read",
+                title: "Autonomous Mobility & Smart Transportation",
+                content: `
+                    <p>Transportation systems are undergoing their most significant transformation since the advent of the automobile, with autonomy, electrification, and connectivity creating entirely new mobility paradigms and reshaping urban environments.</p>
+                    
+                    <h3>Autonomous Vehicle Maturity</h3>
+                    <p>After decades of development, autonomous vehicle technology has reached critical milestones:</p>
+                    <ul>
+                        <li>Full Level 4 autonomy operating in diverse geographic and weather conditions</li>
+                        <li>Safe operation exceeding human driver performance metrics</li>
+                        <li>Regulatory frameworks enabling commercial deployment at scale</li>
+                        <li>Standardized testing and certification protocols</li>
+                    </ul>
+                    
+                    <h3>Mobility as a Service Transformation</h3>
+                    <p>Autonomous technology is enabling entirely new service models:</p>
+                    <ul>
+                        <li>On-demand autonomous fleets reducing the need for private vehicle ownership</li>
+                        <li>Dynamic routing and vehicle allocation optimizing system efficiency</li>
+                        <li>Personalized mobility packages replacing traditional ownership models</li>
+                        <li>Specialized autonomous vehicles designed for specific use cases</li>
+                    </ul>
+                    
+                    <h3>Interconnected Infrastructure</h3>
+                    <p>Transportation infrastructure is evolving from passive to active with embedded intelligence:</p>
+                    <ul>
+                        <li>Vehicle-to-Infrastructure (V2I) communication enabling coordinated traffic flow</li>
+                        <li>Smart intersections reducing congestion and prioritizing emergency vehicles</li>
+                        <li>Dynamic road space allocation based on real-time demand</li>
+                        <li>Integrated charging infrastructure for electric vehicle fleets</li>
+                    </ul>
+                    
+                    <h3>Autonomous Logistics Revolution</h3>
+                    <p>Beyond passenger transport, autonomous systems are transforming logistics:</p>
+                    <ul>
+                        <li>Long-haul truck platoons with a single human overseer</li>
+                        <li>Autonomous last-mile delivery robots integrated with smart city infrastructure</li>
+                        <li>Warehouse-to-customer autonomous delivery chains</li>
+                        <li>Multi-modal logistics optimization across road, rail, air and sea</li>
+                    </ul>
+                    
+                    <h3>Urban Transformation</h3>
+                    <p>Perhaps most profound is how these technologies are reshaping urban environments:</p>
+                    <ul>
+                        <li>Reduction in parking infrastructure freeing urban space for other uses</li>
+                        <li>Street redesign prioritizing pedestrians and micromobility</li>
+                        <li>Transit-oriented development patterns optimized for autonomous shuttles</li>
+                        <li>Data-driven urban planning responsive to actual mobility patterns</li>
+                    </ul>
+                    
+                    <p>The convergence of autonomous technology, electrification, and connectivity is creating transportation systems that are safer, more efficient, more accessible, and more environmentally sustainable than ever before—fundamentally changing not just how we move, but how we live and how our communities are designed.</p>
+                `
+            };
+            
+            blogData[15] = {
+                image: "https://images.unsplash.com/photo-1626379801357-537cec2ed773?q=80&w=1932&auto=format&fit=crop",
+                category: "AI Integration",
+                date: "September 12, 2025 • 7 min read",
+                title: "Spatial Computing & Real-World AI Integration",
+                content: `
+                    <p>The long-promised vision of computing that understands and interacts directly with physical space is finally becoming reality, as spatial computing technologies blend digital intelligence seamlessly with our environment.</p>
+                    
+                    <h3>Environmental Understanding</h3>
+                    <p>Modern spatial computing systems can perceive and interpret physical spaces with unprecedented sophistication:</p>
+                    <ul>
+                        <li>Real-time 3D mapping and scene understanding</li>
+                        <li>Object recognition and tracking with centimeter precision</li>
+                        <li>Material property detection including transparency and reflectivity</li>
+                        <li>Dynamic environment modeling that adapts to changes</li>
+                    </ul>
+                    
+                    <h3>Persistent Spatial Anchoring</h3>
+                    <p>Digital content can now be precisely anchored to physical locations with persistence across sessions and users:</p>
+                    <ul>
+                        <li>Cloud-based spatial maps enabling shared experiences</li>
+                        <li>Long-term persistent digital content tied to physical locations</li>
+                        <li>Precise registration even in changing light conditions</li>
+                        <li>Indoor positioning accurate to centimeters without specialized infrastructure</li>
+                    </ul>
+                    
+                    <h3>Natural Interaction Paradigms</h3>
+                    <p>User interfaces have evolved beyond screens to embrace natural spatial interactions:</p>
+                    <ul>
+                        <li>Hand tracking with fine-grained gesture recognition</li>
+                        <li>Eye tracking enabling intuitive selection and intention detection</li>
+                        <li>Voice control with spatial awareness</li>
+                        <li>Multi-user collaboration in shared physical/digital space</li>
+                    </ul>
+                    
+                    <h3>Industry Transformations</h3>
+                    <p>Spatial computing is reshaping workflows across industries:</p>
+                    <ul>
+                        <li>Manufacturing with real-time guidance and quality verification</li>
+                        <li>Architecture and construction with on-site visualization and progress monitoring</li>
+                        <li>Healthcare with anatomical visualization and procedural guidance</li>
+                        <li>Retail with immersive product experiences and space optimization</li>
+                    </ul>
+                    
+                    <h3>Ambient Intelligence</h3>
+                    <p>Perhaps most profound is the emergence of ambient intelligence—computing that recedes into the environment while providing contextual support:</p>
+                    <ul>
+                        <li>Systems that understand social context and respond appropriately</li>
+                        <li>Proactive assistance based on spatial patterns and needs</li>
+                        <li>Seamless transitions between devices and interfaces</li>
+                        <li>Implicit interaction through behavior and intention understanding</li>
+                    </ul>
+                    
+                    <p>As spatial computing continues to mature, we're moving toward a world where digital intelligence is woven into the fabric of physical reality—where computing power is available whenever and wherever it's needed, without the distraction of explicit device interaction, fundamentally changing our relationship with technology.</p>
+                `
+            };
+
+            // Add click event listeners to all blog cards
+            document.querySelectorAll('.blog-card').forEach((card, index) => {
+                card.style.cursor = 'pointer';
+                card.addEventListener('click', function() {
+                    const blogId = index + 1;
+                    if (blogData[blogId]) {
+                        openModal(blogData[blogId]);
+                    }
+                });
+            });
+
+            // Function to open modal with blog data
+            function openModal(blog) {
+                modalImage.src = blog.image;
+                modalCategory.textContent = blog.category;
+                modalDate.textContent = blog.date;
+                modalTitle.textContent = blog.title;
+                modalContent.innerHTML = blog.content;
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            }
+
+            // Function to close modal
+            function closeModal() {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Restore background scrolling
+            }
+
+            // Close modal events
+            modalClose.addEventListener('click', closeModal);
+            
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.style.display === 'block') {
+                    closeModal();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
