@@ -1,687 +1,2400 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Ailexity is a digital marketing agency that specializes in web development, social media marketing, and content creation.">
-    <meta name="keywords" content="Ailexity, digital marketing, web development, social media marketing, content creation">
+    <meta name="description" content="Ailexity — Digital solutions agency building software and marketing that scales. Makers of Ailexity POS (billing & inventory) and Ailexity Tedo (developer networking platform). Think Beyond Logic.">
+    <meta name="keywords" content="Ailexity, Ailexity POS, Ailexity Tedo, billing software, inventory system, point of sale, developer network, digital marketing, web development, software, AI">
     <meta name="author" content="Ailexity">
-    <title>Ailexity</title>
-    <!-- font icons -->
+    <title>Ailexity — Think Beyond Logic</title>
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
-    <!-- Bootstrap + Ailexity main styles -->
-	<link rel="stylesheet" href="assets/css/ailexity.css">
+    <link rel="stylesheet" href="assets/css/ailexity.css">
+    <link rel="stylesheet" href="assets/css/ailexity-theme.css">
     <link rel="icon" type="image/png" href="assets/imgs/favicon.png">
     <style>
-        /* Prevent horizontal overflow */
-body, html {
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+/* ===== VARIABLES ===== */
+:root {
+    --white: #ffffff;
+    --off-white: #f8f8f8;
+    --light: #f2f2f2;
+    --border: #e5e7eb;
+    --text-primary: #0a0a0a;
+    --text-secondary: #5a6270;
+    --text-muted: #9ca3af;
+    --accent: #ff6e42;
+    --accent-light: rgba(255,110,66,0.08);
+    --dark: #0f0f0f;
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.05);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
+    --shadow-lg: 0 16px 48px rgba(0,0,0,0.12);
+    --radius: 18px;
+    --radius-sm: 10px;
+    --ease: cubic-bezier(0.4,0,0.2,1);
+    --transition: all 0.35s var(--ease);
 }
 
-/* Make images and sections responsive */
-img, .container, section, {
-    max-width: 100%;
-    box-sizing: border-box;
+/* ===== RESET ===== */
+*,*::before,*::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body, html { margin: 0; padding: 0; overflow-x: hidden; }
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--white);
+    color: var(--text-primary);
+    font-size: 1rem;
+    line-height: 1.6;
 }
+img { max-width: 100%; }
+a { text-decoration: none; }
+a:hover { text-decoration: none; }
 
-/* Ensure no hardcoded widths overflow */
-* {
-    box-sizing: border-box;
-}
-
-/* Team section mobile scrolling styles */
-@media (max-width: 767.98px) {
-    .team-scroll-container {
-        -webkit-overflow-scrolling: touch;
-        scroll-behavior: smooth;
-        scrollbar-width: none; /* Firefox */
-    }
-    .team-scroll-container::-webkit-scrollbar {
-        display: none; /* Chrome, Safari and Opera */
-    }
-    .team-card {
-        flex: 0 0 auto;
-        width: 85%;
-        margin-right: 15px;
-    }
-}
-
-/* Navbar scroll effect */
-.navbar {
-    transition: all 0.3s ease-in-out;
-    background-color: transparent !important;
-}
-
-.navbar .navbar-nav .nav-link {
-    color: #ffffff !important;
-    transition: color 0.3s ease-in-out;
-}
-
-.navbar .navbar-nav .nav-link:hover {
-    color: rgba(255, 255, 255, 0.8) !important;
-}
-
-.navbar.scrolled {
-    background-color: #ffffff !important;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-.navbar.scrolled .navbar-nav .nav-link {
-    color: #333333 !important;
-}
-
-.navbar.scrolled .navbar-nav .nav-link:hover {
-    color: #007bff !important;
-}
-
-.navbar.scrolled .navbar-brand img {
-    filter: brightness(0) saturate(100%);
-}
-
-/* Show More Link Styling */
-.show-more-link {
-    color: #333;
-    text-decoration: none;
-    font-size: 1.1rem;
-    font-weight: 500;
+/* ===== HERO ===== */
+.hero-section {
+    min-height: 100vh;
+    background: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
-    transition: color 0.3s ease;
+    overflow: hidden;
+    padding-top: 44px;
 }
-
-.show-more-link:hover {
-    color: #ff6b35;
-    text-decoration: none;
+.landing-hero {
+    min-height: 34vh;
+    padding: 56px 0 2.25rem;
+    background: linear-gradient(180deg, rgba(2,18,33,0.72) 0%, rgba(2,18,33,0.60) 100%),
+                url('assets/imgs/heroimg.png') center / cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
-
-.show-more-link::after {
+.landing-hero .page-hero-bg {
+    display: none;
+}
+.landing-hero .page-hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    padding: 1.5rem 2rem 1.5rem 4rem;
+    max-width: 560px;
+    margin: 0;
+}
+.landing-hero .page-hero-breadcrumb a {
+    color: rgba(255,255,255,0.75);
+}
+.landing-hero .page-hero-tag {
+    background: rgba(255,255,255,0.12);
+    border-color: rgba(255,255,255,0.18);
+    color: #fff;
+}
+.landing-hero .page-hero-title {
+    color: #fff;
+    font-size: clamp(2rem, 4.2vw, 3.2rem);
+    line-height: 1.03;
+    margin-bottom: 0.6rem;
+}
+.landing-hero .page-hero-sub {
+    color: rgba(255,255,255,0.88);
+    max-width: 500px;
+    margin: 0 0 1rem;
+    font-size: 0.98rem;
+    line-height: 1.6;
+}
+.landing-hero .hero-cta {
+    justify-content: flex-start;
+    gap: 0.75rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+.landing-hero .btn-dark-pill {
+    background: #fff;
+    color: var(--dark);
+    border: none;
+    padding: 12px 22px;
+    font-size: 0.92rem;
+}
+.landing-hero .btn-dark-pill:hover {
+    background: rgba(255,255,255,0.95);
+}
+.landing-hero .btn-ghost-pill {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    border-color: rgba(255,255,255,0.25);
+    padding: 12px 22px;
+    font-size: 0.92rem;
+}
+.landing-hero .btn-ghost-pill:hover {
+    color: #fff;
+    background: rgba(255,255,255,0.18);
+}
+.website-development-section .landing-card {
+    padding: 2rem;
+    border: 1px solid rgba(15,15,15,0.08);
+    border-radius: 24px;
+    background: #fff;
+}
+.website-development-section .landing-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    color: var(--dark);
+}
+.website-development-section .landing-card p {
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+}
+.website-development-section .landing-card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--text-secondary);
+}
+.website-development-section .landing-card-list li {
+    position: relative;
+    padding-left: 1.4rem;
+    margin-bottom: 0.85rem;
+    font-size: 0.92rem;
+}
+.website-development-section .landing-card-list li::before {
     content: '';
     position: absolute;
-    width: 40px;
-    height: 3px;
-    background-color: #ff6b35;
-    bottom: -8px;
+    left: 0;
+    top: 0.6rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    animation: floatOrb 10s ease-in-out infinite;
+}
+.orb-1 {
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(255,110,66,0.12) 0%, transparent 70%);
+    top: -150px; right: -80px;
+    animation-delay: 0s;
+}
+.orb-2 {
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 70%);
+    bottom: -80px; left: -60px;
+    animation-delay: -4s;
+}
+.orb-3 {
+    width: 280px; height: 280px;
+    background: radial-gradient(circle, rgba(14,165,233,0.08) 0%, transparent 70%);
+    top: 50%; left: 35%;
+    animation-delay: -7s;
+}
+.orb-4 {
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255,110,66,0.07) 0%, transparent 70%);
+    top: 20%; left: 10%;
+    animation-delay: -2s;
+}
+@keyframes floatOrb {
+    0%,100% { transform: translate(0,0) scale(1); }
+    33% { transform: translate(18px,-28px) scale(1.06); }
+    66% { transform: translate(-12px,18px) scale(0.94); }
+}
+/* Floating dots grid */
+.dots-grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(0,0,0,0.045) 1px, transparent 1px);
+    background-size: 38px 38px;
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 0%, transparent 75%);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 45%, #000 0%, transparent 75%);
+    opacity: 0.6;
+}
+.hero-content {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    max-width: 880px;
+    padding: 0 1.5rem;
+    margin: 0 auto;
+}
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,110,66,0.07);
+    border: 1px solid rgba(255,110,66,0.18);
+    color: var(--accent);
+    padding: 6px 18px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    animation: fadeInDown 0.9s var(--ease) forwards;
+}
+.live-dot {
+    width: 6px; height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulseDot 2s ease infinite;
+}
+@keyframes pulseDot {
+    0%,100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(255,110,66,0.4); }
+    50% { opacity: 0.7; transform: scale(1.3); box-shadow: 0 0 0 4px rgba(255,110,66,0); }
+}
+.hero-title {
+    font-size: clamp(2.8rem, 7.5vw, 6rem);
+    font-weight: 800;
+    line-height: 1.06;
+    letter-spacing: -0.035em;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    animation: fadeInUp 0.9s var(--ease) 0.15s both;
+}
+.hero-title .word-accent { color: var(--accent); }
+.hero-title .word-light { color: var(--text-secondary); font-weight: 300; }
+.hero-desc {
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: var(--text-secondary);
+    font-weight: 400;
+    line-height: 1.85;
+    max-width: 560px;
+    margin: 0 auto 2.5rem;
+    animation: fadeInUp 0.9s var(--ease) 0.3s both;
+}
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.9s var(--ease) 0.45s both;
+}
+.btn-dark-pill {
+    background: var(--dark);
+    color: white;
+    padding: 14px 30px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 2px solid var(--dark);
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+.btn-dark-pill:hover {
+    background: transparent;
+    color: var(--dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+.btn-ghost-pill {
+    background: transparent;
+    color: var(--dark);
+    padding: 14px 30px;
+    border-radius: 100px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    border: 2px solid var(--border);
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-ghost-pill:hover {
+    border-color: var(--dark);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    color: var(--dark);
+}
+.hero-scroll {
+    position: absolute;
+    bottom: 36px;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 2px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    animation: heroScroll 2.5s ease infinite;
+    opacity: 0.4;
+}
+.hero-scroll-line {
+    width: 1px; height: 56px;
+    background: linear-gradient(to bottom, var(--dark), transparent);
+}
+.hero-scroll-label {
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    writing-mode: vertical-rl;
+}
+@keyframes heroScroll {
+    0%,100% { transform: translateX(-50%) translateY(0); opacity: 0.4; }
+    50% { transform: translateX(-50%) translateY(8px); opacity: 0.6; }
 }
 
-/* Book Demo Button Styles */
-.btn-book-demo {
-    background: linear-gradient(135deg, #ff6b35 0%, #ff8c42 100%);
-    color: white;
-    font-weight: 600;
-    font-size: 1.1rem;
-    padding: 15px 40px;
-    border-radius: 50px;
-    border: none;
-    box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
-    transition: all 0.3s ease;
-    animation: pulse-orange 2s infinite;
+/* ===== STATS BAR ===== */
+.stats-bar {
+    background: var(--dark);
+    padding: 3.5rem 0;
+    position: relative;
+    overflow: hidden;
 }
-
-.btn-book-demo:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
-    color: white;
-}
-
-@keyframes pulse-orange {
-    0% {
-        box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
-    }
-    50% {
-        box-shadow: 0 10px 40px rgba(255, 107, 53, 0.7);
-    }
-    100% {
-        box-shadow: 0 10px 30px rgba(255, 107, 53, 0.4);
-    }
-}
-
-.demo-badge {
-    background-color: #28a745;
-    color: white;
-    font-size: 0.75rem;
-    padding: 3px 10px;
-    border-radius: 20px;
+.stats-bar::before {
+    content: '';
     position: absolute;
-    top: -10px;
-    right: -10px;
+    top: 0; right: 0;
+    width: 400px; height: 100%;
+    background: radial-gradient(ellipse at right, rgba(255,110,66,0.1) 0%, transparent 60%);
+}
+.stat-item { text-align: center; }
+.stat-number {
+    font-size: 2.4rem;
+    font-weight: 800;
+    color: white;
+    line-height: 1;
+    display: block;
+    letter-spacing: -0.02em;
+}
+.stat-suffix { color: var(--accent); }
+.stat-label {
+    font-size: 0.78rem;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-top: 6px;
+    display: block;
+}
+.stat-sep {
+    width: 1px; height: 50px;
+    background: rgba(255,255,255,0.08);
+    margin: auto;
+}
+
+/* ===== SECTION COMMON ===== */
+.sec-tag {
+    display: inline-block;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 100px;
+    margin-bottom: 1rem;
+}
+.sec-heading {
+    font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--dark);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+.sec-sub {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+    max-width: 580px;
+}
+
+/* ===== SERVICES ===== */
+.services-section {
+    padding: 7rem 0;
+    background: var(--white);
+}
+.service-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.75rem;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), #f97316);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s var(--ease);
+}
+.service-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px);
+    border-color: transparent;
+}
+.service-card:hover::after { transform: scaleX(1); }
+.service-num {
+    position: absolute;
+    top: 1.75rem; right: 2rem;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(0,0,0,0.03);
+    line-height: 1;
+    user-select: none;
+}
+.service-icon-wrap {
+    width: 56px; height: 56px;
+    background: var(--accent-light);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: var(--accent);
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+.service-card:hover .service-icon-wrap {
+    background: var(--accent);
+    color: white;
+    transform: rotate(6deg) scale(1.05);
+}
+.service-card h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    color: var(--dark);
+}
+.service-card p {
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+}
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+.service-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    padding: 5px 0;
+}
+.service-list li::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.service-link {
+    font-size: 0.85rem;
     font-weight: 600;
-    animation: bounce 2s infinite;
+    color: var(--dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: var(--transition);
+}
+.service-link:hover { color: var(--accent); gap: 10px; }
+
+/* ===== OFFERINGS ===== */
+.offerings-section {
+    padding: 2.5rem 0 6.5rem;
+    background: var(--off-white);
+}
+.offerings-wrap {
+    width: 100%;
+    padding: 0 20px;
+}
+.offerings-bar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    padding: 0 1.5rem 1.75rem;
+}
+.offerings-stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+}
+.offerings-stats .stat-item {
+    display: flex;
+    flex-direction: column;
+}
+.offerings-stats .stat-item strong {
+    font-size: 1.65rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--dark);
+}
+.offerings-stats .stat-item span {
+    margin-top: 4px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+.offerings-label {
+    font-size: 1.95rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--dark);
+    white-space: nowrap;
+}
+@media (max-width: 575px) {
+    .offerings-bar { align-items: flex-start; }
+    .offerings-stats { gap: 1.5rem; }
+}
+.offerings-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, minmax(170px, auto));
+    grid-template-areas:
+        "a a b c"
+        "d d d c"
+        "e f f f";
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+}
+.offering-card:nth-child(1) { grid-area: a; }
+.offering-card:nth-child(2) { grid-area: b; }
+.offering-card:nth-child(3) { grid-area: c; }
+.offering-card:nth-child(4) { grid-area: d; }
+.offering-card:nth-child(5) { grid-area: e; }
+.offering-card:nth-child(6) { grid-area: f; }
+.offering-card {
+    background: var(--white);
+    box-shadow: inset -1px -1px 0 0 var(--border);
+    padding: 2.25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transition: var(--transition);
+}
+.offering-card:hover {
+    background: var(--off-white);
+}
+.offering-icon {
+    width: 52px; height: 52px;
+    background: var(--accent-light);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: var(--accent);
+    margin-bottom: 1.25rem;
+    transition: var(--transition);
+}
+.offering-card:hover .offering-icon {
+    background: var(--accent);
+    color: white;
+    transform: rotate(6deg) scale(1.05);
+}
+.offering-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--dark);
+    margin-bottom: 0.6rem;
+}
+.offering-card p {
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin: 0;
+}
+@media (max-width: 991px) {
+    .offerings-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas: none;
+    }
+    .offering-card { grid-area: auto !important; min-height: 170px; }
+}
+@media (max-width: 575px) {
+    .offerings-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-@keyframes bounce {
-    0%, 100% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-5px);
-    }
+/* ===== PRODUCTS ===== */
+.products-section {
+    padding: 7rem 0;
+    background: var(--off-white);
+}
+.product-card-live {
+    background: var(--dark);
+    border-radius: var(--radius);
+    padding: 3rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    transition: var(--transition);
+}
+.product-card-live:hover { transform: translateY(-4px); box-shadow: 0 24px 60px rgba(0,0,0,0.25); }
+.product-card-live::before {
+    content: '';
+    position: absolute;
+    top: -40%; right: -30%;
+    width: 70%; height: 100%;
+    background: radial-gradient(circle, rgba(255,110,66,0.25) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.product-card-live::after {
+    content: '';
+    position: absolute;
+    bottom: -40%; left: -20%;
+    width: 60%; height: 80%;
+    background: radial-gradient(circle, rgba(99,102,241,0.18) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.product-inner { position: relative; z-index: 1; }
+.product-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.9);
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+}
+.product-pill-dot {
+    width: 6px; height: 6px;
+    background: #4ade80;
+    border-radius: 50%;
+    animation: pulseDot 2s ease infinite;
+}
+.product-card-live h2 {
+    font-size: 1.9rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: white;
+    margin-bottom: 0.75rem;
+    line-height: 1.15;
+}
+.product-card-live p {
+    color: rgba(255,255,255,0.6);
+    font-size: 0.93rem;
+    line-height: 1.8;
+    margin-bottom: 1.75rem;
+}
+.product-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+}
+.product-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: rgba(255,255,255,0.7);
+    padding: 5px 0;
+}
+.product-features li .feat-icon {
+    width: 20px; height: 20px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.6rem;
+    flex-shrink: 0;
+}
+.btn-product-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: white;
+    color: var(--dark);
+    padding: 13px 26px;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.88rem;
+    transition: var(--transition);
+}
+.btn-product-cta:hover {
+    background: var(--accent);
+    color: white;
+    transform: translateX(4px);
+    box-shadow: 0 8px 24px rgba(255,110,66,0.4);
+}
+.btn-product-cta i { transition: transform 0.25s var(--ease); }
+.btn-product-cta:hover i { transform: translateX(4px); }
+.product-cta-row {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.product-cta-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.83rem;
+    font-weight: 600;
+    transition: var(--transition);
+}
+.product-cta-link:hover { color: white; gap: 9px; }
+
+/* upcoming product card */
+.product-card-upcoming {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 3rem;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+.product-card-upcoming:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    border-color: transparent;
+}
+.upcoming-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    background: rgba(99,102,241,0.07);
+    border: 1px solid rgba(99,102,241,0.18);
+    color: #6366f1;
+    padding: 5px 14px;
+    border-radius: 100px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    margin-bottom: 1.75rem;
+}
+.upcoming-icon-box {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+.product-card-upcoming:hover .upcoming-icon-box { transform: rotate(-6deg) scale(1.08); }
+.product-card-upcoming h2 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.025em;
+    color: var(--dark);
+    margin-bottom: 0.75rem;
+}
+.product-card-upcoming p {
+    color: var(--text-secondary);
+    font-size: 0.93rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+.progress-label {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+.progress-track {
+    height: 4px;
+    background: var(--border);
+    border-radius: 100px;
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+.progress-fill {
+    height: 100%;
+    border-radius: 100px;
+    background: linear-gradient(90deg, #6366f1, #a855f7);
+    width: 0%;
+    transition: width 1.5s var(--ease);
+}
+.progress-fill.animated { width: 65%; }
+.upcoming-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem;
+}
+.upcoming-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    padding: 5px 0;
+}
+.upcoming-features li::before {
+    content: '';
+    width: 5px; height: 5px;
+    background: #6366f1;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.btn-upcoming-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--dark);
+    color: white;
+    padding: 13px 26px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    transition: var(--transition);
+    border: 2px solid var(--dark);
+}
+.btn-upcoming-cta:hover {
+    background: transparent;
+    color: var(--dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
 }
 
-    </style>
+/* ===== INDUSTRIES ===== */
+.industries-section {
+    padding: 7rem 0;
+    background: var(--white);
+}
+.industry-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    height: 100%;
+    transition: var(--transition);
+    background: var(--white);
+    cursor: pointer;
+}
+.industry-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+.industry-card:hover .industry-icon-box { background: var(--accent); color: white; }
+.industry-card:hover .industry-link { color: var(--accent); }
+.industry-icon-box {
+    width: 48px; height: 48px;
+    background: var(--light);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: var(--dark);
+    margin-bottom: 1.25rem;
+    transition: var(--transition);
+}
+.industry-card h4 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+    transition: var(--transition);
+}
+.industry-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    transition: var(--transition);
+}
+.industry-link {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--dark);
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* ===== PROCESS ===== */
+.process-section {
+    padding: 7rem 0;
+    background: var(--off-white);
+}
+.process-step {
+    text-align: center;
+    position: relative;
+}
+.process-num {
+    width: 64px; height: 64px;
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 1rem;
+    font-weight: 800;
+    color: var(--dark);
+    background: var(--white);
+    position: relative;
+    z-index: 2;
+    transition: var(--transition);
+}
+.process-step:hover .process-num {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 0 8px rgba(255,110,66,0.1);
+}
+.process-connector {
+    position: absolute;
+    top: 31px; left: 50%;
+    width: 100%; height: 2px;
+    background: var(--border);
+    z-index: 1;
+    display: none;
+}
+@media (min-width: 992px) { .process-connector { display: block; } }
+.process-step h5 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.6rem;
+    letter-spacing: -0.01em;
+}
+.process-step p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin: 0;
+    max-width: 220px;
+    margin: 0 auto;
+}
+
+/* ===== BLOG ===== */
+.blog-section {
+    padding: 7rem 0;
+    background: var(--white);
+}
+.blog-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: var(--transition);
+    height: 100%;
+    background: var(--white);
+}
+.blog-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+    border-color: transparent;
+}
+.blog-img-wrap { overflow: hidden; height: 220px; }
+.blog-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s var(--ease);
+}
+.blog-card:hover .blog-img-wrap img { transform: scale(1.07); }
+.blog-body { padding: 1.5rem; }
+.blog-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+.blog-body h6 {
+    font-size: 0.97rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+}
+.blog-body p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+}
+.blog-read {
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: var(--transition);
+}
+.blog-read:hover { color: var(--accent); gap: 9px; }
+.show-more-link {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--dark);
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 2px;
+    transition: var(--transition);
+}
+.show-more-link:hover { color: var(--accent); border-color: var(--accent); }
+
+/* ===== CONTACT ===== */
+.contact-section {
+    padding: 7rem 0 0;
+    background: var(--dark);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: -40%; right: -20%;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(255,110,66,0.1) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.contact-section::after {
+    content: '';
+    position: absolute;
+    bottom: -30%; left: -15%;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.contact-inner { position: relative; z-index: 1; }
+.contact-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 4px;
+}
+.contact-value {
+    font-size: 0.92rem;
+    color: rgba(255,255,255,0.8);
+    line-height: 1.7;
+    margin-bottom: 1.75rem;
+}
+.contact-social a {
+    color: rgba(255,255,255,0.5);
+    font-size: 0.88rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: var(--transition);
+}
+.contact-social a:hover { color: white; }
+.contact-social a i { font-size: 1.1rem; }
+.c-input {
+    display: block;
+    width: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--radius-sm);
+    padding: 13px 16px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.88rem;
+    transition: var(--transition);
+    outline: none;
+    margin-bottom: 0.85rem;
+}
+.c-input::placeholder { color: rgba(255,255,255,0.25); }
+.c-input:focus {
+    border-color: rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.04);
+}
+.c-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+.btn-send {
+    background: var(--accent);
+    color: white;
+    padding: 13px 30px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+.btn-send:hover {
+    background: white;
+    color: var(--dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+}
+
+/* footer styles provided by ailexity-theme.css (.site-footer) */
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+.reveal.in-view { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
+
+/* ===== KEYFRAMES ===== */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-16px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== INTERACTIVE MICRO-INTERACTIONS ===== */
+.scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0;
+    background: linear-gradient(90deg, var(--accent), #f97316);
+    z-index: 2000;
+    pointer-events: none;
+    transition: width 0.1s linear;
+}
+.has-tilt {
+    transform-style: preserve-3d;
+    transition: transform 0.5s var(--ease), box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+    will-change: transform;
+}
+.has-tilt.tilting {
+    transition: transform 0.08s linear, box-shadow 0.35s var(--ease), border-color 0.35s var(--ease);
+}
+.magnetic { will-change: transform; }
+.spot-glow {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.4s var(--ease);
+}
+.hero-aurora {
+    position: absolute;
+    top: 0; left: 0;
+    width: 480px; height: 480px;
+    margin: -240px 0 0 -240px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,110,66,0.10) 0%, rgba(99,102,241,0.06) 42%, transparent 70%);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 0.6s var(--ease);
+    will-change: transform;
+}
+.hero-bg { transition: transform 0.3s ease-out; }
+@media (prefers-reduced-motion: reduce) {
+    .scroll-progress, .hero-aurora, .spot-glow { display: none !important; }
+    .has-tilt { transition: none !important; }
+    .orb, .live-dot, .product-pill-dot, .hero-scroll { animation: none !important; }
+}
+@media (hover: none) {
+    .hero-aurora, .spot-glow { display: none; }
+}
+
+/* ===== PROFESSIONAL HOMEPAGE REFRESH ===== */
+:root {
+    --radius: 8px;
+    --radius-sm: 6px;
+    --transition: all 0.22s var(--ease);
+}
+.hero-section {
+    min-height: auto;
+    padding: 132px 0 76px;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--border);
+}
+.hero-section::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,110,66,0.45), transparent);
+}
+.hero-bg {
+    background:
+        linear-gradient(180deg, rgba(248,248,248,0.85), rgba(255,255,255,0.96) 42%, #fff);
+}
+.hero-bg .dots-grid {
+    background-size: 28px 28px;
+    opacity: 0.26;
+    -webkit-mask-image: radial-gradient(ellipse 78% 58% at 50% 28%, #000 0%, transparent 72%);
+    mask-image: radial-gradient(ellipse 78% 58% at 50% 28%, #000 0%, transparent 72%);
+}
+.hero-content {
+    max-width: 1040px;
+}
+.hero-badge {
+    margin-bottom: 1.4rem;
+    animation: none;
+}
+.hero-title {
+    font-size: clamp(3rem, 9vw, 7.25rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.4rem;
+    animation: none;
+}
+.hero-title .hero-title-line {
+    display: block;
+}
+.hero-title .word-light {
+    color: #626977;
+    font-weight: 300;
+}
+.hero-desc {
+    max-width: 720px;
+    font-size: clamp(1rem, 1.6vw, 1.2rem);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+    animation: none;
+}
+.hero-cta {
+    animation: none;
+}
+.hero-proof {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1px;
+    max-width: 820px;
+    margin: 2.8rem auto 0;
+    border: 1px solid var(--border);
+    background: var(--border);
+}
+.hero-proof-item {
+    background: rgba(255,255,255,0.9);
+    padding: 1.15rem 1rem;
+    text-align: left;
+}
+.hero-proof-kicker {
+    display: block;
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-weight: 700;
+    color: var(--accent);
+    margin-bottom: 0.3rem;
+}
+.hero-proof-text {
+    display: block;
+    font-size: 0.88rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+.btn-dark-pill:hover,
+.btn-ghost-pill:hover,
+.btn-product-cta:hover,
+.btn-upcoming-cta:hover,
+.service-card:hover,
+.industry-card:hover,
+.blog-card:hover,
+.product-card-live:hover {
+    transform: translateY(-2px);
+}
+.live-dot,
+.product-pill-dot,
+.hero-scroll {
+    animation: none !important;
+}
+.hero-scroll {
+    display: none;
+}
+.company-profile-section {
+    padding: 5.75rem 0;
+    background: #fff;
+}
+.company-profile-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    gap: 3rem;
+    align-items: start;
+}
+.profile-copy {
+    max-width: 540px;
+}
+.profile-copy p {
+    color: var(--text-secondary);
+    font-size: 0.98rem;
+    line-height: 1.85;
+    margin-bottom: 1.1rem;
+}
+.profile-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.65rem 0 0;
+    display: grid;
+    gap: 0.7rem;
+}
+.profile-list li {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    color: var(--text-secondary);
+    font-size: 0.92rem;
+}
+.profile-list i {
+    color: var(--accent);
+    margin-top: 0.28rem;
+    flex-shrink: 0;
+}
+.profile-panel {
+    border: 1px solid var(--border);
+    background: #fff;
+}
+.profile-panel-head {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    border-bottom: 1px solid var(--border);
+}
+.profile-fact {
+    padding: 1.35rem;
+}
+.profile-fact + .profile-fact {
+    border-left: 1px solid var(--border);
+}
+.profile-fact strong {
+    display: block;
+    color: var(--dark);
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+.profile-fact span {
+    color: var(--text-muted);
+    font-size: 0.82rem;
+}
+.profile-capability-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.profile-capability {
+    padding: 1.35rem;
+    min-height: 170px;
+    border-right: 1px solid var(--border);
+}
+.profile-capability:last-child {
+    border-right: 0;
+}
+.profile-capability i {
+    width: 38px;
+    height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,110,66,0.22);
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+.profile-capability h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.55rem;
+}
+.profile-capability p {
+    font-size: 0.84rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
+    margin: 0;
+}
+.profile-panel-foot {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.2rem 1.35rem;
+    border-top: 1px solid var(--border);
+    background: var(--off-white);
+}
+.profile-panel-foot span {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+}
+.profile-panel-foot strong {
+    display: block;
+    color: var(--dark);
+    font-size: 0.98rem;
+    margin-top: 0.2rem;
+}
+.stats-bar {
+    display: none;
+}
+.reveal {
+    transition: opacity 0.45s var(--ease), transform 0.45s var(--ease);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 991px) {
+    .stat-sep { display: none; }
+    .hero-title { font-size: 2.8rem; }
+    .hero-section { padding: 116px 0 62px; }
+    .hero-proof { grid-template-columns: 1fr; max-width: 620px; }
+    .company-profile-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .profile-copy { max-width: none; }
+}
+@media (max-width: 767px) {
+    .hero-title { font-size: 2.2rem; letter-spacing: -0.02em; }
+    .hero-cta { flex-direction: column; align-items: center; }
+    .service-card, .product-card-live, .product-card-upcoming { padding: 2rem; }
+    .service-card h3 { font-size: 1.15rem; }
+    .product-card-live h2 { font-size: 1.5rem; }
+    .product-card-upcoming h2 { font-size: 1.3rem; }
+    .services-section, .products-section, .industries-section,
+    .process-section, .blog-section { padding: 4.5rem 0; }
+    .contact-section { padding: 4rem 0 0; }
+    .hero-section { padding: 104px 0 54px; }
+    .hero-badge { font-size: 0.64rem; padding: 6px 12px; }
+    .hero-desc { margin-bottom: 1.6rem; }
+    .landing-hero { min-height: auto; padding: 86px 0 2rem; }
+    .landing-hero .page-hero-content {
+        padding: 1.25rem 1.25rem 1.1rem;
+        max-width: none;
+    }
+    .landing-hero .page-hero-title {
+        font-size: clamp(2rem, 10vw, 2.75rem);
+        margin-bottom: 0.55rem;
+    }
+    .landing-hero .page-hero-sub {
+        font-size: 0.95rem;
+        line-height: 1.55;
+        margin-bottom: 0.9rem;
+    }
+    .landing-hero .hero-cta {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-top: 0.85rem;
+    }
+    .landing-hero .btn-dark-pill,
+    .landing-hero .btn-ghost-pill {
+        width: 100%;
+        justify-content: center;
+    }
+    .hero-proof { margin-top: 2rem; }
+    .company-profile-section { padding: 3.5rem 0; }
+    .profile-panel-head,
+    .profile-capability-grid {
+        grid-template-columns: 1fr;
+    }
+    .profile-capability { min-height: auto; }
+    .profile-fact + .profile-fact,
+    .profile-capability {
+        border-left: 0;
+        border-right: 0;
+        border-top: 1px solid var(--border);
+    }
+    .profile-capability:first-child {
+        border-top: 0;
+    }
+    .profile-panel-foot {
+        flex-direction: column;
+    }
+    /* Blog cards */
+    .blog-img-wrap { height: 185px; }
+    .blog-body { padding: 1.1rem; }
+    /* Process section */
+    .process-step { padding: 1.5rem 1rem; }
+    /* Offering bar label */
+    .offerings-label { font-size: 1.3rem; letter-spacing: 0.08em; }
+    /* Offering cards */
+    .offering-card { min-height: 160px; padding: 1.5rem; }
+    .offerings-section { padding: 1.75rem 0 4rem; }
+    /* 2-column grids for industry + process on phones */
+    .industries-section .col-md-6, .process-section .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+    .process-section .col-md-6 { margin-bottom: 1.5rem !important; }
+    /* Horizontal blog card layout — image left, content right */
+    .blog-card { display: flex; flex-direction: row; align-items: stretch; }
+    .blog-img-wrap { width: 120px; min-width: 120px; height: auto !important; flex-shrink: 0; border-radius: var(--radius) 0 0 var(--radius); overflow: hidden; }
+    .blog-img-wrap img { height: 100%; object-fit: cover; }
+    .blog-body { flex: 1; min-width: 0; padding: 1rem; }
+    /* Tighten section header row spacing */
+    .services-section .mb-5, .products-section .mb-5,
+    .industries-section .mb-5, .process-section .mb-5,
+    .blog-section .mb-5 { margin-bottom: 1.75rem !important; }
+    /* Product card inner padding */
+    .product-card-live, .product-card-upcoming { padding: 2rem 1.5rem; }
+}
+@media (max-width: 575px) {
+    .hero-title { font-size: 1.85rem; }
+    .hero-section { padding: 90px 0 44px; }
+    .service-card, .product-card-live, .product-card-upcoming { padding: 1.5rem; }
+    .service-card h3 { font-size: 1rem; }
+    .product-card-live h2 { font-size: 1.25rem; }
+    .product-card-upcoming h2 { font-size: 1.1rem; }
+    .product-card-live p, .product-card-upcoming p { font-size: 0.88rem; }
+    .blog-img-wrap { height: 165px; }
+    .industry-card { padding: 1.25rem; }
+    .industry-icon-box { width: 40px; height: 40px; font-size: 1rem; }
+    .sec-heading { font-size: 1.6rem; }
+    .sec-sub { font-size: 0.9rem; }
+    .landing-hero .page-hero-title { font-size: clamp(1.75rem, 9vw, 2.4rem); }
+    .services-section, .products-section, .industries-section,
+    .process-section, .blog-section { padding: 3rem 0; }
+    .company-profile-section { padding: 2.5rem 0; }
+    .offerings-section { padding: 1.25rem 0 2.75rem; }
+    .offerings-label { font-size: 1rem; letter-spacing: 0.05em; white-space: normal; }
+    .offerings-bar { padding: 0 0.75rem 1.25rem; }
+    .offerings-stats { gap: 1.5rem; }
+    .offerings-stats .stat-item strong { font-size: 1.35rem; }
+    .hero-proof-item { padding: 0.9rem 0.75rem; }
+    .hero-proof-text { font-size: 0.82rem; }
+    .profile-capability { padding: 1rem; }
+    /* Horizontal blog — compact image */
+    .blog-img-wrap { width: 95px; min-width: 95px; }
+    .blog-body { padding: 0.85rem; }
+    .blog-body h6 { font-size: 0.87rem; line-height: 1.4; margin-bottom: 0.35rem; }
+    .blog-body p { font-size: 0.8rem; margin-bottom: 0.4rem; }
+    /* Compact offering cards in 2-col grid */
+    .offering-card { padding: 1rem; min-height: 100px; }
+    .offering-icon { width: 36px; height: 36px; font-size: 0.95rem; margin-bottom: 0.6rem; }
+    .offering-card h3 { font-size: 0.9rem; margin-bottom: 0.35rem; }
+    .offering-card p { font-size: 0.78rem; }
+    /* Keep 2-col on small phones */
+    .industries-section .col-md-6, .process-section .col-md-6 { flex: 0 0 50%; max-width: 50%; }
+    .industry-card p { font-size: 0.8rem; }
+    /* Product cards */
+    .product-card-live, .product-card-upcoming { padding: 1.5rem; }
+}
+</style>
 </head>
-<body data-spy="scroll" data-target=".navbar" data-offset="40" id="home">
+<body>
 
-    <!-- page Navigation -->
-    <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
-        <div class="container">
-            <a class="navbar-brand" href="index.html">
-                <img id="navbar-logo" src="assets/imgs/ailexity logo white.png" alt="">
-            </a>
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+<!-- ===== MOBILE NAV OVERLAY ===== -->
+<div id="mobileNavOverlay" class="mob-nav-overlay" aria-hidden="true">
+    <div class="mob-nav-inner">
+        <div class="mob-nav-header">
+            <a href="index.html"><img src="assets/imgs/ailexity logo.png" alt="Ailexity" class="mob-nav-logo"></a>
+            <button class="mob-nav-close" id="mobileNavClose" aria-label="Close menu">
+                <span class="mob-nav-close-bar"></span>
+                <span class="mob-nav-close-bar"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">                     
-                    <li class="nav-item">
-                        <a class="nav-link" href="#service">Our Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="https://www.ailexity.in">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="careers.html">Careers</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#blog">Blog</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="ml-4 nav-link btn btn-primary btn-sm rounded" href="#contact">Contact</a>
-                    </li>
-                </ul>
+        </div>
+        <nav class="mob-nav-links">
+            <a href="website-pricing.html" class="mob-nav-link">Services</a>
+            <a href="index.html#products" class="mob-nav-link">Products</a>
+            <a href="about.html" class="mob-nav-link">About</a>
+            <a href="blogs.html" class="mob-nav-link">Blog</a>
+        </nav>
+        <div class="mob-nav-brand-footer">
+            <span class="mob-nav-brand-word">Ailexity</span>
+        </div>
+    </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar custom-navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img id="navbar-logo" src="assets/imgs/ailexity logo.png" alt="Ailexity">
+        </a>
+        <button class="navbar-toggler ml-auto" type="button" id="mobileNavToggler" aria-label="Open navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav nav-primary ml-auto">
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="website-pricing.html">Services <i class="ti-angle-down ddi"></i></a>
+                    <div class="nav-dropdown-menu nav-mega-menu">
+                        <div class="nav-mega-col">
+                            <div class="nav-mega-heading"><i class="ti-settings"></i> Software</div>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-layout"></i></span><span class="nav-dd-title-sm">Website Building</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-shopping-cart"></i></span><span class="nav-dd-title-sm">POS &amp; Inventory</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-user"></i></span><span class="nav-dd-title-sm">Custom CRM</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-mobile"></i></span><span class="nav-dd-title-sm">Mobile &amp; Web Apps</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-server"></i></span><span class="nav-dd-title-sm">ERP &amp; Enterprise</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-layers"></i></span><span class="nav-dd-title-sm">Custom Software</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-cloud"></i></span><span class="nav-dd-title-sm">Cloud Services</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-shield"></i></span><span class="nav-dd-title-sm">Security</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-headphone-alt"></i></span><span class="nav-dd-title-sm">Support &amp; Maintenance</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-stats-up"></i></span><span class="nav-dd-title-sm">Technical SEO</span></a>
+                        </div>
+                        <div class="nav-mega-col">
+                            <div class="nav-mega-heading"><i class="ti-pencil-alt"></i> Marketing</div>
+                            <a href="website-pricing.html#marketing" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm indigo"><i class="ti-bolt"></i></span><span class="nav-dd-title-sm">Digital Advertising</span></a>
+                            <a href="website-pricing.html#marketing" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm indigo"><i class="ti-comments"></i></span><span class="nav-dd-title-sm">Social Media Marketing</span></a>
+                            <a href="website-pricing.html#marketing" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm indigo"><i class="ti-search"></i></span><span class="nav-dd-title-sm">SEO &amp; Search</span></a>
+                            <a href="website-pricing.html#marketing" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm indigo"><i class="ti-palette"></i></span><span class="nav-dd-title-sm">Content &amp; Brand</span></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="index.html#products">Products <i class="ti-angle-down ddi"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="https://ailexity.in/" class="nav-dd-item">
+                            <span class="nav-dd-icon"><i class="ti-shopping-cart"></i></span>
+                            <span><span class="nav-dd-title">Ailexity POS</span><span class="nav-dd-desc">Billing &amp; inventory system - live</span></span>
+                        </a>
+                        <a href="https://www.ailexitytedo.com" target="_blank" class="nav-dd-item">
+                            <span class="nav-dd-icon indigo"><i class="ti-share"></i></span>
+                            <span><span class="nav-dd-title">Ailexity Tedo</span><span class="nav-dd-desc">Developer networking platform</span></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="blogs.html">Blog</a></li>
+            </ul>
+            <ul class="navbar-nav nav-utility">
+                <li class="nav-item"><button class="nav-icon-btn" id="navSearchBtn" type="button" aria-label="Search"><i class="ti-search"></i></button></li>
+                <li class="nav-item"><a class="nav-icon-btn" href="index.html#contact" aria-label="Contact us"><i class="ti-comment-alt"></i></a></li>
+                <li class="nav-item"><a class="nav-icon-btn" href="https://www.linkedin.com/company/ailexity/posts/?feedView=all" target="_blank" aria-label="LinkedIn"><i class="ti-linkedin"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== SEARCH OVERLAY ===== -->
+<div class="nav-search-overlay" id="navSearchOverlay" aria-hidden="true">
+    <div class="nav-search-inner">
+        <div class="nav-search-field">
+            <i class="ti-search"></i>
+            <input type="text" id="navSearchInput" placeholder="Search Ailexity - products, services, pages..." autocomplete="off">
+            <button class="nav-search-close" id="navSearchClose" type="button" aria-label="Close search"><i class="ti-close"></i></button>
+        </div>
+        <div class="nav-search-results">
+            <div class="nav-search-hint">Quick links</div>
+            <a class="nav-search-link" href="https://ailexity.in/"><i class="ti-shopping-cart"></i> Ailexity POS - Billing &amp; Inventory System</a>
+            <a class="nav-search-link" href="https://www.ailexitytedo.com" target="_blank"><i class="ti-share"></i> Ailexity Tedo - Developer Networking Platform</a>
+            <a class="nav-search-link" href="index.html#service"><i class="ti-settings"></i> Services &amp; Solutions</a>
+            <a class="nav-search-link" href="index.html#industries"><i class="ti-layout-grid2"></i> Industries We Serve</a>
+            <a class="nav-search-link" href="about.html"><i class="ti-user"></i> About Ailexity</a>
+            <a class="nav-search-link" href="blogs.html"><i class="ti-pencil-alt"></i> Insights &amp; Blog</a>
+            <a class="nav-search-link" href="website-pricing.html"><i class="ti-tag"></i> Website Pricing</a>
+            <a class="nav-search-link" href="book-demo.html"><i class="ti-calendar"></i> Book a Demo</a>
+            <a class="nav-search-link" href="index.html#contact"><i class="ti-email"></i> Contact Us</a>
+            <div class="nav-search-empty" style="display:none;">No matches - try a different term.</div>
+        </div>
+    </div>
+</div>
+<!-- ===== HERO ===== -->
+<section class="page-hero landing-hero" id="home">
+    <div class="page-hero-bg hero-bg"></div>
+    <div class="container page-hero-content hero-content">
+        <div class="page-hero-breadcrumb">
+            <a href="index.html">Home</a>
+        </div>
+        <span class="page-hero-tag hero-badge">Software &amp; Marketing Studio</span>
+        <h1 class="page-hero-title hero-title">Think<br><span class="word-accent">Beyond</span> <span class="word-light">Logic</span></h1>
+        <p class="page-hero-sub hero-desc">Ailexity builds practical software, product platforms, and growth systems for businesses that need a stronger digital backbone.</p>
+        <div class="hero-cta">
+            <a href="book-demo.html" class="btn-dark-pill">Book a Strategy Call <i class="ti-calendar"></i></a>
+            <a href="website-pricing.html" class="btn-ghost-pill">View Services <i class="ti-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== OFFERINGS ===== -->
+<section class="offerings-section">
+    <div class="offerings-wrap">
+        <div class="offerings-bar reveal">
+            <div class="offerings-stats">
+                <div class="stat-item">
+                    <strong>2025</strong>
+                    <span>Founded</span>
+                </div>
+                <div class="stat-item">
+                    <strong>2</strong>
+                    <span>In-House Products</span>
+                </div>
+                <div class="stat-item">
+                    <strong>6+</strong>
+                    <span>Core Services</span>
+                </div>
+                <div class="stat-item">
+                    <strong>Pune, India</strong>
+                    <span>Based &amp; Remote-Ready</span>
+                </div>
+            </div>
+            <div class="offerings-label">What We Offer</div>
+        </div>
+        <div class="offerings-grid">
+            <div class="offering-card reveal reveal-d1">
+                <div class="offering-icon"><i class="ti-desktop"></i></div>
+                <h3>Website Development</h3>
+                <p>Modern, fast, and responsive websites and landing pages built to convert visitors into customers.</p>
+            </div>
+            <div class="offering-card reveal reveal-d2">
+                <div class="offering-icon"><i class="ti-search"></i></div>
+                <h3>SEO &amp; Search Visibility</h3>
+                <p>On-page and technical SEO, site structure, and content optimisation to help your business rank and get found on Google.</p>
+            </div>
+            <div class="offering-card reveal reveal-d3">
+                <div class="offering-icon"><i class="ti-settings"></i></div>
+                <h3>Business Software</h3>
+                <p>Custom CRM, POS, ERP, LMS, and booking systems tailored to how your business actually operates.</p>
+            </div>
+            <div class="offering-card reveal reveal-d1">
+                <div class="offering-icon"><i class="ti-lock"></i></div>
+                <h3>Website Security &amp; Hardening</h3>
+                <p>SSL, firewalls, malware monitoring, and security audits to keep your website and data protected.</p>
+            </div>
+            <div class="offering-card reveal reveal-d2">
+                <div class="offering-icon"><i class="ti-cloud"></i></div>
+                <h3>Cloud &amp; Server Management</h3>
+                <p>Hosting setup, cloud infrastructure, backups, and performance monitoring so your systems stay fast and online.</p>
+            </div>
+            <div class="offering-card reveal reveal-d3">
+                <div class="offering-icon"><i class="ti-headphone-alt"></i></div>
+                <h3>Maintenance &amp; Support</h3>
+                <p>Ongoing updates, bug fixes, and technical support to keep every system running smoothly after launch.</p>
             </div>
         </div>
-    </nav>
-    <!-- End Of Second Navigation -->
+    </div>
+</section>
 
-    <!-- Page Header -->
-    <header class="header" style="background-image: url('https://images.pexels.com/photos/2316781/pexels-photo-2316781.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-        <div class="overlay">
-            <h1 class="subtitle">Ailexity</h1>
-            <h1 class="title">THINK BEYOND LOGIC</h1>  
-        </div>  
-        <div class="shape">
-            <svg viewBox="0 0 1500 200">
-                <path d="m 0,240 h 1500.4828 v -71.92164 c 0,0 -286.2763,-81.79324 -743.19024,-81.79324 C 300.37862,86.28512 0,168.07836 0,168.07836 Z"/>
-            </svg>
-        </div>  
-        <div class="mouse-icon"><div class="wheel"></div></div>
-    </header>
-    <!-- End Of Page Header -->
-
-    <!-- Service Section -->
-    <section  id="service" class="section pt-0">
-        <div class="container">
-            <h6 class="section-title text-center">Our Core Services</h6>
-            <h6 class="section-subtitle text-center mb-5 pb-3">Two Pillars of Digital Excellence</h6>
-
-            <div class="row justify-content-center">
-                <div class="col-md-6 d-flex" style="margin-bottom: 25px;">
-                    <div class="card h-100 w-100 shadow-lg" style="margin-bottom: 2px;">
-                        <div class="card-body text-center p-5">
-                            <div class="mb-4">
-                                <i class="ti-settings text-primary" style="font-size: 4rem;"></i>
-                            </div>
-                            <small class="text-primary font-weight-bold">01</small>
-                            <h3 class="card-title mt-3 mb-4">Software Development</h3>
-                            <p class="mb-4">Custom software solutions designed to streamline your business operations, including CRM systems, ERP platforms, Learning Management Systems, and enterprise applications built with modern technologies.</p>
-                            <ul class="list-unstyled text-left">
-                                <li class="mb-2">• Website Building for businesses</li>
-                                <li class="mb-2">• POS Systems</li>
-                                <li class="mb-2">• Custom CRM Development</li>
-                            </ul>
-                            <div class="mt-3 text-muted font-italic">
-                                <small>And many more software solutions...</small>
-                            </div>
-                        </div>
+<!-- ===== COMPANY PROFILE ===== -->
+<section class="company-profile-section">
+    <div class="container">
+        <div class="company-profile-grid">
+            <div class="profile-copy reveal">
+                <span class="sec-tag">Company Profile</span>
+                <h2 class="sec-heading">A focused studio for software, products, and measurable growth.</h2>
+                <p>Ailexity partners with founders, local businesses, and growing teams to turn operational problems into reliable digital systems. We work across strategy, UI, engineering, automation, and marketing so the final solution is useful after launch, not only impressive on day one.</p>
+                <p>Our team is based in Pune and builds with a practical, business-first approach: clear scopes, fast communication, stable delivery, and support for the next stage of growth.</p>
+                <ul class="profile-list">
+                    <li><i class="ti-check"></i><span>Product-minded execution from discovery to launch.</span></li>
+                    <li><i class="ti-check"></i><span>Business software for restaurants, education, healthcare, retail, services, and startups.</span></li>
+                    <li><i class="ti-check"></i><span>Marketing systems designed around leads, conversions, and long-term brand trust.</span></li>
+                </ul>
+            </div>
+            <div class="profile-panel reveal reveal-d2">
+                <div class="profile-panel-head">
+                    <div class="profile-fact">
+                        <strong>Pune, India</strong>
+                        <span>Serving clients locally and remotely</span>
+                    </div>
+                    <div class="profile-fact">
+                        <strong>Software + Marketing</strong>
+                        <span>One team for build and growth</span>
                     </div>
                 </div>
-
-                <div class="col-md-6 d-flex" style="margin-bottom: 25px;">
-                    <div class="card h-100 w-100 shadow-lg" style="margin-bottom: 2px;">
-                        <div class="card-body text-center p-5">
-                            <div class="mb-4">
-                                <i class="ti-pencil-alt text-primary" style="font-size: 4rem;"></i>
-                            </div>
-                            <small class="text-primary font-weight-bold">02</small>
-                            <h3 class="card-title mt-3 mb-4">Marketing</h3>
-                            <p class="mb-4">Comprehensive marketing solutions including digital advertising, social media marketing, SEO optimization, email campaigns, and brand strategy that drives growth and increases your market presence.</p>
-                            <ul class="list-unstyled text-left">
-                                <li class="mb-2">• Digital Advertising & PPC</li>
-                                <li class="mb-2">• Social Media Marketing</li>
-                                <li class="mb-2">• SEO & Search Optimization</li>
-                            </ul>
-                            <div class="mt-3 text-muted font-italic">
-                                <small>And many more marketing services...</small>
-                            </div>
-                        </div>
+                <div class="profile-capability-grid">
+                    <div class="profile-capability">
+                        <i class="ti-world"></i>
+                        <h3>Websites &amp; SEO</h3>
+                        <p>Fast, modern websites and landing pages built with strong on-page SEO foundations so customers can find and trust you.</p>
+                    </div>
+                    <div class="profile-capability">
+                        <i class="ti-settings"></i>
+                        <h3>Business Software</h3>
+                        <p>Custom CRM, POS, ERP, LMS, appointment platforms, dashboards, and workflow tools built around how your business runs.</p>
+                    </div>
+                    <div class="profile-capability">
+                        <i class="ti-shield"></i>
+                        <h3>Security &amp; Cloud</h3>
+                        <p>Website hardening, backups, monitoring, and cloud infrastructure management to keep your systems safe and online.</p>
+                    </div>
+                </div>
+                <div class="profile-panel-foot">
+                    <div>
+                        <span>Live product</span>
+                        <strong>Ailexity POS</strong>
+                    </div>
+                    <div>
+                        <span>In development</span>
+                        <strong>Ailexity Tedo</strong>
                     </div>
                 </div>
             </div>
-            
-            <!-- Services CTA -->
-            <div class="row mt-4 mb-5">
-                <div class="col-12 text-center">
-                    <div class="p-4 bg-light rounded shadow-sm">
-                        <h4 class="mb-3">Discover Our Complete Range of Services</h4>
-                        <p class="text-muted mb-4">We offer a comprehensive suite of technology and digital marketing solutions tailored to your specific business needs.</p>
-                        <a href="website-pricing.html" class="btn btn-primary px-4 py-2 mr-3">
-                            Explore All Services <i class="ti-arrow-right ml-2"></i>
-                        </a>
-                        <a href="book-demo.html" class="btn btn-primary px-4 py-2 mr-3">
-                            Book a Demo <i class="ti-calendar ml-2"></i>
-                        </a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== SERVICES ===== -->
+<section id="service" class="services-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-6 reveal">
+                <span class="sec-tag">What We Do</span>
+                <h2 class="sec-heading">Two Pillars of<br>Digital Excellence</h2>
+            </div>
+            <div class="col-lg-6 d-flex align-items-end reveal reveal-d2">
+                <p class="sec-sub mb-0">We combine engineering precision with creative marketing strategy — delivering end-to-end digital solutions that scale with your business.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 mb-4 reveal reveal-d1">
+                <div class="service-card">
+                    <span class="service-num">01</span>
+                    <div class="service-icon-wrap">
+                        <i class="ti-settings"></i>
                     </div>
+                    <h3>Software Development</h3>
+                    <p>Custom software solutions built to streamline operations — from CRM systems and ERP platforms to LMS and enterprise applications.</p>
+                    <ul class="service-list">
+                        <li>Website Building for Businesses</li>
+                        <li>POS &amp; Inventory Systems</li>
+                        <li>Custom CRM Development</li>
+                        <li>Mobile &amp; Web Applications</li>
+                    </ul>
+                    <a href="website-pricing.html" class="service-link">See All Services <i class="ti-arrow-right"></i></a>
                 </div>
             </div>
-    </section>
-    <!-- End OF Service Section -->
-
-
-
-
-
-    <!-- Industries Section -->
-    <section id="industries" class="section">
-        <div class="container">
-            <h6 class="section-title text-center">Scalable Solutions For Every Industry</h6>
-            <h6 class="section-subtitle mb-5 text-center">Global brands from technology to education trust Ailexity to build and serve stable, secure, scalable digital experiences.</h6>
-            
-            <div class="row">
-                <!-- Healthcare Card -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <div class="border-top border-primary border-3 mb-3" style="width: 60px;"></div>
-                            <h4 class="mb-4">Healthcare</h4>
-                            <p class="text-muted mb-4">Build secure, HIPAA-compliant platforms with patient management systems, telemedicine solutions, and electronic health records. Ensure data privacy with enterprise-grade security while delivering seamless user experiences for healthcare providers and patients.</p>
-                            <a href="website-pricing.html" class="text-primary font-weight-bold">Learn more <i class="ti-arrow-right"></i></a>
-                            <div class="mt-4 pt-4 border-top d-flex align-items-center justify-content-start flex-wrap" style="gap: 20px;">
-                                <i class="ti-heart text-muted" style="font-size: 2.5rem;"></i>
-                                <i class="ti-pulse text-muted" style="font-size: 2.5rem;"></i>
-                                <i class="ti-medall text-muted" style="font-size: 2.5rem;"></i>
-                            </div>
-                        </div>
+            <div class="col-md-6 mb-4 reveal reveal-d2">
+                <div class="service-card">
+                    <span class="service-num">02</span>
+                    <div class="service-icon-wrap">
+                        <i class="ti-pencil-alt"></i>
                     </div>
-                </div>
-
-                <!-- Technology Card -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <div class="border-top border-primary border-3 mb-3" style="width: 60px;"></div>
-                            <h4 class="mb-4">Technology</h4>
-                            <p class="text-muted mb-4">Accelerate development cycles and achieve seamless deployments. Benefit from a robust platform that guarantees up to 99.99% uptime, empowers collaborative workflows, and maximizes security for technology-driven organizations.</p>
-                            <a href="website-pricing.html" class="text-primary font-weight-bold">Learn more <i class="ti-arrow-right"></i></a>
-                            <div class="mt-4 pt-4 border-top d-flex align-items-center justify-content-start flex-wrap" style="gap: 20px;">
-                                <i class="ti-settings text-muted" style="font-size: 2.5rem;"></i>
-                                <i class="ti-cloud text-muted" style="font-size: 2.5rem;"></i>
-                                <i class="ti-server text-muted" style="font-size: 2.5rem;"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- E-Commerce Card -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <div class="border-top border-primary border-3 mb-3" style="width: 60px;"></div>
-                            <h4 class="mb-4">E-Commerce</h4>
-                            <p class="text-muted mb-4">Deliver seamless shopping experiences with high-performance e-commerce platforms that handle peak traffic effortlessly. Easily manage inventory, payments, and orders across multiple channels with integrated systems built for growth.</p>
-                            <a href="website-pricing.html" class="text-primary font-weight-bold">Learn more <i class="ti-arrow-right"></i></a>
-                            <div class="mt-4 pt-4 border-top d-flex align-items-center justify-content-start flex-wrap" style="gap: 20px;">
-                                <i class="ti-shopping-cart text-muted" style="font-size: 2.5rem;"></i>
-                                <i class="ti-credit-card text-muted" style="font-size: 2.5rem;"></i>
-                                <i class="ti-bag text-muted" style="font-size: 2.5rem;"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Education Card -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <div class="border-top border-primary border-3 mb-3" style="width: 60px;"></div>
-                            <h4 class="mb-4">Education</h4>
-                            <p class="text-muted mb-4">Create engaging learning management systems with virtual classrooms, course management, and student portals. Empower educational institutions with scalable platforms that support remote learning, assessments, and collaborative tools for modern education.</p>
-                            <a href="website-pricing.html" class="text-primary font-weight-bold">Learn more <i class="ti-arrow-right"></i></a>
-                            <div class="mt-4 pt-4 border-top d-flex align-items-center justify-content-start flex-wrap" style="gap: 20px;">
-                                <i class="ti-book text-muted" style="font-size: 2.5rem;"></i>
-                                <i class="ti-pencil-alt text-muted" style="font-size: 2.5rem;"></i>
-                                <i class="ti-blackboard text-muted" style="font-size: 2.5rem;"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Finance Card -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <div class="border-top border-primary border-3 mb-3" style="width: 60px;"></div>
-                            <h4 class="mb-4">Finance</h4>
-                            <p class="text-muted mb-4">Build secure fintech platforms with real-time transaction processing, fraud detection, and compliance management. Deliver banking solutions, payment gateways, and financial dashboards with enterprise-level security and reliability that financial institutions demand.</p>
-                            <a href="website-pricing.html" class="text-primary font-weight-bold">Learn more <i class="ti-arrow-right"></i></a>
-                            <div class="mt-4 pt-4 border-top d-flex align-items-center justify-content-start flex-wrap" style="gap: 20px;">
-                                <i class="ti-wallet text-muted" style="font-size: 2.5rem;"></i>
-                                <i class="ti-money text-muted" style="font-size: 2.5rem;"></i>
-                                <i class="ti-stats-up text-muted" style="font-size: 2.5rem;"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Hospitality Card -->
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card border-0 shadow-sm h-100">
-                        <div class="card-body p-4">
-                            <div class="border-top border-primary border-3 mb-3" style="width: 60px;"></div>
-                            <h4 class="mb-4">Hospitality</h4>
-                            <p class="text-muted mb-4">Transform guest experiences with integrated booking systems, property management solutions, and customer relationship tools. Create seamless digital experiences for hotels, restaurants, and travel businesses with mobile-first platforms and real-time availability management.</p>
-                            <a href="website-pricing.html" class="text-primary font-weight-bold">Learn more <i class="ti-arrow-right"></i></a>
-                            <div class="mt-4 pt-4 border-top d-flex align-items-center justify-content-start flex-wrap" style="gap: 20px;">
-                                <i class="ti-home text-muted" style="font-size: 2.5rem;"></i>
-                                <i class="ti-location-pin text-muted" style="font-size: 2.5rem;"></i>
-                                <i class="ti-star text-muted" style="font-size: 2.5rem;"></i>
-                            </div>
-                        </div>
-                    </div>
+                    <h3>Marketing</h3>
+                    <p>Comprehensive marketing solutions including digital advertising, social media, SEO, email campaigns, and brand strategy that drives measurable growth.</p>
+                    <ul class="service-list">
+                        <li>Digital Advertising &amp; PPC</li>
+                        <li>Social Media Marketing</li>
+                        <li>SEO &amp; Search Optimization</li>
+                        <li>Content &amp; Brand Strategy</li>
+                    </ul>
+                    <a href="website-pricing.html" class="service-link">See All Services <i class="ti-arrow-right"></i></a>
                 </div>
             </div>
+        </div>
 
-            <!-- CTA Section -->
-            <div class="row mt-5">
-                <div class="col-12 text-center">
-                    <div class="p-4 bg-light rounded">
-                        <h5 class="mb-3">Ready to scale your industry solution?</h5>
-                        <p class="text-muted mb-4">Join global brands that trust Ailexity for their digital transformation</p>
-                        <div>
-                            <a href="about.html" class="btn btn-outline-primary px-4 mr-3 mb-3">Meet Our Team</a>
-                            <a href="book-demo.html" class="btn btn-book-demo mb-3">
-                                <i class="ti-calendar mr-2"></i>Book a Free Demo
+        <div class="row mt-3">
+            <div class="col-12 text-center reveal">
+                <a href="book-demo.html" class="btn-dark-pill" style="display:inline-flex;">
+                    <i class="ti-calendar"></i> Book a Free Demo
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PRODUCTS ===== -->
+<section id="products" class="products-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center reveal">
+                <span class="sec-tag">Our Products</span>
+                <h2 class="sec-heading">Built by Ailexity, Powered by Vision</h2>
+                <p class="sec-sub mx-auto text-center">From live platforms solving real problems to exciting upcoming launches — here's what we're building.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <!-- Live Product: Ailexity POS -->
+            <div class="col-lg-7 mb-4 reveal reveal-d1">
+                <div class="product-card-live">
+                    <div class="product-inner">
+                        <div class="product-pill">
+                            <span class="product-pill-dot"></span>
+                            Live Product — In the Market
+                        </div>
+                        <h2>Ailexity POS</h2>
+                        <p>Our flagship billing &amp; inventory platform — live and powering restaurants, cafés, cloud kitchens, and retail. A fast, cloud-based point-of-sale that runs billing, orders, stock, and AI insights from one simple system.</p>
+                        <ul class="product-features">
+                            <li>
+                                <span class="feat-icon"><i class="ti-check"></i></span>
+                                Lightning-fast billing — dine-in, takeaway &amp; delivery
+                            </li>
+                            <li>
+                                <span class="feat-icon"><i class="ti-check"></i></span>
+                                Real-time inventory &amp; stock tracking
+                            </li>
+                            <li>
+                                <span class="feat-icon"><i class="ti-check"></i></span>
+                                GST-ready invoices &amp; WhatsApp automation
+                            </li>
+                            <li>
+                                <span class="feat-icon"><i class="ti-check"></i></span>
+                                Analytics, reports &amp; AI-powered insights
+                            </li>
+                        </ul>
+                        <div class="product-cta-row">
+                            <a href="https://ailexity.in/" class="btn-product-cta">
+                                Explore Ailexity POS <i class="ti-arrow-right"></i>
+                            </a>
+                            <a href="https://www.ailexity.in" target="_blank" class="product-cta-link">
+                                Visit ailexity.in <i class="ti-new-window"></i>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!-- End of Industries Section -->
 
-
-
-    <!-- Process Section -->
-    <section id="process" class="section bg-light">
-        <div class="container">
-            <h6 class="section-title text-center">How It's Done</h6>
-            <h6 class="section-subtitle mb-5 text-center">How We Transform Ideas Into Digital Reality</h6>
-            
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <div class="card border-0 bg-white h-100 shadow-sm">
-                        <div class="card-body text-center p-4">
-                            <div class="mb-4 mt-2">
-                                <span class="text-primary" style="font-size: 2.5rem; font-weight: 700;">01</span>
-                            </div>
-                            <h5 class="mb-3">Discovery</h5>
-                            <p class="text-muted mb-0">We start by understanding your vision, goals, and requirements through collaborative workshops and research.</p>
-                        </div>
+            <!-- Building: Ailexity Tedo -->
+            <div class="col-lg-5 mb-4 reveal reveal-d2">
+                <div class="product-card-upcoming">
+                    <div class="upcoming-pill">
+                        <i class="ti-pulse" style="font-size:0.7rem;"></i>
+                        In Development
                     </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <div class="card border-0 bg-white h-100 shadow-sm">
-                        <div class="card-body text-center p-4">
-                            <div class="mb-4 mt-2">
-                                <span class="text-primary" style="font-size: 2.5rem; font-weight: 700;">02</span>
-                            </div>
-                            <h5 class="mb-3">Design</h5>
-                            <p class="text-muted mb-0">Our designers create intuitive interfaces and user experiences that align with your brand and audience needs.</p>
-                        </div>
+                    <div class="upcoming-icon-box">
+                        <i class="ti-share"></i>
                     </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <div class="card border-0 bg-white h-100 shadow-sm">
-                        <div class="card-body text-center p-4">
-                            <div class="mb-4 mt-2">
-                                <span class="text-primary" style="font-size: 2.5rem; font-weight: 700;">03</span>
-                            </div>
-                            <h5 class="mb-3">Development</h5>
-                            <p class="text-muted mb-0">Our engineering team builds robust, scalable solutions using the most appropriate technologies for your project.</p>
-                        </div>
+                    <h2>Ailexity Tedo</h2>
+                    <p>A technical networking platform built for developers — connect, collaborate, and grow. Tedo brings engineers together to share knowledge, showcase their work, and find the people to build the next big thing with.</p>
+                    <div class="progress-label">
+                        <span>Development Progress</span>
+                        <span>65%</span>
                     </div>
-                </div>
-                
-                <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                    <div class="card border-0 bg-white h-100 shadow-sm">
-                        <div class="card-body text-center p-4">
-                            <div class="mb-4 mt-2">
-                                <span class="text-primary" style="font-size: 2.5rem; font-weight: 700;">04</span>
-                            </div>
-                            <h5 class="mb-3">Launch & Support</h5>
-                            <p class="text-muted mb-0">We ensure smooth deployment and provide ongoing maintenance, updates, and support for your digital solution.</p>
-                        </div>
+                    <div class="progress-track">
+                        <div class="progress-fill" id="progressFill"></div>
                     </div>
+                    <ul class="upcoming-features">
+                        <li>Developer profiles &amp; technical portfolios</li>
+                        <li>Knowledge sharing &amp; community discussions</li>
+                        <li>Find collaborators &amp; build together</li>
+                        <li>A curated tech feed tuned to your stack</li>
+                    </ul>
+                    <a href="https://www.ailexitytedo.com" target="_blank" class="btn-upcoming-cta">
+                        Preview Tedo <i class="ti-arrow-right"></i>
+                    </a>
                 </div>
             </div>
-            
-            <div class="text-center mt-5">
-                <a href="book-demo.html" class="btn btn-primary px-4 py-2">Start Your Project</a>
-            </div>
-        </div>
-    </section>
-    <!-- End of Process Section -->
-
-
-
-<!-- Blog Section -->
-<section class="section" id="blog">
-    <div class="container">
-        <h6 class="section-title mb-0 text-center">Latest Insights</h6>
-        <h6 class="section-subtitle mb-5 text-center">Explore emerging technology trends shaping our digital future</h6>
-
-        <div class="row">
-            <!-- Blog Post 1 - AI Agents 2025 -->
-            <div class="col-md-4">
-                <div class="card border-0 mb-4">
-                    <img src="https://images.unsplash.com/photo-1655720828018-edd2daec9349?q=80&w=2032&auto=format&fit=crop" alt="AI Agents 2025" class="card-img-top w-100">
-                    <div class="card-body">
-                        <h6 class="card-title">AI Agents Revolution: The Rise of Autonomous Workflows</h6>
-                        <p>Discover how multi-agent AI systems are transforming business operations with autonomous decision-making and task execution in 2025.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Blog Post 2 - Multimodal AI -->
-            <div class="col-md-4">
-                <div class="card border-0 mb-4">
-                    <img src="https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=2050&auto=format&fit=crop" alt="Multimodal AI" class="card-img-top w-100">
-                    <div class="card-body">                         
-                        <h6 class="card-title">Multimodal AI: Beyond Text to Vision, Voice & Video</h6>
-                        <p>Exploring the latest GPT-4o, Gemini 2.0, and Claude integrations that process text, images, audio, and video simultaneously.</p>
-                    </div>
-                </div>
-            </div>
-            <!-- Blog Post 3 - Quantum AI -->
-            <div class="col-md-4">
-                <div class="card border-0 mb-4">
-                    <img src="https://assets.paperjam.lu/images/articles/quantum-ai-solving-the-unsolva/0.5/0.5/640/426/672857.jpg" alt="Quantum AI Computing" class="card-img-top w-100">
-                    <div class="card-body">                         
-                        <h6 class="card-title">Quantum-AI Convergence: The Next Computing Frontier</h6>
-                        <p>How quantum computing breakthroughs are accelerating AI model training and solving previously impossible optimization problems.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Show More Button -->
-        <div class="text-center mt-4">
-            <a href="blogs.html" class="show-more-link">Show More Blogs</a>
         </div>
     </div>
 </section>
-<!-- End of Blog Section -->
 
+<!-- ===== INDUSTRIES ===== -->
+<section id="industries" class="industries-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-6 reveal">
+                <span class="sec-tag">Industries</span>
+                <h2 class="sec-heading">Scalable Solutions for Every Sector</h2>
+            </div>
+            <div class="col-lg-6 d-flex align-items-end reveal reveal-d2">
+                <p class="sec-sub mb-0">Global brands from technology to education trust Ailexity to build stable, secure, and scalable digital experiences.</p>
+            </div>
+        </div>
 
-    <!-- Testmonial Section -->
-    <!-- <section class="section" id="testmonial">
-        <div class="container">
-            <h6 class="section-title text-center mb-0">Testmonials</h6>
-            <h6 class="section-subtitle mb-5 text-center">What Our Clients Says</h6>
-            <div class="row">
-                <div class="col-md-4 my-3 my-md-0">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="media align-items-center mb-3">
-                                <img class="mr-3" src="assets/imgs/avatar.jpg" alt="">
-                                <div class="media-body">
-                                    <h6 class="mt-1 mb-0">John Doe</h6>
-                                    <small class="text-muted mb-0">Business Analyst</small>     
-                                </div>
-                            </div>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus enim modi, id dicta reiciendis itaque.</p>
-                        </div>
+        <div class="row">
+            <div class="col-lg-4 col-md-6 mb-4 reveal reveal-d1">
+                <div class="industry-card">
+                    <div class="industry-icon-box"><i class="ti-heart"></i></div>
+                    <h4>Healthcare</h4>
+                    <p>HIPAA-compliant platforms with patient management, telemedicine, and EHR systems built for privacy and performance.</p>
+                    <a href="website-pricing.html" class="industry-link">Learn more <i class="ti-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4 reveal reveal-d2">
+                <div class="industry-card">
+                    <div class="industry-icon-box"><i class="ti-server"></i></div>
+                    <h4>Technology</h4>
+                    <p>Accelerate development cycles with robust platforms that guarantee up to 99.99% uptime and collaborative workflows.</p>
+                    <a href="website-pricing.html" class="industry-link">Learn more <i class="ti-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4 reveal reveal-d3">
+                <div class="industry-card">
+                    <div class="industry-icon-box"><i class="ti-shopping-cart"></i></div>
+                    <h4>E-Commerce</h4>
+                    <p>High-performance stores that handle peak traffic, manage inventory, and deliver seamless shopping across channels.</p>
+                    <a href="website-pricing.html" class="industry-link">Learn more <i class="ti-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4 reveal reveal-d1">
+                <div class="industry-card">
+                    <div class="industry-icon-box"><i class="ti-book"></i></div>
+                    <h4>Education</h4>
+                    <p>Engaging LMS platforms with virtual classrooms, student portals, and collaborative tools for modern learning.</p>
+                    <a href="website-pricing.html" class="industry-link">Learn more <i class="ti-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4 reveal reveal-d2">
+                <div class="industry-card">
+                    <div class="industry-icon-box"><i class="ti-stats-up"></i></div>
+                    <h4>Finance</h4>
+                    <p>Secure fintech platforms with real-time transactions, fraud detection, and compliance-grade banking infrastructure.</p>
+                    <a href="website-pricing.html" class="industry-link">Learn more <i class="ti-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 mb-4 reveal reveal-d3">
+                <div class="industry-card">
+                    <div class="industry-icon-box"><i class="ti-home"></i></div>
+                    <h4>Hospitality</h4>
+                    <p>Integrated booking systems and PMS solutions that transform guest experiences for hotels, restaurants, and travel brands.</p>
+                    <a href="website-pricing.html" class="industry-link">Learn more <i class="ti-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-12 text-center reveal">
+                <a href="about.html" class="btn-ghost-pill mr-3" style="display:inline-flex;">Meet Our Team</a>
+                <a href="book-demo.html" class="btn-dark-pill" style="display:inline-flex;"><i class="ti-calendar"></i> Book a Free Demo</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== PROCESS ===== -->
+<section id="process" class="process-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-12 text-center reveal">
+                <span class="sec-tag">How It Works</span>
+                <h2 class="sec-heading">From Idea to Digital Reality</h2>
+                <p class="sec-sub mx-auto" style="text-align:center;">A clear, proven process that takes your vision from whiteboard to world-class product.</p>
+            </div>
+        </div>
+
+        <div class="row position-relative">
+            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 reveal reveal-d1">
+                <div class="process-step">
+                    <div class="process-connector"></div>
+                    <div class="process-num">01</div>
+                    <h5>Discovery</h5>
+                    <p>We understand your vision, goals, and requirements through collaborative workshops and in-depth research.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 reveal reveal-d2">
+                <div class="process-step">
+                    <div class="process-connector"></div>
+                    <div class="process-num">02</div>
+                    <h5>Design</h5>
+                    <p>Our designers craft intuitive interfaces and user experiences perfectly aligned with your brand and audience.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 reveal reveal-d3">
+                <div class="process-step">
+                    <div class="process-connector"></div>
+                    <div class="process-num">03</div>
+                    <h5>Development</h5>
+                    <p>Our engineers build robust, scalable solutions using the most appropriate modern technologies for your project.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 reveal reveal-d4">
+                <div class="process-step">
+                    <div class="process-num">04</div>
+                    <h5>Launch &amp; Support</h5>
+                    <p>We ensure smooth deployment and provide ongoing maintenance, updates, and dedicated post-launch support.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12 text-center reveal">
+                <a href="book-demo.html" class="btn-dark-pill" style="display:inline-flex;">Start Your Project</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== BLOG ===== -->
+<section id="blog" class="blog-section">
+    <div class="container">
+        <div class="row mb-5">
+            <div class="col-lg-6 reveal">
+                <span class="sec-tag">Insights</span>
+                <h2 class="sec-heading">Latest from Ailexity</h2>
+            </div>
+            <div class="col-lg-6 d-flex align-items-end reveal reveal-d2">
+                <p class="sec-sub mb-0">Explore the emerging technology trends and ideas shaping the digital future we're building together.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4 mb-4 reveal reveal-d1">
+                <div class="blog-card">
+                    <div class="blog-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1655720828018-edd2daec9349?q=80&w=2032&auto=format&fit=crop" alt="AI Agents">
+                    </div>
+                    <div class="blog-body">
+                        <span class="blog-tag">AI &amp; Automation</span>
+                        <h6>AI Agents Revolution: The Rise of Autonomous Workflows</h6>
+                        <p>How multi-agent AI systems are transforming business operations with autonomous decision-making in 2025.</p>
+                        <a href="blogs.html" class="blog-read">Read Article <i class="ti-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4 my-3 my-md-0">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="media align-items-center mb-3">
-                                <img class="mr-3" src="assets/imgs/avatar-1.jpg" alt="">
-                                <div class="media-body">
-                                    <h6 class="mt-1 mb-0">Maria Garcia</h6>
-                                    <small class="text-muted mb-0">Insurance Agent</small>      
-                                </div>
-                            </div>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus enim modi, id dicta reiciendis itaque.</p>
-                        </div>
+            </div>
+            <div class="col-md-4 mb-4 reveal reveal-d2">
+                <div class="blog-card">
+                    <div class="blog-img-wrap">
+                        <img src="https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=2050&auto=format&fit=crop" alt="Multimodal AI">
+                    </div>
+                    <div class="blog-body">
+                        <span class="blog-tag">Technology</span>
+                        <h6>Multimodal AI: Beyond Text to Vision, Voice &amp; Video</h6>
+                        <p>Exploring the latest GPT-4o, Gemini 2.0, and Claude integrations that process multiple data types simultaneously.</p>
+                        <a href="blogs.html" class="blog-read">Read Article <i class="ti-arrow-right"></i></a>
                     </div>
                 </div>
-                <div class="col-md-4 my-3 my-md-0">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="media align-items-center mb-3">
-                                <img class="mr-3" src="assets/imgs/avatar-2.jpg" alt="">
-                                <div class="media-body">
-                                    <h6 class="mt-1 mb-0">Mason Miller</h6>
-                                    <small class="text-muted mb-0">Residential Appraiser</small>        
-                                </div>
-                            </div>
-                            <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Delectus enim modi, id dicta reiciendis itaque.</p>
-                        </div>
+            </div>
+            <div class="col-md-4 mb-4 reveal reveal-d3">
+                <div class="blog-card">
+                    <div class="blog-img-wrap">
+                        <img src="https://assets.paperjam.lu/images/articles/quantum-ai-solving-the-unsolva/0.5/0.5/640/426/672857.jpg" alt="Quantum AI">
+                    </div>
+                    <div class="blog-body">
+                        <span class="blog-tag">Future Tech</span>
+                        <h6>Quantum-AI Convergence: The Next Computing Frontier</h6>
+                        <p>How quantum computing breakthroughs are accelerating AI model training and solving previously impossible problems.</p>
+                        <a href="blogs.html" class="blog-read">Read Article <i class="ti-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
         </div>
-    </section> -->
-    <!-- End of Testmonial Section -->
 
-    <!-- Contact Section -->
+        <div class="text-center mt-4 reveal">
+            <a href="blogs.html" class="show-more-link">View All Articles</a>
+        </div>
+    </div>
+</section>
 
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="contact-section">
+    <div class="container contact-inner text-center">
+        <span class="sec-tag" style="background:rgba(255,110,66,0.12);color:var(--accent);">Contact Us</span>
+        <h2 class="sec-heading" style="color:white;">Let's Build Something Together</h2>
+        <p class="sec-sub mx-auto" style="color:rgba(255,255,255,0.5);">Have a project in mind? We'd love to hear from you.</p>
+        <button class="btn-contact-modal" onclick="openContactModal()">
+            Send Us a Message &nbsp;<i class="ti-arrow-right"></i>
+        </button>
+    </div>
 
-
-
-
-
-
-
-
-    <section id="contact" class="section has-img-bg pb-0" style="background-image: url('https://i.gifer.com/DuN8.gif'); 
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat;">
+    <!-- Footer -->
+    <footer class="site-footer">
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-5 my-3">
-                    <h6 class="mb-0">Phone</h6>
-                    <p class="mb-4">+91 9270587627 (Aalok Nikam)<br>+91 8554956773 (Aditya Suryawanshi)</p>
-
-                    <h6 class="mb-0">Address</h6>
-                    <p class="mb-4">1704 tower-21, Joyville Hadapsar Annexe Shewalewadi Pune, Maharashtra - 412307</p>
-
-                    <h6 class="mb-0">Email</h6>
-                    <p class="mb-4">ailexity.info@gmail.com</p>
-
-                    <h6 class="mb-0">Follow For Updates</h6>
-                    <p class="mb-0">
-                        <a href="https://www.linkedin.com/company/ailexity/posts/?feedView=all" target="_blank" class="text-white mr-3">
-                            <i class="ti-linkedin" style="font-size: 1.5rem;"></i> LinkedIn
-                        </a>
-                    </p>
-                    <p></p>
+            <div class="sf-grid">
+                <div>
+                    <img src="assets/imgs/ailexity logo white.png" alt="Ailexity" class="sf-logo">
+                    <p class="sf-tagline">Digital solutions that move your business forward — from websites to enterprise software.</p>
+                    <div class="sf-social">
+                        <a href="https://www.linkedin.com/company/ailexity/posts/?feedView=all" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ti-linkedin"></i></a>
+                        <a href="https://www.instagram.com/ailexity.info/" target="_blank" rel="noopener" aria-label="Instagram"><i class="ti-instagram"></i></a>
+                    </div>
                 </div>
-                <div class="col-md-7">
-                    <form action="https://api.web3forms.com/submit" method="POST">
-                        <h4 class="mb-4">Drop Us A Message</h4>
-                        <div class="form-row">
-                            <input type="hidden" name="access_key" value="261ec8bf-07dc-4292-802b-68f5535e9bf8">
-                            <div class="form-group col-sm-4">
-                                <input type="text" class="form-control text-white rounded-0 bg-transparent" name="name" placeholder="Name">
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <input type="email" class="form-control text-white rounded-0 bg-transparent" name="Email" placeholder="Email">
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <input type="text" class="form-control text-white rounded-0 bg-transparent" name="subject" placeholder="Subject">
-                            </div>
-                            <div class="form-group col-sm-4">
-                                <input type="number" maxlength="10" inputmode="numeric" class="form-control text-white rounded-0 bg-transparent" name="Phone" placeholder="Phone">
-                            </div>
-                            <div class="form-group col-12">
-                                <textarea name="message" id="" cols="30" rows="4" class="form-control text-white rounded-0 bg-transparent" placeholder="Message"></textarea>
-
-                            </div>
-                            <div class="form-group col-12 mb-0">
-                                <button type="submit" class="btn btn-primary rounded w-md mt-3">Send</button>
-                            </div>                          
-                        </div>                          
-                    </form>
+                <div>
+                    <h6 class="sf-heading">Company</h6>
+                    <ul class="sf-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blogs.html">Blog</a></li>
+                        <li><a href="book-demo.html">Book a Demo</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="sf-heading">Services</h6>
+                    <ul class="sf-links">
+                        <li><a href="website-pricing.html#software">Software Dev</a></li>
+                        <li><a href="website-pricing.html#marketing">Marketing</a></li>
+                        <li><a href="website-pricing.html">Website Building</a></li>
+                        <li><a href="website-pricing.html">Custom Software</a></li>
+                        <li><a href="website-pricing.html">SEO &amp; Performance</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h6 class="sf-heading">Contact</h6>
+                    <ul class="sf-links">
+                        <li><i class="ti-email"></i><a href="mailto:ailexity.info@gmail.com">ailexity.info@gmail.com</a></li>
+                        <li><i class="ti-mobile"></i><a href="tel:+919270587627">+91 92705 87627</a></li>
+                        <li><i class="ti-mobile"></i><a href="tel:+918554956773"> +91 85549 56773</a></li>
+                        <li><i class="ti-location-pin"></i><span>Joyville Hadapsar, Shewalewadi, Pune — 412307</span></li>
+                    </ul>
                 </div>
             </div>
-            <!-- Page Footer -->
-            <footer class="mt-5 py-4 border-top border-secondary">
-                <p class="mb-0 small">&copy; <script>document.write(new Date().getFullYear())</script>, Ailexity Created By <a href="https://www.instagram.com/ailexity.info/" target="_blank">Ailexity.</a>  All rights reserved </p>     
-            </footer>
-            <!-- End of Page Footer -->  
+            <div class="sf-bottom">
+                <p>&copy; <script>document.write(new Date().getFullYear())</script> Ailexity. All rights reserved.</p>
+                <p>Made with care by <a href="https://www.instagram.com/ailexity.info/" target="_blank">Ailexity</a></p>
+            </div>
         </div>
-    </section>
-	
-	<!-- core  -->
-    <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
-    <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+    </footer>
+</section>
 
-    <!-- bootstrap 3 affix -->
-	<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+<!-- Scripts -->
+<script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+<script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+<script src="assets/vendors/bootstrap/bootstrap.affix.js"></script>
+<script src="assets/vendors/isotope/isotope.pkgd.js"></script>
+<script src="assets/js/ailexity.js"></script>
+<script src="assets/js/ailexity-interactive.js"></script>
 
-    <!-- Isotope -->
-    <script src="assets/vendors/isotope/isotope.pkgd.js"></script>
+<script>
+(function() {
+    // Navbar scroll
+    var nav = document.getElementById('mainNav');
+    var logo = document.getElementById('navbar-logo');
 
-    <!-- Ailexity js -->
-    <script src="assets/js/ailexity.js"></script>
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 60) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
 
-    <script >
-        document.addEventListener("DOMContentLoaded", function () {
-            const navbarLogo = document.getElementById("navbar-logo");
-            const originalLogo = "assets/imgs/ailexity logo white.png";
-            const scrolledLogo = "assets/imgs/ailexity logo.png";
-    
-            window.addEventListener("scroll", function () {
-                if (window.scrollY > 50) {
-                    navbarLogo.src = scrolledLogo;
-                } else {
-                    navbarLogo.src = originalLogo;
+    // Scroll reveal via IntersectionObserver
+    var reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+        var revealObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
+                    revealObserver.unobserve(entry.target);
                 }
             });
-        });
-    </script>
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(function(el) { revealObserver.observe(el); });
+    } else {
+        reveals.forEach(function(el) { el.classList.add('in-view'); });
+    }
 
+    // Animate progress bar when in view
+    var progressFill = document.getElementById('progressFill');
+    if (progressFill && 'IntersectionObserver' in window) {
+        var progressObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (entry.isIntersecting) {
+                    progressFill.classList.add('animated');
+                    progressObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+        progressObserver.observe(progressFill);
+    }
+
+    // Animated counters
+    var counters = document.querySelectorAll('.counter');
+    var counterObserver = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+            if (entry.isIntersecting) {
+                var el = entry.target;
+                var target = parseInt(el.textContent, 10);
+                var start = 0;
+                var duration = 1800;
+                var step = Math.ceil(target / (duration / 16));
+                var timer = setInterval(function() {
+                    start += step;
+                    if (start >= target) {
+                        start = target;
+                        clearInterval(timer);
+                    }
+                    el.textContent = start;
+                }, 16);
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+    counters.forEach(function(c) {
+        c.textContent = '0';
+        counterObserver.observe(c);
+    });
+
+})();
+</script>
+
+<!-- ===== CONTACT MODAL ===== -->
+<div class="c-modal-overlay" id="contactModal" onclick="closeContactModalOnOverlay(event)">
+    <div class="c-modal-card">
+        <button class="c-modal-close" onclick="closeContactModal()" aria-label="Close">&times;</button>
+        <div id="cModalSuccess" class="c-modal-success" style="display:none;">
+            <div class="success-ring"><i class="ti-check"></i></div>
+            <h3>Message Sent!</h3>
+            <p>We'll get back to you within 24 hours.</p>
+            <button class="btn-contact-modal" onclick="closeContactModal()" style="margin-top:1.25rem;">Done</button>
+        </div>
+        <div id="cModalForm">
+            <h3 class="c-modal-title">Send Us a Message</h3>
+            <p class="c-modal-sub">We typically respond within 24 hours.</p>
+            <form id="contactModalForm">
+                <input type="hidden" name="access_key" value="261ec8bf-07dc-4292-802b-68f5535e9bf8">
+                <div class="row">
+                    <div class="col-sm-6"><input type="text" class="c-input" name="name" placeholder="Your Name" required></div>
+                    <div class="col-sm-6"><input type="email" class="c-input" name="email" placeholder="Email Address" required></div>
+                    <div class="col-sm-6"><input type="text" class="c-input" name="subject" placeholder="Subject"></div>
+                    <div class="col-sm-6"><input type="number" class="c-input" name="phone" placeholder="Phone Number"></div>
+                    <div class="col-12"><textarea name="message" class="c-input c-textarea" placeholder="Tell us about your project..."></textarea></div>
+                </div>
+                <div id="cModalErr" class="form-inline-error" style="display:none;"><i class="ti-alert"></i>&nbsp; Something went wrong — please try again.</div>
+                <button type="submit" class="btn-send" id="cModalBtn" style="width:100%;justify-content:center;margin-top:0.25rem;">
+                    Send Message <i class="ti-arrow-right"></i>
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+function openContactModal() {
+    var m = document.getElementById('contactModal');
+    if (m) { m.classList.add('open'); document.body.style.overflow = 'hidden'; }
+}
+function closeContactModal() {
+    var m = document.getElementById('contactModal');
+    if (m) { m.classList.remove('open'); document.body.style.overflow = ''; }
+}
+function closeContactModalOnOverlay(e) {
+    if (e.target.id === 'contactModal') closeContactModal();
+}
+(function() {
+    var form = document.getElementById('contactModalForm');
+    if (!form) return;
+    var btn = document.getElementById('cModalBtn');
+    var errEl = document.getElementById('cModalErr');
+    var origHTML = btn ? btn.innerHTML : '';
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (errEl) errEl.style.display = 'none';
+        if (btn) { btn.innerHTML = '<span class="btn-spinner"></span>&nbsp;Sending...'; btn.disabled = true; }
+        fetch('https://api.web3forms.com/submit', { method: 'POST', body: new FormData(form) })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            if (data.success) {
+                document.getElementById('cModalForm').style.display = 'none';
+                document.getElementById('cModalSuccess').style.display = 'flex';
+            } else { throw new Error('failed'); }
+        })
+        .catch(function() {
+            if (btn) { btn.innerHTML = origHTML; btn.disabled = false; }
+            if (errEl) errEl.style.display = 'flex';
+        });
+    });
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && document.getElementById('contactModal').classList.contains('open')) closeContactModal();
+    });
+})();
+</script>
 </body>
 </html>

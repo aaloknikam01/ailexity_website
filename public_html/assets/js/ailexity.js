@@ -18,16 +18,21 @@ $(document).ready(function(){
 
         if (this.hash !== "") {
 
-            event.preventDefault();
-
             var hash = this.hash;
+            var target = $(hash);
 
-            $('html, body').animate({
-                scrollTop: $(hash).offset().top
-            }, 700, function(){
-                window.location.hash = hash;
-            });
-        } 
+            // Only intercept when the section exists on this page.
+            // Cross-page links (e.g. index.html#service) fall through to normal navigation.
+            if (target.length) {
+                event.preventDefault();
+
+                $('html, body').animate({
+                    scrollTop: target.offset().top
+                }, 700, function(){
+                    window.location.hash = hash;
+                });
+            }
+        }
     });
 });
 

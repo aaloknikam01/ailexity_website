@@ -1,1153 +1,663 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ailexity - Website Development Excellence</title>
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Ailexity services — software development, website building, POS systems, CRM, marketing, SEO and more. Think Beyond Logic.">
+    <meta name="keywords" content="Ailexity services, software development, web development, marketing, SEO, POS, CRM, digital agency">
+    <meta name="author" content="Ailexity">
+    <title>Services — Ailexity</title>
+    <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
+    <link rel="stylesheet" href="assets/css/ailexity.css">
+    <link rel="stylesheet" href="assets/css/ailexity-theme.css">
+    <link rel="icon" type="image/png" href="assets/imgs/favicon.png">
     <style>
-        :root {
-            --color-white: rgba(255, 255, 255, 1);
-            --color-black: rgba(0, 0, 0, 1);
-            --color-cream-50: rgba(252, 252, 249, 1);
-            --color-cream-100: rgba(255, 255, 253, 1);
-            --color-gray-200: rgba(245, 245, 245, 1);
-            --color-gray-300: rgba(167, 169, 169, 1);
-            --color-gray-400: rgba(119, 124, 124, 1);
-            --color-slate-500: rgba(98, 108, 113, 1);
-            --color-brown-600: rgba(94, 82, 64, 1);
-            --color-charcoal-700: rgba(31, 33, 33, 1);
-            --color-charcoal-800: rgba(38, 40, 40, 1);
-            --color-slate-900: rgba(19, 52, 59, 1);
-            --color-teal-300: rgba(50, 184, 198, 1);
-            --color-teal-400: rgba(45, 166, 178, 1);
-            --color-teal-500: rgba(33, 128, 141, 1);
-            --color-teal-600: rgba(29, 116, 128, 1);
-            --color-teal-700: rgba(26, 104, 115, 1);
-            --color-teal-800: rgba(41, 150, 161, 1);
-            --color-red-400: rgba(255, 84, 89, 1);
-            --color-red-500: rgba(192, 21, 47, 1);
-            --color-orange-400: rgba(230, 129, 97, 1);
-            --color-orange-500: rgba(168, 75, 47, 1);
-
-            --color-background: var(--color-cream-50);
-            --color-surface: var(--color-cream-100);
-            --color-text: var(--color-slate-900);
-            --color-text-secondary: var(--color-slate-500);
-            --color-primary: var(--color-teal-500);
-            --color-primary-hover: var(--color-teal-600);
-            --color-primary-active: var(--color-teal-700);
-            --color-secondary: rgba(94, 82, 64, 0.12);
-            --color-secondary-hover: rgba(94, 82, 64, 0.2);
-            --color-secondary-active: rgba(94, 82, 64, 0.25);
-            --color-border: rgba(94, 82, 64, 0.2);
-            --color-btn-primary-text: var(--color-cream-50);
-            --color-card-border: rgba(94, 82, 64, 0.12);
-            --color-card-border-inner: rgba(94, 82, 64, 0.12);
-            --color-error: var(--color-red-500);
-            --color-success: var(--color-teal-500);
-            --color-warning: var(--color-orange-500);
-            --color-info: var(--color-slate-500);
-            --color-focus-ring: rgba(33, 128, 141, 0.4);
-
-            --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            --font-size-xs: 11px;
-            --font-size-sm: 12px;
-            --font-size-base: 14px;
-            --font-size-md: 14px;
-            --font-size-lg: 16px;
-            --font-size-xl: 18px;
-            --font-size-2xl: 20px;
-            --font-size-3xl: 24px;
-            --font-size-4xl: 30px;
-            --font-weight-normal: 400;
-            --font-weight-medium: 500;
-            --font-weight-semibold: 550;
-            --font-weight-bold: 600;
-            --line-height-tight: 1.2;
-            --line-height-normal: 1.5;
-            --letter-spacing-tight: -0.01em;
-
-            --space-0: 0;
-            --space-1: 1px;
-            --space-2: 2px;
-            --space-4: 4px;
-            --space-6: 6px;
-            --space-8: 8px;
-            --space-10: 10px;
-            --space-12: 12px;
-            --space-16: 16px;
-            --space-20: 20px;
-            --space-24: 24px;
-            --space-32: 32px;
-
-            --radius-sm: 6px;
-            --radius-base: 8px;
-            --radius-md: 10px;
-            --radius-lg: 12px;
-            --radius-full: 9999px;
-
-            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
-            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
-            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
-            --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
-
-            --duration-fast: 150ms;
-            --duration-normal: 250ms;
-            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
-
-            --container-sm: 640px;
-            --container-md: 768px;
-            --container-lg: 1024px;
-            --container-xl: 1280px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            font-family: var(--font-family-base);
-            font-size: var(--font-size-base);
-            line-height: var(--line-height-normal);
-            color: var(--color-text);
-            background-color: var(--color-background);
-        }
-
-        body {
-            font-family: var(--font-family-base);
-            line-height: var(--line-height-normal);
-            color: var(--color-text);
-            background-color: var(--color-background);
-        }
-
-        h1, h2, h3, h4, h5, h6 {
-            font-family: var(--font-family-base);
-            font-weight: var(--font-weight-semibold);
-            line-height: var(--line-height-tight);
-            letter-spacing: var(--letter-spacing-tight);
-            color: var(--color-text);
-        }
-
-        h1 { font-size: var(--font-size-4xl); }
-        h2 { font-size: var(--font-size-3xl); }
-        h3 { font-size: var(--font-size-2xl); }
-        h4 { font-size: var(--font-size-xl); }
-        h5 { font-size: var(--font-size-lg); }
-        h6 { font-size: var(--font-size-md); }
-
-        p {
-            font-size: var(--font-size-base);
-            line-height: var(--line-height-normal);
-            color: var(--color-text-secondary);
-        }
-
-        .container {
-            max-width: var(--container-xl);
-            margin: 0 auto;
-            padding: 0 var(--space-16);
-        }
-
-        /* Navbar styles */
-        .navbar {
-            transition: all 0.3s ease-in-out;
-            background-color: transparent !important;
-        }
-
-        .navbar .navbar-nav .nav-link {
-            color: #ffffff !important;
-            transition: color 0.3s ease-in-out;
-        }
-
-        .navbar .navbar-nav .nav-link:hover {
-            color: rgba(255, 255, 255, 0.8) !important;
-        }
-
-        .navbar.scrolled {
-            background-color: #ffffff !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .navbar.scrolled .navbar-nav .nav-link {
-            color: #333333 !important;
-        }
-
-        .navbar.scrolled .navbar-nav .nav-link:hover {
-            color: #007bff !important;
-        }
-
-        .navbar.scrolled .navbar-brand img {
-            filter: brightness(0) saturate(100%);
-        }
-
-        .navbar-brand img {
-            height: 40px;
-            width: auto;
-        }
-
-        .navbar-toggler {
-            border: none;
-            padding: 0.25rem 0.5rem;
-        }
-
-        .navbar-toggler:focus {
-            box-shadow: none;
-        }
-
-        .navbar-nav .nav-link {
-            font-weight: 500;
-            padding: 0.5rem 1rem !important;
-        }
-
-        .navbar-nav .btn {
-            margin-left: 1rem;
-        }
-
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: var(--space-8) var(--space-16);
-            font-size: var(--font-size-base);
-            font-weight: var(--font-weight-medium);
-            line-height: var(--line-height-normal);
-            border: 1px solid transparent;
-            border-radius: var(--radius-base);
-            cursor: pointer;
-            transition: all var(--duration-normal) var(--ease-standard);
-            text-decoration: none;
-            background-color: var(--color-primary);
-            color: var(--color-btn-primary-text);
-        }
-
-        .btn:hover {
-            background-color: var(--color-primary-hover);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-contact {
-            background-color: var(--color-primary);
-            color: var(--color-btn-primary-text);
-        }
-
-        .btn-contact-large {
-            padding: var(--space-12) var(--space-24);
-            font-size: var(--font-size-lg);
-            font-weight: var(--font-weight-semibold);
-        }
-
-        .hero {
-            background-image: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            padding: 120px 0 80px;
-            position: relative;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(19, 52, 59, 0.7);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            color: var(--color-white);
-        }
-
-        .hero-title {
-            font-size: var(--font-size-4xl);
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--space-8);
-            color: var(--color-white);
-        }
-
-        .hero-tagline {
-            font-size: var(--font-size-xl);
-            font-weight: var(--font-weight-medium);
-            margin-bottom: var(--space-16);
-            color: var(--color-teal-300);
-        }
-
-        .hero-description {
-            font-size: var(--font-size-lg);
-            max-width: 600px;
-            margin: 0 auto;
-            color: var(--color-gray-200);
-        }
-
-        .services {
-            padding: var(--space-32) 0;
-            background-color: var(--color-surface);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: var(--space-24);
-            margin-top: var(--space-32);
-        }
-
-        .service-card {
-            background-color: var(--color-white);
-            border: 1px solid var(--color-card-border);
-            border-radius: var(--radius-lg);
-            padding: var(--space-24);
-            position: relative;
-            transition: all var(--duration-normal) var(--ease-standard);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--color-primary);
-        }
-
-        .service-number {
-            position: absolute;
-            top: var(--space-16);
-            right: var(--space-16);
-            width: 40px;
-            height: 40px;
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            border-radius: var(--radius-full);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--font-size-sm);
-            font-weight: var(--font-weight-bold);
-        }
-
-        .service-title {
-            font-size: var(--font-size-xl);
-            font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--space-8);
-            color: var(--color-text);
-        }
-
-        .service-description {
-            font-size: var(--font-size-base);
-            line-height: var(--line-height-normal);
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-16);
-        }
-
-        .service-price {
-            font-size: var(--font-size-lg);
-            font-weight: var(--font-weight-bold);
-            color: var(--color-primary);
-            margin-bottom: var(--space-16);
-        }
-
-        .service-features {
-            list-style: none;
-            margin-bottom: var(--space-20);
-        }
-
-        .service-features li {
-            padding: var(--space-4) 0;
-            font-size: var(--font-size-sm);
-            color: var(--color-text-secondary);
-            position: relative;
-            padding-left: var(--space-20);
-        }
-
-        .service-features li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--color-success);
-            font-weight: var(--font-weight-bold);
-        }
-
-        .about {
-            padding: var(--space-32) 0;
-            background-color: var(--color-background);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: var(--space-32);
-            align-items: center;
-        }
-
-        .about-title {
-            font-size: var(--font-size-3xl);
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--space-8);
-            color: var(--color-text);
-        }
-
-        .about-subtitle {
-            font-size: var(--font-size-xl);
-            font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--space-16);
-            color: var(--color-primary);
-        }
-
-        .about-description {
-            font-size: var(--font-size-base);
-            line-height: var(--line-height-normal);
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-20);
-        }
-
-        .about-points {
-            list-style: none;
-        }
-
-        .about-points li {
-            padding: var(--space-4) 0;
-            font-size: var(--font-size-base);
-            color: var(--color-text-secondary);
-            position: relative;
-            padding-left: var(--space-20);
-        }
-
-        .about-points li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--color-primary);
-            font-weight: var(--font-weight-bold);
-            font-size: var(--font-size-lg);
-        }
-
-        .about-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .placeholder-image {
-            width: 100%;
-            height: 300px;
-            background-color: var(--color-secondary);
-            border-radius: var(--radius-lg);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px dashed var(--color-border);
-        }
-
-        .placeholder-text {
-            font-size: var(--font-size-lg);
-            color: var(--color-text-secondary);
-            font-weight: var(--font-weight-medium);
-        }
-
-        .industries {
-            padding: var(--space-32) 0;
-            background-color: var(--color-surface);
-        }
-
-        .section-title {
-            font-size: var(--font-size-3xl);
-            font-weight: var(--font-weight-bold);
-            text-align: center;
-            margin-bottom: var(--space-32);
-            color: var(--color-text);
-        }
-
-        .industries-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: var(--space-16);
-        }
-
-        .industry-item {
-            background-color: var(--color-white);
-            border: 1px solid var(--color-card-border);
-            border-radius: var(--radius-base);
-            padding: var(--space-20);
-            text-align: center;
-            transition: all var(--duration-normal) var(--ease-standard);
-            box-shadow: var(--shadow-sm);
-        }
-
-        .industry-item:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-            border-color: var(--color-primary);
-        }
-
-        .industry-item h4 {
-            font-size: var(--font-size-lg);
-            font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--space-8);
-            color: var(--color-text);
-        }
-
-        .industry-price {
-            font-size: var(--font-size-base);
-            font-weight: var(--font-weight-bold);
-            color: var(--color-primary);
-        }
-
-        .process {
-            padding: var(--space-32) 0;
-            background-color: var(--color-background);
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: var(--space-24);
-            margin-top: var(--space-32);
-        }
-
-        .process-step {
-            text-align: center;
-        }
-
-        .step-number {
-            width: 60px;
-            height: 60px;
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            border-radius: var(--radius-full);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: var(--font-size-lg);
-            font-weight: var(--font-weight-bold);
-            margin: 0 auto var(--space-16);
-        }
-
-        .step-title {
-            font-size: var(--font-size-lg);
-            font-weight: var(--font-weight-semibold);
-            margin-bottom: var(--space-8);
-            color: var(--color-text);
-        }
-
-        .step-description {
-            font-size: var(--font-size-base);
-            color: var(--color-text-secondary);
-            line-height: var(--line-height-normal);
-        }
-
-        .contact {
-            padding: var(--space-32) 0;
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            text-align: center;
-        }
-
-        .contact-content h2 {
-            font-size: var(--font-size-3xl);
-            font-weight: var(--font-weight-bold);
-            margin-bottom: var(--space-16);
-            color: var(--color-white);
-        }
-
-        .contact-content p {
-            font-size: var(--font-size-lg);
-            margin-bottom: var(--space-24);
-            color: var(--color-gray-200);
-        }
-
-        .contact .btn {
-            background-color: var(--color-white);
-            color: var(--color-primary);
-            font-weight: var(--font-weight-semibold);
-        }
-
-        .contact .btn:hover {
-            background-color: var(--color-gray-200);
-            transform: translateY(-2px);
-        }
-
-        @media (max-width: 768px) {
-            .hero-title { font-size: var(--font-size-3xl); }
-            .hero-tagline { font-size: var(--font-size-lg); }
-            .services-grid { grid-template-columns: 1fr; }
-            .about-content { grid-template-columns: 1fr; }
-            .about-title { font-size: var(--font-size-2xl); }
-            .about-subtitle { font-size: var(--font-size-lg); }
-            .section-title { font-size: var(--font-size-2xl); }
-            .industries-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
-            .process-steps { grid-template-columns: 1fr; }
-            .placeholder-image { height: 200px; }
-            .container { padding: 0 var(--space-8); }
-        }
-
-        @media (max-width: 480px) {
-            .hero { padding: 100px 0 60px; }
-            .services, .about, .industries, .process, .contact { padding: var(--space-16) 0; }
-            .service-card { padding: var(--space-16); }
-            .hero-title { font-size: var(--font-size-2xl); }
-        }
+/* ===== SERVICE TILES ===== */
+.svc-section {
+    padding: 5.5rem 0;
+}
+.svc-section.alt { background: var(--off-white); }
+
+.svc-anchor-nav {
+    position: sticky;
+    top: 54px;
+    z-index: 900;
+    background: rgba(255,255,255,0.92);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+}
+.svc-anchor-nav .container {
+    display: flex;
+    gap: 0;
+}
+.svc-anchor-tab {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.85rem 1.5rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: var(--transition);
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+}
+.svc-anchor-tab i { font-size: 0.85rem; }
+.svc-anchor-tab:hover,
+.svc-anchor-tab.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+    text-decoration: none;
+}
+
+.svc-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+@media (max-width: 991px) { .svc-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 575px)  { .svc-grid { grid-template-columns: 1fr; } }
+
+.svc-tile {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: var(--transition);
+}
+.svc-tile::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s var(--ease);
+}
+.svc-tile:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
+}
+.svc-tile:hover::before { transform: scaleX(1); }
+
+.svc-tile-num {
+    position: absolute;
+    top: 1.25rem; right: 1.25rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+}
+.svc-tile-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    background: var(--accent-light);
+    color: var(--accent);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+    margin-bottom: 1.25rem;
+    transition: var(--transition);
+}
+.svc-tile-icon.indigo { background: rgba(99,102,241,0.1); color: #6366f1; }
+.svc-tile:hover .svc-tile-icon { background: var(--accent); color: #fff; transform: rotate(5deg) scale(1.05); }
+.svc-tile:hover .svc-tile-icon.indigo { background: #6366f1; }
+
+.svc-tile-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 0.55rem;
+    letter-spacing: -0.01em;
+}
+.svc-tile-desc {
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.75;
+    margin-bottom: 1.1rem;
+}
+.svc-tile-list {
+    list-style: none;
+    padding: 0; margin: 0;
+}
+.svc-tile-list li {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    padding: 4px 0 4px 15px;
+    position: relative;
+}
+.svc-tile-list li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+}
+
+/* ===== CTA STRIP ===== */
+.svc-cta-strip {
+    background: var(--dark);
+    color: #fff;
+    padding: 4.5rem 0;
+    text-align: center;
+}
+.svc-cta-strip h2 {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    margin-bottom: 0.75rem;
+    color: #fff;
+}
+.svc-cta-strip p {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.65);
+    margin-bottom: 2rem;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* footer styles provided by ailexity-theme.css (.site-footer) */
+
+/* ===== REVEAL ===== */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s var(--ease), transform 0.55s var(--ease); }
+.reveal.in-view { opacity: 1; transform: none; }
+.reveal-d1 { transition-delay: 0.08s; }
+.reveal-d2 { transition-delay: 0.16s; }
+.reveal-d3 { transition-delay: 0.24s; }
+.reveal-d4 { transition-delay: 0.32s; }
+.reveal-d5 { transition-delay: 0.40s; }
+.reveal-d6 { transition-delay: 0.48s; }
+
+@media (max-width: 767px) {
+    .svc-anchor-nav .container {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .svc-anchor-nav .container::-webkit-scrollbar { display: none; }
+    .svc-anchor-tab {
+        flex: 1;
+        justify-content: center;
+        font-size: 0.78rem;
+        padding: 0.65rem 1rem;
+    }
+    .svc-tile { padding: 1.5rem; }
+    .svc-section { padding: 4rem 0; }
+    .svc-tile-title { font-size: 1rem; }
+}
+@media (max-width: 575px) {
+    .svc-anchor-tab { font-size: 0.74rem; padding: 0.6rem 0.85rem; }
+    .svc-tile { padding: 1.25rem; }
+    .svc-tile-icon { width: 38px; height: 38px; font-size: 0.9rem; }
+    .svc-section { padding: 2.5rem 0; }
+    .svc-cta-strip { padding: 2.5rem 0; }
+    .svc-cta-strip p { font-size: 0.9rem; }
+    .svc-tile-title { font-size: 0.95rem; }
+    .svc-tile-desc { font-size: 0.82rem; }
+}
     </style>
 </head>
 <body>
-    <!-- page Navigation -->
-    <nav class="navbar custom-navbar navbar-expand-md navbar-light fixed-top" data-spy="affix" data-offset-top="10">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <img id="navbar-logo" src="assets/imgs/ailexity logo white.png" alt="">
-            </a>
-            <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+
+<!-- ===== MOBILE NAV OVERLAY ===== -->
+<div id="mobileNavOverlay" class="mob-nav-overlay" aria-hidden="true">
+    <div class="mob-nav-inner">
+        <div class="mob-nav-header">
+            <a href="index.html"><img src="assets/imgs/ailexity logo.png" alt="Ailexity" class="mob-nav-logo"></a>
+            <button class="mob-nav-close" id="mobileNavClose" aria-label="Close menu">
+                <span class="mob-nav-close-bar"></span>
+                <span class="mob-nav-close-bar"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">                     
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Our Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#industries">Industries</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#process">Process</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="ml-4 nav-link btn btn-primary btn-sm rounded" href="index.html#contact">Contact</a>
-                    </li>
+        </div>
+        <nav class="mob-nav-links">
+            <a href="website-pricing.html" class="mob-nav-link">Services</a>
+            <a href="index.html#products" class="mob-nav-link">Products</a>
+            <a href="about.html" class="mob-nav-link">About</a>
+            <a href="blogs.html" class="mob-nav-link">Blog</a>
+        </nav>
+        <div class="mob-nav-brand-footer">
+            <span class="mob-nav-brand-word">Ailexity</span>
+        </div>
+    </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar custom-navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="index.html">
+            <img id="navbar-logo" src="assets/imgs/ailexity logo.png" alt="Ailexity">
+        </a>
+        <button class="navbar-toggler ml-auto" type="button" id="mobileNavToggler" aria-label="Open navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav nav-primary ml-auto">
+                <li class="nav-item nav-dropdown active">
+                    <a class="nav-link nav-dropdown-toggle" href="website-pricing.html">Services <i class="ti-angle-down ddi"></i></a>
+                    <div class="nav-dropdown-menu nav-mega-menu">
+                        <div class="nav-mega-col">
+                            <div class="nav-mega-heading"><i class="ti-settings"></i> Software</div>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-layout"></i></span><span class="nav-dd-title-sm">Website Building</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-shopping-cart"></i></span><span class="nav-dd-title-sm">POS &amp; Inventory</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-user"></i></span><span class="nav-dd-title-sm">Custom CRM</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-mobile"></i></span><span class="nav-dd-title-sm">Mobile &amp; Web Apps</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-server"></i></span><span class="nav-dd-title-sm">ERP &amp; Enterprise</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-layers"></i></span><span class="nav-dd-title-sm">Custom Software</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-cloud"></i></span><span class="nav-dd-title-sm">Cloud Services</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-shield"></i></span><span class="nav-dd-title-sm">Security</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-headphone-alt"></i></span><span class="nav-dd-title-sm">Support &amp; Maintenance</span></a>
+                            <a href="website-pricing.html#software" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm"><i class="ti-stats-up"></i></span><span class="nav-dd-title-sm">Technical SEO</span></a>
+                        </div>
+                        <div class="nav-mega-col">
+                            <div class="nav-mega-heading"><i class="ti-pencil-alt"></i> Marketing</div>
+                            <a href="website-pricing.html#marketing" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm indigo"><i class="ti-bolt"></i></span><span class="nav-dd-title-sm">Digital Advertising</span></a>
+                            <a href="website-pricing.html#marketing" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm indigo"><i class="ti-comments"></i></span><span class="nav-dd-title-sm">Social Media Marketing</span></a>
+                            <a href="website-pricing.html#marketing" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm indigo"><i class="ti-search"></i></span><span class="nav-dd-title-sm">SEO &amp; Search</span></a>
+                            <a href="website-pricing.html#marketing" class="nav-dd-item nav-dd-sm"><span class="nav-dd-icon-sm indigo"><i class="ti-palette"></i></span><span class="nav-dd-title-sm">Content &amp; Brand</span></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item nav-dropdown">
+                    <a class="nav-link nav-dropdown-toggle" href="index.html#products">Products <i class="ti-angle-down ddi"></i></a>
+                    <div class="nav-dropdown-menu">
+                        <a href="https://ailexity.in/" class="nav-dd-item">
+                            <span class="nav-dd-icon"><i class="ti-shopping-cart"></i></span>
+                            <span><span class="nav-dd-title">Ailexity POS</span><span class="nav-dd-desc">Billing &amp; inventory system - live</span></span>
+                        </a>
+                        <a href="https://www.ailexitytedo.com" target="_blank" class="nav-dd-item">
+                            <span class="nav-dd-icon indigo"><i class="ti-share"></i></span>
+                            <span><span class="nav-dd-title">Ailexity Tedo</span><span class="nav-dd-desc">Developer networking platform</span></span>
+                        </a>
+                    </div>
+                </li>
+                <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                <li class="nav-item"><a class="nav-link" href="blogs.html">Blog</a></li>
+            </ul>
+            <ul class="navbar-nav nav-utility">
+                <li class="nav-item"><button class="nav-icon-btn" id="navSearchBtn" type="button" aria-label="Search"><i class="ti-search"></i></button></li>
+                <li class="nav-item"><a class="nav-icon-btn" href="index.html#contact" aria-label="Contact us"><i class="ti-comment-alt"></i></a></li>
+                <li class="nav-item"><a class="nav-icon-btn" href="https://www.linkedin.com/company/ailexity/posts/?feedView=all" target="_blank" aria-label="LinkedIn"><i class="ti-linkedin"></i></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== SEARCH OVERLAY ===== -->
+<div class="nav-search-overlay" id="navSearchOverlay" aria-hidden="true">
+    <div class="nav-search-inner">
+        <div class="nav-search-field">
+            <i class="ti-search"></i>
+            <input type="text" id="navSearchInput" placeholder="Search Ailexity — products, services, pages..." autocomplete="off">
+            <button class="nav-search-close" id="navSearchClose" type="button" aria-label="Close search"><i class="ti-close"></i></button>
+        </div>
+        <div class="nav-search-results">
+            <div class="nav-search-hint">Quick links</div>
+            <a class="nav-search-link" href="https://ailexity.in/"><i class="ti-shopping-cart"></i> Ailexity POS - Billing &amp; Inventory System</a>
+            <a class="nav-search-link" href="https://www.ailexitytedo.com" target="_blank"><i class="ti-share"></i> Ailexity Tedo - Developer Networking Platform</a>
+            <a class="nav-search-link" href="website-pricing.html#software"><i class="ti-settings"></i> Software Development Services</a>
+            <a class="nav-search-link" href="website-pricing.html#marketing"><i class="ti-pencil-alt"></i> Marketing Services</a>
+            <a class="nav-search-link" href="about.html"><i class="ti-user"></i> About Ailexity</a>
+            <a class="nav-search-link" href="blogs.html"><i class="ti-pencil-alt"></i> Insights &amp; Blog</a>
+            <a class="nav-search-link" href="book-demo.html"><i class="ti-calendar"></i> Book a Demo</a>
+            <a class="nav-search-link" href="index.html#contact"><i class="ti-email"></i> Contact Us</a>
+            <div class="nav-search-empty" style="display:none;">No matches — try a different term.</div>
+        </div>
+    </div>
+</div>
+
+<!-- ===== PAGE HERO ===== -->
+<section class="page-hero">
+    <div class="page-hero-bg">
+        <div class="dots-grid"></div>
+        <div class="ph-orb ph-orb-1"></div>
+        <div class="ph-orb ph-orb-2"></div>
+    </div>
+    <div class="container page-hero-content">
+        <div class="page-hero-breadcrumb">
+            <a href="index.html">Home</a>
+            <span class="sep">/</span>
+            <span>Services</span>
+        </div>
+        <span class="page-hero-tag">What We Offer</span>
+        <h1 class="page-hero-title">Software & Marketing<br>Built for Growth</h1>
+        <p class="page-hero-sub">From custom web apps and enterprise systems to performance marketing — Ailexity builds the digital backbone your business needs to scale.</p>
+    </div>
+</section>
+
+<!-- ===== STICKY ANCHOR NAV ===== -->
+<nav class="svc-anchor-nav">
+    <div class="container">
+        <a href="#software" class="svc-anchor-tab active" data-tab="software"><i class="ti-settings"></i> Software Development</a>
+        <a href="#marketing" class="svc-anchor-tab" data-tab="marketing"><i class="ti-pencil-alt"></i> Marketing</a>
+    </div>
+</nav>
+
+<!-- ===== SOFTWARE DEVELOPMENT ===== -->
+<section id="software" class="svc-section">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-lg-6 reveal">
+                <span class="sec-tag">Software Development</span>
+                <h2 class="sec-heading">Build. Ship. Scale.</h2>
+            </div>
+            <div class="col-lg-6 d-flex align-items-end reveal reveal-d1">
+                <p class="sec-sub mb-0">We engineer software that actually gets used — clean code, practical UX, and architecture designed to grow with your business.</p>
+            </div>
+        </div>
+
+        <div class="svc-grid">
+            <div class="svc-tile reveal reveal-d1">
+                <span class="svc-tile-num">01</span>
+                <div class="svc-tile-icon"><i class="ti-layout"></i></div>
+                <h3 class="svc-tile-title">Website Building</h3>
+                <p class="svc-tile-desc">Static, dynamic, and e-commerce websites built for performance, SEO, and conversion — from simple landing pages to full business portals.</p>
+                <ul class="svc-tile-list">
+                    <li>Static &amp; brochure sites</li>
+                    <li>Dynamic sites with CMS</li>
+                    <li>E-commerce &amp; online stores</li>
+                    <li>WordPress development</li>
+                </ul>
+            </div>
+
+            <div class="svc-tile reveal reveal-d2">
+                <span class="svc-tile-num">02</span>
+                <div class="svc-tile-icon"><i class="ti-shopping-cart"></i></div>
+                <h3 class="svc-tile-title">POS &amp; Inventory Systems</h3>
+                <p class="svc-tile-desc">Custom point-of-sale and inventory management platforms for restaurants, retail stores, cloud kitchens, and service businesses.</p>
+                <ul class="svc-tile-list">
+                    <li>Billing &amp; order management</li>
+                    <li>Real-time stock tracking</li>
+                    <li>GST-ready invoicing</li>
+                    <li>WhatsApp &amp; analytics</li>
+                </ul>
+            </div>
+
+            <div class="svc-tile reveal reveal-d3">
+                <span class="svc-tile-num">03</span>
+                <div class="svc-tile-icon"><i class="ti-user"></i></div>
+                <h3 class="svc-tile-title">Custom CRM Development</h3>
+                <p class="svc-tile-desc">CRM platforms tailored to your sales process, support workflows, and customer lifecycle — not a generic off-the-shelf solution.</p>
+                <ul class="svc-tile-list">
+                    <li>Lead &amp; pipeline management</li>
+                    <li>Customer support ticketing</li>
+                    <li>Sales reporting &amp; insights</li>
+                    <li>Marketing automation hooks</li>
+                </ul>
+            </div>
+
+            <div class="svc-tile reveal reveal-d4">
+                <span class="svc-tile-num">04</span>
+                <div class="svc-tile-icon"><i class="ti-mobile"></i></div>
+                <h3 class="svc-tile-title">Mobile &amp; Web Applications</h3>
+                <p class="svc-tile-desc">Cross-platform mobile and web apps with scalable backends, real-time features, and seamless API integrations.</p>
+                <ul class="svc-tile-list">
+                    <li>iOS &amp; Android apps</li>
+                    <li>Progressive web apps (PWA)</li>
+                    <li>REST &amp; GraphQL APIs</li>
+                    <li>Third-party integrations</li>
+                </ul>
+            </div>
+
+            <div class="svc-tile reveal reveal-d5">
+                <span class="svc-tile-num">05</span>
+                <div class="svc-tile-icon"><i class="ti-server"></i></div>
+                <h3 class="svc-tile-title">ERP &amp; Enterprise Software</h3>
+                <p class="svc-tile-desc">End-to-end enterprise resource planning to unify finance, HR, supply chain, and operations into one coherent system.</p>
+                <ul class="svc-tile-list">
+                    <li>Finance &amp; payroll modules</li>
+                    <li>HR &amp; attendance tracking</li>
+                    <li>Supply chain &amp; procurement</li>
+                    <li>Business intelligence dashboards</li>
+                </ul>
+            </div>
+
+
+
+            <div class="svc-tile reveal reveal-d1">
+                <span class="svc-tile-num">06</span>
+                <div class="svc-tile-icon"><i class="ti-cloud"></i></div>
+                <h3 class="svc-tile-title">Cloud Services</h3>
+                <p class="svc-tile-desc">Cloud infrastructure setup, migration, and management — reliable, scalable hosting built on AWS, Google Cloud, or Azure.</p>
+                <ul class="svc-tile-list">
+                    <li>Cloud migration &amp; setup</li>
+                    <li>Server &amp; hosting management</li>
+                    <li>Auto-scaling &amp; load balancing</li>
+                    <li>CI/CD pipeline deployment</li>
+                </ul>
+            </div>
+
+            <div class="svc-tile reveal reveal-d2">
+                <span class="svc-tile-num">07</span>
+                <div class="svc-tile-icon"><i class="ti-shield"></i></div>
+                <h3 class="svc-tile-title">Security</h3>
+                <p class="svc-tile-desc">End-to-end security hardening for your applications and infrastructure — from SSL and data encryption to vulnerability audits and compliance.</p>
+                <ul class="svc-tile-list">
+                    <li>SSL &amp; HTTPS setup</li>
+                    <li>Security audits &amp; pen testing</li>
+                    <li>Data encryption &amp; GDPR</li>
+                    <li>Firewall &amp; DDoS protection</li>
+                </ul>
+            </div>
+
+            <div class="svc-tile reveal reveal-d3">
+                <span class="svc-tile-num">08</span>
+                <div class="svc-tile-icon"><i class="ti-headphone-alt"></i></div>
+                <h3 class="svc-tile-title">Support &amp; Maintenance</h3>
+                <p class="svc-tile-desc">Ongoing technical support, bug fixes, performance monitoring, and feature updates so your software stays healthy and up to date.</p>
+                <ul class="svc-tile-list">
+                    <li>Bug fixes &amp; patch management</li>
+                    <li>Uptime &amp; performance monitoring</li>
+                    <li>Regular backups &amp; recovery</li>
+                    <li>Feature updates &amp; iterations</li>
+                </ul>
+            </div>
+
+            <div class="svc-tile reveal reveal-d4">
+                <span class="svc-tile-num">09</span>
+                <div class="svc-tile-icon"><i class="ti-stats-up"></i></div>
+                <h3 class="svc-tile-title">Technical SEO &amp; Performance</h3>
+                <p class="svc-tile-desc">Site speed optimisation, Core Web Vitals, structured data, and technical SEO fixes that directly impact ranking and user experience.</p>
+                <ul class="svc-tile-list">
+                    <li>Core Web Vitals optimisation</li>
+                    <li>Schema &amp; structured data</li>
+                    <li>Page speed &amp; caching</li>
+                    <li>Crawlability &amp; indexing fixes</li>
+                </ul>
+            </div>
+
+            <div class="svc-tile reveal reveal-d6">
+                <span class="svc-tile-num">10</span>
+                <div class="svc-tile-icon"><i class="ti-layers"></i></div>
+                <h3 class="svc-tile-title">Custom Software</h3>
+                <p class="svc-tile-desc">Tailor-made software built from scratch to solve your specific operational challenges — with workflow automation and legacy system integration.</p>
+                <ul class="svc-tile-list">
+                    <li>Bespoke feature development</li>
+                    <li>Legacy system migration</li>
+                    <li>Workflow &amp; process automation</li>
+                    <li>LMS &amp; booking platforms</li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+
+<!-- ===== MARKETING ===== -->
+<section id="marketing" class="svc-section alt">
+    <div class="container">
+        <div class="row mb-2">
+            <div class="col-lg-6 reveal">
+                <span class="sec-tag">Marketing</span>
+                <h2 class="sec-heading">Reach. Convert. Retain.</h2>
+            </div>
+            <div class="col-lg-6 d-flex align-items-end reveal reveal-d1">
+                <p class="sec-sub mb-0">We run performance-driven marketing that ties directly to business outcomes — not just impressions. Strategy, execution, and results in one team.</p>
+            </div>
+        </div>
+
+        <div class="svc-grid">
+            <div class="svc-tile reveal reveal-d1">
+                <span class="svc-tile-num">01</span>
+                <div class="svc-tile-icon indigo"><i class="ti-bolt"></i></div>
+                <h3 class="svc-tile-title">Digital Advertising &amp; PPC</h3>
+                <p class="svc-tile-desc">Google, Meta, and programmatic ad campaigns engineered for maximum ROI — from audience targeting to creative and bid strategy.</p>
+                <ul class="svc-tile-list">
+                    <li>Google Search &amp; Display Ads</li>
+                    <li>Meta (Facebook &amp; Instagram) Ads</li>
+                    <li>Retargeting campaigns</li>
+                    <li>A/B testing &amp; optimisation</li>
+                </ul>
+            </div>
+
+            <div class="svc-tile reveal reveal-d2">
+                <span class="svc-tile-num">02</span>
+                <div class="svc-tile-icon indigo"><i class="ti-comments"></i></div>
+                <h3 class="svc-tile-title">Social Media Marketing</h3>
+                <p class="svc-tile-desc">Content strategy, community management, and growth across LinkedIn, Instagram, Facebook, and YouTube tailored to your brand voice.</p>
+                <ul class="svc-tile-list">
+                    <li>Content calendar &amp; creation</li>
+                    <li>Community engagement</li>
+                    <li>Influencer collaboration</li>
+                    <li>Analytics &amp; reporting</li>
+                </ul>
+            </div>
+
+            <div class="svc-tile reveal reveal-d3">
+                <span class="svc-tile-num">03</span>
+                <div class="svc-tile-icon indigo"><i class="ti-search"></i></div>
+                <h3 class="svc-tile-title">SEO &amp; Search Optimisation</h3>
+                <p class="svc-tile-desc">Technical and on-page SEO to help you rank higher, capture organic traffic, and build lasting authority in your market.</p>
+                <ul class="svc-tile-list">
+                    <li>Technical SEO audit &amp; fixes</li>
+                    <li>On-page keyword optimisation</li>
+                    <li>Link building &amp; authority</li>
+                    <li>Local SEO &amp; Google Business</li>
+                </ul>
+            </div>
+
+            <div class="svc-tile reveal reveal-d4">
+                <span class="svc-tile-num">04</span>
+                <div class="svc-tile-icon indigo"><i class="ti-palette"></i></div>
+                <h3 class="svc-tile-title">Content &amp; Brand Strategy</h3>
+                <p class="svc-tile-desc">Brand identity, messaging frameworks, and content that builds long-term trust and differentiates you in a crowded market.</p>
+                <ul class="svc-tile-list">
+                    <li>Brand identity &amp; guidelines</li>
+                    <li>Messaging &amp; positioning</li>
+                    <li>Blog, video &amp; email content</li>
+                    <li>Campaign strategy</li>
                 </ul>
             </div>
         </div>
-    </nav>
+    </div>
+</section>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">Our Services</h1>
-                <p class="hero-tagline">Website & Software Development Excellence</p>
-                <p class="hero-description">Custom websites and business software solutions built for performance, efficiency, and seamless user experience using modern technologies</p>
+<!-- ===== CTA ===== -->
+<section class="svc-cta-strip">
+    <div class="container">
+        <h2>Ready to Get Started?</h2>
+        <p>Tell us what you need — we'll scope it out and come back with a clear plan, no fluff.</p>
+        <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+            <a href="book-demo.html" class="btn-dark-pill" style="background:#ff6e42;border-color:#ff6e42;">Book a Strategy Call <i class="ti-calendar"></i></a>
+            <a href="index.html#contact" class="btn-ghost-pill" style="border-color:rgba(255,255,255,0.3);color:#fff;">Contact Us <i class="ti-arrow-right"></i></a>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="sf-grid">
+            <div>
+                <img src="assets/imgs/ailexity logo white.png" alt="Ailexity" class="sf-logo">
+                <p class="sf-tagline">Digital solutions that move your business forward — from websites to enterprise software.</p>
+                <div class="sf-social">
+                    <a href="https://www.linkedin.com/company/ailexity/posts/?feedView=all" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ti-linkedin"></i></a>
+                    <a href="https://www.instagram.com/ailexity.info/" target="_blank" rel="noopener" aria-label="Instagram"><i class="ti-instagram"></i></a>
+                </div>
+            </div>
+            <div>
+                <h6 class="sf-heading">Company</h6>
+                <ul class="sf-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blogs.html">Blog</a></li>
+                    <li><a href="book-demo.html">Book a Demo</a></li>
+                </ul>
+            </div>
+            <div>
+                <h6 class="sf-heading">Services</h6>
+                <ul class="sf-links">
+                    <li><a href="website-pricing.html#software">Software Dev</a></li>
+                    <li><a href="website-pricing.html#marketing">Marketing</a></li>
+                    <li><a href="website-pricing.html">Website Building</a></li>
+                    <li><a href="website-pricing.html">Custom Software</a></li>
+                    <li><a href="website-pricing.html">SEO &amp; Performance</a></li>
+                </ul>
+            </div>
+            <div>
+                <h6 class="sf-heading">Contact</h6>
+                <ul class="sf-links">
+                    <li><i class="ti-email"></i><a href="mailto:ailexity.info@gmail.com">ailexity.info@gmail.com</a></li>
+                    <li><i class="ti-mobile"></i><a href="tel:+919270587627">+91 92705 87627</a></li>
+                    <li><i class="ti-mobile"></i><a href="tel:+918554956773"> +91 85549 56773</a></li>
+                    <li><i class="ti-location-pin"></i><span>Joyville Hadapsar, Shewalewadi, Pune — 412307</span></li>
+                </ul>
             </div>
         </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services">
-        <div class="container">
-            <h2 class="section-title mb-4">Website Development</h2>
-            <div class="services-grid">
-                <div class="service-card" data-number="01">
-                    <div class="service-number">01</div>
-                    <h3 class="service-title">Static Websites</h3>
-                    <p class="service-description">Professional static websites with clean design, perfect for businesses needing essential online presence with fast loading speeds.</p>
-                    <div class="service-price">Contact for pricing</div>
-                    <ul class="service-features">
-                        <li>Responsive Design</li>
-                        <li>Fast Loading</li>
-                        <li>SEO Optimized</li>
-                        <li>Mobile Friendly</li>
-                    </ul>
-                </div>
-
-                <div class="service-card" data-number="02">
-                    <div class="service-number">02</div>
-                    <h3 class="service-title">Dynamic Websites</h3>
-                    <p class="service-description">Interactive websites with content management systems, admin panels, and database functionality for growing businesses.</p>
-                    <div class="service-price">Contact for pricing</div>
-                    <ul class="service-features">
-                        <li>CMS Integration</li>
-                        <li>Admin Panel</li>
-                        <li>User Management</li>
-                        <li>Database Driven</li>
-                    </ul>
-                </div>
-
-                <div class="service-card" data-number="03">
-                    <div class="service-number">03</div>
-                    <h3 class="service-title">E-commerce Solutions</h3>
-                    <p class="service-description">Complete online stores with shopping carts, payment gateways, inventory management, and order processing systems.</p>
-                    <div class="service-price">Contact for pricing</div>
-                    <ul class="service-features">
-                        <li>Payment Gateway</li>
-                        <li>Inventory System</li>
-                        <li>Order Management</li>
-                        <li>Product Catalog</li>
-                    </ul>
-                </div>
-
-                <div class="service-card" data-number="04">
-                    <div class="service-number">04</div>
-                    <h3 class="service-title">WordPress Development</h3>
-                    <p class="service-description">Custom WordPress websites with premium themes, plugins, WooCommerce integration, and comprehensive content management.</p>
-                    <div class="service-price">Contact for pricing</div>
-                    <ul class="service-features">
-                        <li>Custom Themes</li>
-                        <li>Plugin Integration</li>
-                        <li>WooCommerce</li>
-                        <li>Content Management</li>
-                    </ul>
-                </div>
-
-                <div class="service-card" data-number="05">
-                    <div class="service-number">05</div>
-                    <h3 class="service-title">Custom Applications</h3>
-                    <p class="service-description">Fully customized web solutions built from scratch with unique requirements, advanced functionality, and scalable architecture.</p>
-                    <div class="service-price">Contact for pricing</div>
-                    <ul class="service-features">
-                        <li>Custom Development</li>
-                        <li>API Integration</li>
-                        <li>Scalable Architecture</li>
-                        <li>Advanced Features</li>
-                    </ul>
-                </div>
-
-                <div class="service-card" data-number="06">
-                    <div class="service-number">06</div>
-                    <h3 class="service-title">Digital Solutions</h3>
-                    <p class="service-description">Comprehensive digital services including domain registration, hosting, SSL certificates, maintenance, and ongoing support.</p>
-                    <div class="service-price">Contact for pricing</div>
-                    <ul class="service-features">
-                        <li>Domain & Hosting</li>
-                        <li>SSL Security</li>
-                        <li>Maintenance</li>
-                        <li>24/7 Support</li>
-                    </ul>
-                </div>
-            </div>
-
-            <h2 class="section-title mt-5 mb-4">Business Software Solutions</h2>
-            <div class="services-grid">
-                <div class="service-card" data-number="07">
-                    <div class="service-number">07</div>
-                    <h3 class="service-title">POS Systems</h3>
-                    <p class="service-description">Custom Point of Sale systems for retail, restaurants, and service businesses with inventory management and sales analytics.</p>
-                    <div class="service-price">Contact for pricing</div>
-                    <ul class="service-features">
-                        <li>Inventory Management</li>
-                        <li>Sales Tracking</li>
-                        <li>Customer Database</li>
-                        <li>Financial Reporting</li>
-                    </ul>
-                </div>
-
-                <div class="service-card" data-number="08">
-                    <div class="service-number">08</div>
-                    <h3 class="service-title">CRM Solutions</h3>
-                    <p class="service-description">Customer Relationship Management systems designed to streamline sales processes, customer support, and business growth.</p>
-                    <div class="service-price">Contact for pricing</div>
-                    <ul class="service-features">
-                        <li>Lead Management</li>
-                        <li>Customer Support</li>
-                        <li>Sales Pipeline</li>
-                        <li>Marketing Automation</li>
-                    </ul>
-                </div>
-
-                <div class="service-card" data-number="09">
-                    <div class="service-number">09</div>
-                    <h3 class="service-title">ERP Systems</h3>
-                    <p class="service-description">Enterprise Resource Planning solutions that integrate core business processes including finance, HR, supply chain, and operations.</p>
-                    <div class="service-price">Contact for pricing</div>
-                    <ul class="service-features">
-                        <li>Finance Management</li>
-                        <li>HR & Payroll</li>
-                        <li>Supply Chain</li>
-                        <li>Business Intelligence</li>
-                    </ul>
-                </div>
-
-                <div class="service-card" data-number="10">
-                    <div class="service-number">10</div>
-                    <h3 class="service-title">Learning Management</h3>
-                    <p class="service-description">Learning Management Systems for educational institutions and corporate training with course creation, tracking, and assessment tools.</p>
-                    <div class="service-price">Contact for pricing</div>
-                    <ul class="service-features">
-                        <li>Course Management</li>
-                        <li>Student Progress Tracking</li>
-                        <li>Assessment Tools</li>
-                        <li>Certification Management</li>
-                    </ul>
-                </div>
-
-                <div class="service-card" data-number="11">
-                    <div class="service-number">11</div>
-                    <h3 class="service-title">Appointment Systems</h3>
-                    <p class="service-description">Booking and appointment management solutions for healthcare providers, salons, consultancies, and service businesses.</p>
-                    <div class="service-price">Contact for pricing</div>
-                    <ul class="service-features">
-                        <li>Online Booking</li>
-                        <li>Calendar Integration</li>
-                        <li>Automated Reminders</li>
-                        <li>Staff Management</li>
-                    </ul>
-                </div>
-
-                <div class="service-card" data-number="12">
-                    <div class="service-number">12</div>
-                    <h3 class="service-title">Custom Software</h3>
-                    <p class="service-description">Tailor-made software solutions designed to address specific business challenges and streamline unique operational processes.</p>
-                    <div class="service-price">Contact for pricing</div>
-                    <ul class="service-features">
-                        <li>Bespoke Development</li>
-                        <li>Legacy System Integration</li>
-                        <li>Workflow Automation</li>
-                        <li>Data Migration</li>
-                    </ul>
-                </div>
-            </div>
-            </div>
+        <div class="sf-bottom">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Ailexity. All rights reserved.</p>
+            <p>Made with care by <a href="https://www.instagram.com/ailexity.info/" target="_blank">Ailexity</a></p>
         </div>
-    </section>
+    </div>
+</footer>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2 class="about-title">About Company</h2>
-                    <h3 class="about-subtitle">Crafting Website Experiences that Drive Results</h3>
-                    <p class="about-description">At Ailexity, we specialize in delivering cutting-edge website development services that help brands stand out in the digital landscape. From small business websites to complex enterprise solutions, we offer end-to-end web development with strategic thinking and growth-focused design.</p>
-                    <ul class="about-points">
-                        <li>Professional website & software development across all categories</li>
-                        <li>Custom business software solutions (POS, CRM, ERP & more)</li>
-                        <li>Industry-specific solutions for diverse sectors</li>
-                        <li>Complete digital ecosystem with ongoing support</li>
-                    </ul>
-                </div>
-                <div class="about-visual">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Ailexity Team" class="img-fluid rounded shadow" style="width: 100%; height: auto;">
-                </div>
-            </div>
-        </div>
-    </section>
+<script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
+<script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>
+<script src="assets/js/ailexity.js"></script>
+<script src="assets/js/ailexity-interactive.js"></script>
+<script>
+(function () {
+    var nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', function () { nav.classList.toggle('scrolled', window.scrollY > 60); }, { passive: true });
 
-    <!-- Industries Section -->
-    <section id="industries" class="industries">
-        <div class="container">
-            <h2 class="section-title">Industry-Specific Solutions</h2>
-            <div class="industries-grid">
-                <div class="industry-item">
-                    <h4>Local Business</h4>
-                    <div class="industry-price">Custom pricing available</div>
-                </div>
-                <div class="industry-item">
-                    <h4>Healthcare & Clinics</h4>
-                    <div class="industry-price">Custom pricing available</div>
-                </div>
-                <div class="industry-item">
-                    <h4>Educational Institutions</h4>
-                    <div class="industry-price">Custom pricing available</div>
-                </div>
-                <div class="industry-item">
-                    <h4>Restaurant & Food</h4>
-                    <div class="industry-price">Custom pricing available</div>
-                </div>
-                <div class="industry-item">
-                    <h4>Real Estate</h4>
-                    <div class="industry-price">Custom pricing available</div>
-                </div>
-                <div class="industry-item">
-                    <h4>E-commerce Stores</h4>
-                    <div class="industry-price">Custom pricing available</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    /* scroll-reveal */
+    var reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (e) {
+                if (e.isIntersecting) { e.target.classList.add('in-view'); obs.unobserve(e.target); }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+        reveals.forEach(function (el) { obs.observe(el); });
+    } else {
+        reveals.forEach(function (el) { el.classList.add('in-view'); });
+    }
 
-    <!-- Process Section -->
-    <section id="process" class="process">
-        <div class="container">
-            <h2 class="section-title">Development Process</h2>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">01</div>
-                    <h4 class="step-title">Consultation</h4>
-                    <p class="step-description">Understanding your business requirements and project goals</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">02</div>
-                    <h4 class="step-title">Design & Planning</h4>
-                    <p class="step-description">Creating wireframes, mockups and project roadmap</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">03</div>
-                    <h4 class="step-title">Development</h4>
-                    <p class="step-description">Building your website using latest technologies</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">04</div>
-                    <h4 class="step-title">Testing & Quality</h4>
-                    <p class="step-description">Comprehensive testing across devices and browsers</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">05</div>
-                    <h4 class="step-title">Launch & Support</h4>
-                    <p class="step-description">Going live with ongoing maintenance and support</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="contact-content">
-                <h2>Ready to Start Your Project?</h2>
-                <p>Let's discuss your website development needs and create something amazing together.</p>
-                <a href="index.html#contact" class="btn btn-contact-large">Get Started Today</a>
-            </div>
-        </div>
-    </section>
-
-    <script>
-        // Ailexity Website Interactive Features
-        document.addEventListener('DOMContentLoaded', function() {
-            
-            // Smooth scrolling for internal links
-            function smoothScroll() {
-                const links = document.querySelectorAll('a[href^="#"]');
-                
-                links.forEach(link => {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        
-                        const targetId = this.getAttribute('href');
-                        const targetElement = document.querySelector(targetId);
-                        
-                        if (targetElement) {
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                        }
-                    });
-                });
-            }
-            
-            // Enhanced card interactions
-            function setupCardInteractions() {
-                const serviceCards = document.querySelectorAll('.service-card');
-                
-                serviceCards.forEach(card => {
-                    card.addEventListener('mouseenter', function() {
-                        this.style.transform = 'translateY(-8px) scale(1.02)';
-                        this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-                    });
-                    
-                    card.addEventListener('mouseleave', function() {
-                        this.style.transform = 'translateY(0) scale(1)';
-                        this.style.transition = 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)';
-                    });
-                });
-            }
-            
-            // Scroll-triggered animations
-            function setupScrollAnimations() {
-                const observerOptions = {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                };
-                
-                const observer = new IntersectionObserver(function(entries) {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.style.opacity = '1';
-                            entry.target.style.transform = 'translateY(0)';
-                            entry.target.style.transition = 'all 0.6s ease-out';
-                        }
-                    });
-                }, observerOptions);
-                
-                // Elements to animate on scroll
-                const animateElements = document.querySelectorAll('.service-card, .about-content, .industry-item, .process-step');
-                
-                animateElements.forEach((element, index) => {
-                    element.style.opacity = '0';
-                    element.style.transform = 'translateY(30px)';
-                    element.style.transitionDelay = `${index * 0.1}s`;
-                    observer.observe(element);
-                });
-            }
-            
-            // Contact button functionality
-            function setupContactButtons() {
-                const contactButtons = document.querySelectorAll('.btn-contact');
-                
-                contactButtons.forEach(button => {
-                    button.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        
-                        // Add click animation
-                        this.style.transform = 'scale(0.95)';
-                        setTimeout(() => {
-                            this.style.transform = 'scale(1)';
-                        }, 150);
-                        
-                        // Simulate contact action (in real app, this would open a modal or redirect)
-                        setTimeout(() => {
-                            alert('Thank you for your interest! We will contact you soon.');
-                        }, 200);
-                    });
-                });
-            }
-            
-            // Navbar scroll effect
-            function setupNavbarScroll() {
-                const navbar = document.querySelector('.navbar');
-                const navbarLogo = document.getElementById("navbar-logo");
-                const originalLogo = "assets/imgs/ailexity logo white.png";
-                const scrolledLogo = "assets/imgs/ailexity logo.png";
-                
-                window.addEventListener("scroll", function () {
-                    if (window.scrollY > 50) {
-                        navbar.classList.add('scrolled');
-                        navbarLogo.src = scrolledLogo;
-                    } else {
-                        navbar.classList.remove('scrolled');
-                        navbarLogo.src = originalLogo;
-                    }
-                });
-            }
-            
-            // Industry items hover effect
-            function setupIndustryHover() {
-                const industryItems = document.querySelectorAll('.industry-item');
-                
-                industryItems.forEach(item => {
-                    item.addEventListener('mouseenter', function() {
-                        this.style.borderColor = '#FF6B47';
-                        this.style.borderWidth = '2px';
-                    });
-                    
-                    item.addEventListener('mouseleave', function() {
-                        this.style.borderColor = '#f0f0f0';
-                        this.style.borderWidth = '1px';
-                    });
-                });
-            }
-            
-            // Process steps animation
-            function setupProcessAnimation() {
-                const processSteps = document.querySelectorAll('.process-step');
-                
-                processSteps.forEach((step, index) => {
-                    step.addEventListener('mouseenter', function() {
-                        const stepNumber = this.querySelector('.step-number');
-                        stepNumber.style.transform = 'scale(1.1) rotate(5deg)';
-                        stepNumber.style.background = '#e55a3d';
-                    });
-                    
-                    step.addEventListener('mouseleave', function() {
-                        const stepNumber = this.querySelector('.step-number');
-                        stepNumber.style.transform = 'scale(1) rotate(0deg)';
-                        stepNumber.style.background = '#FF6B47';
-                    });
-                });
-            }
-            
-            // Loading animation for service features
-            function setupFeatureAnimation() {
-                const serviceCards = document.querySelectorAll('.service-card');
-                
-                serviceCards.forEach(card => {
-                    const features = card.querySelectorAll('.service-features li');
-                    
-                    card.addEventListener('mouseenter', function() {
-                        features.forEach((feature, index) => {
-                            setTimeout(() => {
-                                feature.style.transform = 'translateX(5px)';
-                                feature.style.color = '#FF6B47';
-                            }, index * 50);
-                        });
-                    });
-                    
-                    card.addEventListener('mouseleave', function() {
-                        features.forEach(feature => {
-                            feature.style.transform = 'translateX(0)';
-                            feature.style.color = '#666666';
-                        });
-                    });
-                });
-            }
-            
-            // Initialize all features
-            smoothScroll();
-            setupCardInteractions();
-            setupScrollAnimations();
-            setupContactButtons();
-            setupNavbarScroll();
-            setupIndustryHover();
-            setupProcessAnimation();
-            setupFeatureAnimation();
-            
-            // Performance optimization: Debounce scroll events
-            function debounce(func, wait) {
-                let timeout;
-                return function executedFunction(...args) {
-                    const later = () => {
-                        clearTimeout(timeout);
-                        func(...args);
-                    };
-                    clearTimeout(timeout);
-                    timeout = setTimeout(later, wait);
-                };
-            }
-            
-            // Add a subtle parallax effect to hero section
-            function setupParallax() {
-                const hero = document.querySelector('.hero');
-                
-                window.addEventListener('scroll', debounce(() => {
-                    const scrolled = window.pageYOffset;
-                    const rate = scrolled * -0.5;
-                    
-                    if (hero && scrolled < window.innerHeight) {
-                        hero.style.transform = `translateY(${rate}px)`;
-                    }
-                }, 10));
-            }
-            
-            setupParallax();
-            
-            // Add typing effect to hero tagline
-            function typeWriter() {
-                const tagline = document.querySelector('.hero-tagline');
-                const text = tagline.textContent;
-                tagline.textContent = '';
-                
-                let i = 0;
-                const timer = setInterval(() => {
-                    if (i < text.length) {
-                        tagline.textContent += text.charAt(i);
-                        i++;
-                    } else {
-                        clearInterval(timer);
-                    }
-                }, 100);
-            }
-            
-            // Start typing effect after a short delay
-            setTimeout(typeWriter, 500);
-            
-            console.log('Ailexity website loaded successfully!');
-        });
-    </script>
-    
-    <!-- Bootstrap JS and dependencies -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+    /* anchor-nav active state on scroll */
+    var tabs = document.querySelectorAll('.svc-anchor-tab');
+    var sections = [document.getElementById('software'), document.getElementById('marketing')];
+    function setActiveTab() {
+        var scrollY = window.scrollY + 120;
+        var active = 0;
+        sections.forEach(function (s, i) { if (s && s.offsetTop <= scrollY) active = i; });
+        tabs.forEach(function (t, i) { t.classList.toggle('active', i === active); });
+    }
+    window.addEventListener('scroll', setActiveTab, { passive: true });
+    setActiveTab();
+})();
+</script>
 </body>
 </html>

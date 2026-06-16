@@ -243,15 +243,21 @@ const navMenu = document.querySelector('.nav-menu');
 if (hamburger) {
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
+        if (navMenu) {
+            navMenu.classList.toggle('active');
+        }
     });
 }
 
 // Close mobile menu when clicking on a link
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+        if (hamburger) {
+            hamburger.classList.remove('active');
+        }
+        if (navMenu) {
+            navMenu.classList.remove('active');
+        }
     });
 });
 
@@ -456,12 +462,9 @@ const navbar = document.querySelector('.navbar');
 
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
-    if (currentScroll > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-        navbar.style.backdropFilter = 'blur(10px)';
-    } else {
-        navbar.style.background = 'white';
+
+    if (navbar) {
+        navbar.classList.toggle('scrolled', currentScroll > 100);
     }
     
     lastScroll = currentScroll;
@@ -530,13 +533,6 @@ document.head.appendChild(rippleStyle);
 // Initialize page
 document.addEventListener('DOMContentLoaded', () => {
     console.log('Ailexity POS Landing Page Loaded');
-    
-    // Add loading animation
-    document.body.style.opacity = '0';
-    setTimeout(() => {
-        document.body.style.transition = 'opacity 0.5s ease';
-        document.body.style.opacity = '1';
-    }, 100);
 });
 
 // Form validation for CTA buttons
@@ -549,7 +545,11 @@ document.querySelectorAll('.cta-actions button').forEach(button => {
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
-        hamburger.classList.remove('active');
-        navMenu.classList.remove('active');
+        if (hamburger) {
+            hamburger.classList.remove('active');
+        }
+        if (navMenu) {
+            navMenu.classList.remove('active');
+        }
     }
 });
