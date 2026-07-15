@@ -3,10 +3,10 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Ailexity — Digital solutions agency building software and marketing that scales. Makers of Ailexity POS (billing & inventory) and Ailexity Tedo (developer networking platform). Think Beyond Logic.">
-    <meta name="keywords" content="Ailexity, Ailexity POS, Ailexity Tedo, billing software, inventory system, point of sale, developer network, digital marketing, web development, software, AI">
+    <meta name="description" content="Ailexity runs on two engines — in-house software products (Ailexity POS, Ailexity Tedo) and system design for growing companies: software systems, operational systems, and growth funnels. Think Beyond Logic.">
+    <meta name="keywords" content="Ailexity, Ailexity POS, Ailexity Tedo, billing software, inventory system, point of sale, developer network, system design, business systems, operational systems, sales funnels, growth funnels, web development, software, AI">
     <meta name="author" content="Ailexity">
-    <title>Ailexity — Think Beyond Logic</title>
+    <title>Ailexity</title>
     <link rel="stylesheet" href="assets/vendors/themify-icons/css/themify-icons.css">
     <link rel="stylesheet" href="assets/css/ailexity.css">
     <link rel="stylesheet" href="assets/css/ailexity-theme.css">
@@ -514,7 +514,7 @@ a:hover { text-decoration: none; }
 
 /* ===== OFFERINGS ===== */
 .offerings-section {
-    padding: 2.5rem 0 6.5rem;
+    padding: 2rem 0 4.25rem;
     background: var(--off-white);
 }
 .offerings-wrap {
@@ -526,20 +526,20 @@ a:hover { text-decoration: none; }
     align-items: flex-end;
     justify-content: space-between;
     flex-wrap: wrap;
-    gap: 1.5rem;
-    padding: 0 1.5rem 1.75rem;
+    gap: 1.25rem;
+    padding: 0 1.5rem 1.15rem;
 }
 .offerings-stats {
     display: flex;
     flex-wrap: wrap;
-    gap: 2.5rem;
+    gap: 2rem;
 }
 .offerings-stats .stat-item {
     display: flex;
     flex-direction: column;
 }
 .offerings-stats .stat-item strong {
-    font-size: 1.65rem;
+    font-size: 1.4rem;
     font-weight: 800;
     letter-spacing: -0.02em;
     line-height: 1.1;
@@ -554,9 +554,9 @@ a:hover { text-decoration: none; }
     color: var(--text-muted);
 }
 .offerings-label {
-    font-size: 1.95rem;
+    font-size: 1.3rem;
     font-weight: 800;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--dark);
     white-space: nowrap;
@@ -567,45 +567,37 @@ a:hover { text-decoration: none; }
 }
 .offerings-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, minmax(170px, auto));
-    grid-template-areas:
-        "a a b c"
-        "d d d c"
-        "e f f f";
+    grid-template-columns: repeat(3, 1fr);
     gap: 0;
     border: 1px solid var(--border);
     border-radius: var(--radius);
     overflow: hidden;
 }
-.offering-card:nth-child(1) { grid-area: a; }
-.offering-card:nth-child(2) { grid-area: b; }
-.offering-card:nth-child(3) { grid-area: c; }
-.offering-card:nth-child(4) { grid-area: d; }
-.offering-card:nth-child(5) { grid-area: e; }
-.offering-card:nth-child(6) { grid-area: f; }
 .offering-card {
     background: var(--white);
     box-shadow: inset -1px -1px 0 0 var(--border);
-    padding: 2.25rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    padding: 1.35rem 1.5rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.95rem;
+    align-items: start;
+    align-content: start;
     transition: var(--transition);
 }
 .offering-card:hover {
     background: var(--off-white);
 }
 .offering-icon {
-    width: 52px; height: 52px;
+    width: 40px; height: 40px;
     background: var(--accent-light);
-    border-radius: 14px;
+    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.3rem;
+    font-size: 1rem;
     color: var(--accent);
-    margin-bottom: 1.25rem;
+    grid-row: span 2;
+    margin-bottom: 0;
     transition: var(--transition);
 }
 .offering-card:hover .offering-icon {
@@ -614,28 +606,25 @@ a:hover { text-decoration: none; }
     transform: rotate(6deg) scale(1.05);
 }
 .offering-card h3 {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     font-weight: 700;
     letter-spacing: -0.01em;
     color: var(--dark);
-    margin-bottom: 0.6rem;
+    margin: 0 0 0.3rem;
+    align-self: center;
 }
 .offering-card p {
-    font-size: 0.88rem;
+    grid-column: 2;
+    font-size: 0.8rem;
     color: var(--text-secondary);
-    line-height: 1.75;
+    line-height: 1.6;
     margin: 0;
 }
 @media (max-width: 991px) {
-    .offerings-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-        grid-template-areas: none;
-    }
-    .offering-card { grid-area: auto !important; min-height: 170px; }
+    .offerings-grid { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 575px) {
-    .offerings-grid { grid-template-columns: repeat(2, 1fr); }
+    .offerings-grid { grid-template-columns: 1fr; }
 }
 
 /* ===== PRODUCTS ===== */
@@ -945,6 +934,198 @@ a:hover { text-decoration: none; }
     gap: 5px;
 }
 
+/* ===== CLIENTS ===== */
+.clients-section {
+    padding: 7rem 0;
+    background: var(--off-white);
+    border-top: 1px solid var(--border);
+    overflow: hidden;
+}
+.clients-marquee {
+    position: relative;
+    margin-top: 2rem;
+}
+.clients-marquee::before,
+.clients-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 90px;
+    z-index: 2;
+    pointer-events: none;
+}
+.clients-marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--off-white), transparent);
+}
+.clients-marquee::after {
+    right: 0;
+    background: linear-gradient(270deg, var(--off-white), transparent);
+}
+.clients-track {
+    display: flex;
+    width: max-content;
+    padding: 0.75rem 0;
+    animation: clientsScroll 42s linear infinite;
+    will-change: transform;
+}
+.clients-marquee:hover .clients-track,
+.clients-track.paused {
+    animation-play-state: paused;
+}
+@keyframes clientsScroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+.clients-set {
+    display: flex;
+    gap: 1.5rem;
+    padding-right: 1.5rem;
+    flex-shrink: 0;
+}
+.client-card {
+    width: 320px;
+    height: 250px;
+    perspective: 1200px;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+.client-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.65s var(--ease);
+}
+.client-card:hover .client-card-inner,
+.client-card.flipped .client-card-inner {
+    transform: rotateY(180deg);
+}
+.client-face {
+    position: absolute;
+    inset: 0;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    padding: 1.6rem;
+    overflow: hidden;
+}
+.client-face-front {
+    background-color: var(--dark);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-end;
+    text-align: left;
+    box-shadow: var(--shadow-sm);
+    border-color: transparent;
+}
+.client-face-front::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(4,12,24,0.05) 32%, rgba(4,12,24,0.85) 100%);
+    pointer-events: none;
+}
+.client-bg-surya { background-image: url('assets/imgs/suryasync.jpg'); }
+.client-bg-ogod { background-image: url('assets/imgs/Ogod.jpg'); }
+.client-bg-raj { background-image: url('assets/imgs/raj tiles.jpg'); }
+.client-bg-heaven { background-image: url('assets/imgs/heavencraze-web.jpg'); }
+.client-bg-vibella { background-image: url('assets/imgs/vibella.jpg'); }
+.client-face-front h4 {
+    position: relative;
+    font-size: 1.08rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: white;
+    margin-bottom: 0.3rem;
+    text-shadow: 0 1px 8px rgba(0,0,0,0.35);
+}
+.client-service-tag {
+    position: relative;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.82);
+}
+.client-flip-hint {
+    position: absolute;
+    top: 0.9rem;
+    right: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 0.64rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    color: rgba(255,255,255,0.92);
+    background: rgba(4,12,24,0.45);
+    border: 1px solid rgba(255,255,255,0.22);
+    border-radius: 100px;
+    padding: 4px 11px;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+.client-face-back {
+    background: var(--dark);
+    color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-color: transparent;
+}
+.client-face-back::before {
+    content: '';
+    position: absolute;
+    top: -50%; right: -35%;
+    width: 80%; height: 110%;
+    background: radial-gradient(circle, rgba(255,110,66,0.22) 0%, transparent 65%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+.client-face-back h5 {
+    position: relative;
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: white;
+    margin-bottom: 0.55rem;
+    letter-spacing: -0.01em;
+}
+.client-face-back p {
+    position: relative;
+    font-size: 0.8rem;
+    color: rgba(255,255,255,0.72);
+    line-height: 1.65;
+    margin-bottom: 0.9rem;
+}
+.client-chips {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.client-chips span {
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 100px;
+    padding: 3px 10px;
+}
+@media (prefers-reduced-motion: reduce) {
+    .clients-track { animation: none; }
+    .clients-marquee { overflow-x: auto; }
+    .client-card-inner { transition: none; }
+}
+
 /* ===== PROCESS ===== */
 .process-section {
     padding: 7rem 0;
@@ -1073,7 +1254,7 @@ a:hover { text-decoration: none; }
 
 /* ===== CONTACT ===== */
 .contact-section {
-    padding: 7rem 0 0;
+    padding: 5rem 0 0;
     background: var(--dark);
     color: white;
     position: relative;
@@ -1476,6 +1657,592 @@ a:hover { text-decoration: none; }
     transition: opacity 0.45s var(--ease), transform 0.45s var(--ease);
 }
 
+/* ===== LOWER-PAGE PROFESSIONAL REFRESH ===== */
+/* Shared bordered-grid language: outer border on the panel, inset rules on cells */
+.cell-ruled {
+    box-shadow: inset -1px -1px 0 0 var(--border);
+}
+
+/* --- Two-core panel (services) --- */
+.core-panel {
+    border: 1px solid var(--border);
+    background: var(--white);
+}
+.core-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.core-col {
+    padding: 2.5rem;
+    box-shadow: inset -1px 0 0 0 var(--border);
+}
+.core-col-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.core-num {
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.core-icon {
+    width: 44px; height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255,110,66,0.25);
+    color: var(--accent);
+    font-size: 1.1rem;
+}
+.core-col h3 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--dark);
+    margin-bottom: 0.75rem;
+}
+.core-col .core-desc {
+    color: var(--text-secondary);
+    font-size: 0.93rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+.core-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.65rem 1.25rem;
+}
+.core-list li {
+    display: flex;
+    gap: 0.6rem;
+    align-items: flex-start;
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+    line-height: 1.55;
+}
+.core-list li i {
+    color: var(--accent);
+    margin-top: 0.24rem;
+    flex-shrink: 0;
+    font-size: 0.78rem;
+}
+.core-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 1.75rem;
+}
+.core-tags span {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    background: var(--off-white);
+    padding: 4px 11px;
+}
+.core-links {
+    display: flex;
+    align-items: center;
+    gap: 1.75rem;
+    flex-wrap: wrap;
+}
+.core-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--border);
+    background: var(--off-white);
+}
+.core-strip-item {
+    padding: 1.15rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+}
+.core-strip-item i {
+    color: var(--accent);
+    font-size: 1.05rem;
+    flex-shrink: 0;
+}
+.core-strip-item strong {
+    display: block;
+    font-size: 0.84rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.3;
+}
+.core-strip-item span {
+    font-size: 0.73rem;
+    color: var(--text-muted);
+}
+
+/* --- Products: spec strips, 2-col features, CTA band --- */
+.product-specs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid rgba(255,255,255,0.14);
+    margin-bottom: 1.75rem;
+}
+.product-specs > div {
+    padding: 0.75rem 1rem;
+    box-shadow: inset -1px 0 0 0 rgba(255,255,255,0.14);
+}
+.product-specs span {
+    display: block;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    margin-bottom: 2px;
+}
+.product-specs strong {
+    font-size: 0.84rem;
+    font-weight: 600;
+    color: white;
+}
+.product-specs.specs-light {
+    border-color: var(--border);
+}
+.product-specs.specs-light > div {
+    box-shadow: inset -1px 0 0 0 var(--border);
+}
+.product-specs.specs-light span { color: var(--text-muted); }
+.product-specs.specs-light strong { color: var(--dark); }
+.product-features.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 1.25rem;
+}
+.product-band {
+    border: 1px solid var(--border);
+    background: var(--white);
+    padding: 1.6rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+.product-band-copy strong {
+    display: block;
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--dark);
+    letter-spacing: -0.01em;
+    margin-bottom: 0.2rem;
+}
+.product-band-copy p {
+    margin: 0;
+    font-size: 0.87rem;
+    color: var(--text-secondary);
+}
+.product-band-actions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+/* --- Compact products section: fits one desktop frame --- */
+.products-section { padding: 4.5rem 0; }
+.products-section .sec-sub { font-size: 0.92rem; }
+.product-card-live, .product-card-upcoming { padding: 2rem 2.25rem; }
+.product-pill, .upcoming-pill { margin-bottom: 1rem; padding: 4px 12px; }
+.product-card-live h2 { font-size: 1.55rem; margin-bottom: 0.45rem; }
+.product-card-upcoming h2 { font-size: 1.4rem; margin-bottom: 0.45rem; }
+.product-card-live p, .product-card-upcoming p {
+    font-size: 0.87rem;
+    line-height: 1.65;
+    margin-bottom: 1.1rem;
+}
+.product-specs { margin-bottom: 1.1rem; }
+.product-specs > div { padding: 0.55rem 0.9rem; }
+.product-features, .upcoming-features { margin-bottom: 1.15rem; }
+.product-features li, .upcoming-features li { padding: 3px 0; font-size: 0.84rem; }
+.progress-track { margin-bottom: 1.15rem; }
+.products-section .col-lg-7, .products-section .col-lg-5 { margin-bottom: 1rem !important; }
+.product-band { padding: 1.15rem 1.75rem; }
+.product-band-copy strong { font-size: 0.95rem; }
+.product-band-copy p { font-size: 0.83rem; }
+.product-band .btn-dark-pill, .product-band .btn-ghost-pill { padding: 10px 20px; font-size: 0.85rem; }
+
+/* --- Industries bordered grid --- */
+.industries-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border: 1px solid var(--border);
+    background: var(--white);
+}
+.industry-cell {
+    padding: 2rem;
+    box-shadow: inset -1px -1px 0 0 var(--border);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+.industry-cell:hover { background: var(--off-white); }
+.industry-cell-head {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-bottom: 1rem;
+}
+.industry-cell-head i {
+    width: 42px; height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--light);
+    color: var(--dark);
+    font-size: 1.05rem;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+.industry-cell:hover .industry-cell-head i {
+    background: var(--accent);
+    color: white;
+}
+.industry-cell h4 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--dark);
+    margin: 0;
+}
+.industry-cell p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.1rem;
+    flex-grow: 1;
+}
+.industry-sys {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.industry-sys span {
+    font-size: 0.66rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    background: var(--off-white);
+    padding: 3px 9px;
+}
+
+/* --- Process panel --- */
+.process-panel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--border);
+    background: var(--white);
+}
+.process-cell {
+    padding: 2rem;
+    box-shadow: inset -1px -1px 0 0 var(--border);
+}
+.process-kicker {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+.process-kicker strong {
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+.process-kicker em {
+    font-style: normal;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    background: var(--off-white);
+    padding: 3px 9px;
+}
+.process-cell h5 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--dark);
+    margin-bottom: 0.6rem;
+}
+.process-cell > p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 1.1rem;
+}
+.process-outputs {
+    padding: 0.9rem 0 0;
+    margin: 0;
+    border-top: 1px solid var(--border);
+}
+.process-outputs ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.process-outputs li {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    padding: 3px 0;
+}
+.process-outputs li::before {
+    content: '';
+    width: 4px; height: 4px;
+    background: var(--accent);
+    flex-shrink: 0;
+}
+.process-outputs-label {
+    display: block;
+    font-size: 0.64rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.4rem;
+}
+.process-note {
+    border: 1px solid var(--border);
+    border-top: 0;
+    background: var(--off-white);
+    padding: 1.15rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.process-note p {
+    margin: 0;
+    font-size: 0.86rem;
+    color: var(--text-secondary);
+}
+.process-note p strong { color: var(--dark); }
+
+/* --- Blog editorial layout --- */
+.blog-feature .blog-img-wrap { height: 285px; }
+.blog-side {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    height: 100%;
+}
+.blog-mini {
+    display: flex;
+    align-items: stretch;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--white);
+    overflow: hidden;
+    transition: var(--transition);
+}
+.blog-mini:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+.blog-mini-img {
+    width: 130px;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+.blog-mini-img img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s var(--ease);
+}
+.blog-mini:hover .blog-mini-img img { transform: scale(1.06); }
+.blog-mini-body {
+    padding: 1rem 1.15rem;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.blog-mini-body .blog-tag { margin-bottom: 0.35rem; }
+.blog-mini-body h6 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--dark);
+    line-height: 1.45;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.35rem;
+}
+.blog-mini-body .blog-read { font-size: 0.78rem; }
+.blog-all-panel {
+    flex-grow: 1;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--off-white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.15rem 1.5rem;
+    transition: var(--transition);
+}
+.blog-all-panel:hover { border-color: var(--dark); }
+.blog-all-panel span {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--dark);
+}
+.blog-all-panel i { color: var(--accent); }
+
+/* --- Contact block --- */
+.contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 3.5rem;
+    align-items: start;
+    text-align: left;
+    padding-bottom: 5.5rem;
+}
+.contact-info-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem 2rem;
+    margin: 2.25rem 0 2rem;
+}
+.contact-info-item i {
+    display: block;
+    color: var(--accent);
+    font-size: 1.15rem;
+    margin-bottom: 0.55rem;
+}
+.contact-info-item .ci-label {
+    display: block;
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 0.25rem;
+}
+.contact-info-item .ci-value,
+.contact-info-item .ci-value a {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.6;
+}
+.contact-info-item .ci-value a:hover { color: white; }
+.contact-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.contact-section .btn-ghost-pill {
+    color: white;
+    border-color: rgba(255,255,255,0.25);
+}
+.contact-section .btn-ghost-pill:hover {
+    color: white;
+    border-color: rgba(255,255,255,0.6);
+    background: rgba(255,255,255,0.06);
+}
+.contact-form-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2.25rem;
+}
+.contact-form-card h3 {
+    color: white;
+    font-size: 1.15rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.3rem;
+}
+.contact-form-card .cf-note {
+    color: rgba(255,255,255,0.45);
+    font-size: 0.83rem;
+    margin-bottom: 1.5rem;
+}
+.contact-form-success {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 320px;
+    color: white;
+}
+.contact-form-success .success-icon {
+    width: 56px; height: 56px;
+    border: 1px solid rgba(255,110,66,0.5);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    border-radius: 50%;
+    margin-bottom: 1.25rem;
+}
+.contact-form-success h4 { color: white; font-size: 1.15rem; margin-bottom: 0.4rem; }
+.contact-form-success p { color: rgba(255,255,255,0.55); font-size: 0.88rem; margin: 0; }
+
+/* --- Lower-page responsive --- */
+@media (max-width: 991px) {
+    .core-grid { grid-template-columns: 1fr; }
+    .core-strip { grid-template-columns: 1fr 1fr; }
+    .industries-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-panel { grid-template-columns: repeat(2, 1fr); }
+    .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+    .blog-side { margin-top: 1.5rem; height: auto; }
+}
+@media (max-width: 767px) {
+    .core-col { padding: 1.75rem; }
+    .core-strip-item { padding: 1rem 1.25rem; }
+    .industry-cell { padding: 1.5rem; }
+    .process-cell { padding: 1.5rem; }
+    .product-band { padding: 1.4rem 1.5rem; }
+    .contact-form-card { padding: 1.5rem; }
+    .blog-feature .blog-img-wrap { height: auto; }
+}
+@media (max-width: 575px) {
+    .core-list { grid-template-columns: 1fr; }
+    .core-strip { grid-template-columns: 1fr; }
+    .industries-grid { grid-template-columns: repeat(2, 1fr); }
+    .process-panel { grid-template-columns: repeat(2, 1fr); }
+    .industry-cell, .process-cell { padding: 1.1rem; }
+    .industry-cell-head { gap: 0.6rem; margin-bottom: 0.6rem; }
+    .industry-cell-head i { width: 32px; height: 32px; font-size: 0.85rem; }
+    .industry-cell h4 { font-size: 0.86rem; }
+    .industry-cell p, .process-cell > p { font-size: 0.76rem; line-height: 1.5; margin-bottom: 0.65rem; }
+    .industry-sys span { font-size: 0.58rem; padding: 2px 6px; }
+    .process-kicker { margin-bottom: 0.6rem; }
+    .process-cell h5 { font-size: 0.88rem; margin-bottom: 0.35rem; }
+    .process-outputs-label { font-size: 0.62rem; }
+    .process-outputs li { font-size: 0.72rem; }
+    .product-specs { grid-template-columns: 1fr; }
+    .product-specs > div { box-shadow: inset 0 -1px 0 0 rgba(255,255,255,0.14); }
+    .product-specs.specs-light > div { box-shadow: inset 0 -1px 0 0 var(--border); }
+    .product-features.two-col { grid-template-columns: 1fr; }
+    .contact-info-list { grid-template-columns: 1fr; gap: 1.25rem; }
+    .blog-mini-img { width: 100px; }
+}
+
 /* ===== RESPONSIVE ===== */
 @media (max-width: 991px) {
     .stat-sep { display: none; }
@@ -1493,8 +2260,10 @@ a:hover { text-decoration: none; }
     .product-card-live h2 { font-size: 1.5rem; }
     .product-card-upcoming h2 { font-size: 1.3rem; }
     .services-section, .products-section, .industries-section,
-    .process-section, .blog-section { padding: 4.5rem 0; }
-    .contact-section { padding: 4rem 0 0; }
+    .process-section, .blog-section, .clients-section { padding: 4.5rem 0; }
+    .contact-section { padding: 3rem 0 0; }
+    .client-card { width: 270px; height: 235px; }
+    .clients-marquee::before, .clients-marquee::after { width: 48px; }
     .hero-section { padding: 104px 0 54px; }
     .hero-badge { font-size: 0.64rem; padding: 6px 12px; }
     .hero-desc { margin-bottom: 1.6rem; }
@@ -1549,7 +2318,7 @@ a:hover { text-decoration: none; }
     /* Offering bar label */
     .offerings-label { font-size: 1.3rem; letter-spacing: 0.08em; }
     /* Offering cards */
-    .offering-card { min-height: 160px; padding: 1.5rem; }
+    .offering-card { padding: 1.15rem 1.25rem; }
     .offerings-section { padding: 1.75rem 0 4rem; }
     /* 2-column grids for industry + process on phones */
     .industries-section .col-md-6, .process-section .col-md-6 { flex: 0 0 50%; max-width: 50%; }
@@ -1581,7 +2350,10 @@ a:hover { text-decoration: none; }
     .sec-sub { font-size: 0.9rem; }
     .landing-hero .page-hero-title { font-size: clamp(1.75rem, 9vw, 2.4rem); }
     .services-section, .products-section, .industries-section,
-    .process-section, .blog-section { padding: 3rem 0; }
+    .process-section, .blog-section, .clients-section { padding: 3rem 0; }
+    .client-card { width: 245px; height: 230px; }
+    .client-face { padding: 1.25rem; }
+    .client-face-back p { font-size: 0.76rem; }
     .company-profile-section { padding: 2.5rem 0; }
     .offerings-section { padding: 1.25rem 0 2.75rem; }
     .offerings-label { font-size: 1rem; letter-spacing: 0.05em; white-space: normal; }
@@ -1596,16 +2368,397 @@ a:hover { text-decoration: none; }
     .blog-body { padding: 0.85rem; }
     .blog-body h6 { font-size: 0.87rem; line-height: 1.4; margin-bottom: 0.35rem; }
     .blog-body p { font-size: 0.8rem; margin-bottom: 0.4rem; }
-    /* Compact offering cards in 2-col grid */
-    .offering-card { padding: 1rem; min-height: 100px; }
-    .offering-icon { width: 36px; height: 36px; font-size: 0.95rem; margin-bottom: 0.6rem; }
-    .offering-card h3 { font-size: 0.9rem; margin-bottom: 0.35rem; }
-    .offering-card p { font-size: 0.78rem; }
+    /* Compact offering cards */
+    .offering-card { padding: 1rem 1.1rem; }
+    .offering-icon { width: 34px; height: 34px; font-size: 0.9rem; margin-bottom: 0; }
+    .offering-card h3 { font-size: 0.88rem; margin-bottom: 0.25rem; }
+    .offering-card p { font-size: 0.76rem; }
     /* Keep 2-col on small phones */
     .industries-section .col-md-6, .process-section .col-md-6 { flex: 0 0 50%; max-width: 50%; }
     .industry-card p { font-size: 0.8rem; }
     /* Product cards */
     .product-card-live, .product-card-upcoming { padding: 1.5rem; }
+}
+
+/* ===== WIDE-SCREEN STRUCTURE — keep content from stretching in the wider container ===== */
+@media (min-width: 1200px) {
+    /* Section-header intro paragraphs: fill more of their column so they
+       don't leave an awkward gap beside the heading */
+    .col-lg-6.align-items-end > .sec-sub { max-width: 720px; }
+    /* Company profile: rebalance the two columns */
+    .company-profile-grid { gap: 4rem; }
+    .profile-copy { max-width: 600px; }
+    /* Services: more padding, body copy kept at a readable measure */
+    .core-col { padding: 2.75rem 3rem; }
+    .core-col .core-desc { max-width: 560px; }
+    /* Products: a little more room inside the cards */
+    .product-card-live, .product-card-upcoming { padding: 2.25rem 2.5rem; }
+    /* Blog: taller feature image so it isn't a thin band when wide */
+    .blog-feature .blog-img-wrap { height: 360px; }
+    /* Contact: comfortable gutter between form and details */
+    .contact-grid { gap: 4.5rem; }
+}
+@media (min-width: 1500px) {
+    /* On very wide screens, anchor the intro paragraph to the right edge so
+       the header reads as two clean columns instead of a stretched gap */
+    .col-lg-6.align-items-end > .sec-sub { margin-left: auto; }
+    .blog-feature .blog-img-wrap { height: 400px; }
+    /* Cap the two-core desc a touch wider for balance */
+    .core-col .core-desc { max-width: 620px; }
+}
+
+/* ===================================================
+   SECTION REFINEMENTS — minimal, structured (white)
+   Company Profile · What We Do · Industries · Insights
+   =================================================== */
+.company-profile-section,
+.services-section,
+.industries-section,
+.blog-section { padding: 6rem 0; }
+
+/* Shared header: heading left, optional link right (like the reference) */
+.sec-head-row {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.25rem 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.75rem;
+}
+.sec-head-row .sec-tag { margin-bottom: 0.75rem; }
+.sec-head-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding-bottom: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--dark);
+    white-space: nowrap;
+    transition: color 0.2s var(--ease);
+}
+.sec-head-link i { color: var(--accent); transition: transform 0.2s var(--ease); }
+.sec-head-link:hover { color: var(--accent); }
+.sec-head-link:hover i { transform: translateX(3px); }
+
+/* ---- Company Profile: stacked capability rows, softer panel ---- */
+.company-profile-grid { grid-template-columns: minmax(0,1fr) minmax(0,1fr); align-items: start; }
+.profile-panel {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(15,15,15,0.04);
+}
+.profile-fact { padding: 1.5rem 1.65rem; }
+.profile-capability-grid { grid-template-columns: 1fr; }
+.profile-capability {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 1.1rem;
+    align-items: start;
+    padding: 1.5rem 1.65rem;
+    min-height: 0;
+    border-right: 0;
+    border-bottom: 1px solid var(--border);
+}
+.profile-capability:last-child { border-bottom: 0; }
+.profile-capability i {
+    grid-row: span 2;
+    width: 44px; height: 44px;
+    border: 0;
+    border-radius: 12px;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 1.15rem;
+    margin: 0;
+}
+.profile-capability h3 { margin: 0 0 0.3rem; }
+.profile-capability p { grid-column: 2; margin: 0; }
+.profile-panel-foot { padding: 1.4rem 1.65rem; }
+.profile-list li { align-items: center; }
+.profile-list i {
+    width: 22px; height: 22px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--accent-light);
+    font-size: 0.62rem;
+    margin-top: 0;
+}
+
+/* ---- What We Do: softer icon chips, rounded panel ---- */
+.core-panel {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(15,15,15,0.04);
+}
+.core-icon { border: 0; border-radius: 12px; background: var(--accent-light); }
+.core-tags span { border-radius: 100px; }
+.core-strip-item i {
+    width: 34px; height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: var(--accent-light);
+    font-size: 0.9rem;
+}
+
+/* ---- Industries: rounded grid, accent icon chips ---- */
+.industries-grid {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(15,15,15,0.04);
+}
+.industry-cell { padding: 2.1rem; }
+.industry-cell-head i { border-radius: 12px; background: var(--accent-light); color: var(--accent); }
+.industry-cell:hover .industry-cell-head i { background: var(--accent); color: #fff; }
+.industry-sys span { border-radius: 100px; }
+
+/* ---- Insights: horizontal rail of borderless image-top cards ---- */
+.ins-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1rem 2rem;
+    flex-wrap: wrap;
+}
+.ins-controls {
+    display: flex;
+    gap: 0.6rem;
+    margin: 1.15rem 0 1.85rem;
+}
+.ins-arrow {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text-secondary);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background 0.2s var(--ease), border-color 0.2s var(--ease), color 0.2s var(--ease), opacity 0.2s var(--ease);
+}
+.ins-arrow:hover { border-color: var(--dark); color: var(--dark); background: var(--off-white); }
+.ins-arrow:disabled { opacity: 0.3; cursor: default; }
+.ins-rail {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 0.5rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.ins-rail::-webkit-scrollbar { display: none; }
+.ins-card {
+    flex: 0 0 auto;
+    width: clamp(288px, 31%, 440px);
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    color: inherit;
+}
+.ins-card:hover { text-decoration: none; }
+.ins-card-media {
+    border-radius: 0;
+    overflow: hidden;
+    background: var(--light);
+    aspect-ratio: 16 / 10;
+    margin-bottom: 1.1rem;
+}
+.ins-card-media img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.55s var(--ease);
+}
+.ins-card:hover .ins-card-media img { transform: scale(1.05); }
+.ins-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 0.75rem;
+}
+.ins-type { font-size: 0.74rem; font-weight: 700; color: var(--dark); }
+.ins-dot { color: var(--text-muted); }
+.ins-chip {
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-light);
+    border: 1px solid rgba(255,110,66,0.16);
+    padding: 3px 10px;
+    border-radius: 100px;
+}
+.ins-title {
+    font-size: 1.16rem;
+    font-weight: 700;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
+    color: var(--dark);
+    margin: 0 0 0.6rem;
+    transition: color 0.2s var(--ease);
+}
+.ins-card:hover .ins-title { color: var(--accent); }
+.ins-foot {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: auto;
+    padding-top: 0.35rem;
+}
+
+/* ---- What We Do: fixed-image window + frosted service rail ----
+   The image is pinned (background-attachment: fixed) so the section
+   scrolls over it like a window; cards are translucent frosted glass. */
+.services-section.wwd-window {
+    padding: 3.75rem 0;
+    background-image:
+        linear-gradient(rgba(4,10,18,0.62), rgba(4,10,18,0.62)),
+        url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.wwd-rail {
+    display: flex;
+    gap: 1.15rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding-bottom: 0.5rem;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.wwd-rail::-webkit-scrollbar { display: none; }
+.wwd-card {
+    flex: 0 0 auto;
+    width: clamp(258px, 25.5%, 340px);
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1.4rem 1.5rem;
+    background: transparent;
+    border: 1px solid rgba(15,15,15,0.18);
+    border-radius: 16px;
+    transition: transform 0.28s var(--ease), border-color 0.28s var(--ease);
+}
+.wwd-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(15,15,15,0.4);
+}
+.wwd-icon {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    background: var(--accent-light);
+    color: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+}
+.wwd-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 0.5rem;
+}
+.wwd-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: var(--dark);
+    margin: 0 0 0.45rem;
+}
+.wwd-card p {
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0 0 0.9rem;
+}
+.wwd-link {
+    margin-top: auto;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: var(--dark);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: gap 0.2s var(--ease), color 0.2s var(--ease);
+}
+.wwd-link i { color: var(--accent); }
+.wwd-link:hover { color: var(--accent); gap: 9px; }
+.wwd-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 1.15rem;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 16px;
+    overflow: hidden;
+}
+.wwd-window .ins-controls { margin: 0.9rem 0 1.25rem; }
+.wwd-strip .core-strip-item { padding: 0.85rem 1.15rem; }
+/* white type over the dark window image */
+.wwd-window .sec-tag {
+    background: rgba(255,255,255,0.12);
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.18);
+}
+.wwd-window .sec-heading { color: #fff; }
+.wwd-window .sec-head-link { color: #fff; }
+.wwd-window .sec-head-link:hover { color: var(--accent); }
+.wwd-window .ins-type { color: #fff; }
+.wwd-window .ins-dot { color: rgba(255,255,255,0.55); }
+.wwd-window .ins-chip {
+    color: #ffa585;
+    background: rgba(255,110,66,0.16);
+    border-color: rgba(255,110,66,0.4);
+}
+.wwd-icon { background: rgba(255,110,66,0.2); }
+.wwd-card { border-color: rgba(255,255,255,0.35); }
+.wwd-card:hover { border-color: rgba(255,255,255,0.75); }
+.wwd-card h3 { color: #fff; }
+.wwd-card p { color: rgba(255,255,255,0.78); }
+.wwd-link { color: #fff; }
+.wwd-link:hover { color: var(--accent); }
+.wwd-strip .core-strip-item strong { color: #fff; }
+.wwd-strip .core-strip-item span { color: rgba(255,255,255,0.65); }
+.wwd-window .btn-dark-pill {
+    background: #fff;
+    color: var(--dark);
+    border-color: #fff;
+}
+.wwd-window .btn-dark-pill:hover {
+    background: transparent;
+    color: #fff;
+    border-color: rgba(255,255,255,0.7);
+}
+@media (max-width: 991px) {
+    /* fixed backgrounds are unreliable on mobile browsers */
+    .services-section.wwd-window { background-attachment: scroll; }
+    .wwd-strip { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 575px) {
+    .wwd-strip { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 767px) {
+    .company-profile-section, .services-section,
+    .industries-section, .blog-section { padding: 3.5rem 0; }
+    .ins-card { width: 80vw; }
+    .ins-card-media { border-radius: 0; }
+    .wwd-card { width: 80vw; }
+    /* keep stacked capability rows to a single hairline */
+    .profile-capability { border-top: 0; }
 }
 </style>
 </head>
@@ -1707,6 +2860,7 @@ a:hover { text-decoration: none; }
             <a class="nav-search-link" href="https://ailexity.in/"><i class="ti-shopping-cart"></i> Ailexity POS - Billing &amp; Inventory System</a>
             <a class="nav-search-link" href="https://www.ailexitytedo.com" target="_blank"><i class="ti-share"></i> Ailexity Tedo - Developer Networking Platform</a>
             <a class="nav-search-link" href="index.html#service"><i class="ti-settings"></i> Services &amp; Solutions</a>
+            <a class="nav-search-link" href="index.html#clients"><i class="ti-medall"></i> Our Clients</a>
             <a class="nav-search-link" href="index.html#industries"><i class="ti-layout-grid2"></i> Industries We Serve</a>
             <a class="nav-search-link" href="about.html"><i class="ti-user"></i> About Ailexity</a>
             <a class="nav-search-link" href="blogs.html"><i class="ti-pencil-alt"></i> Insights &amp; Blog</a>
@@ -1717,6 +2871,10 @@ a:hover { text-decoration: none; }
         </div>
     </div>
 </div>
+
+
+
+
 <!-- ===== HERO ===== -->
 <section class="page-hero landing-hero" id="home">
     <div class="page-hero-bg hero-bg"></div>
@@ -1724,15 +2882,17 @@ a:hover { text-decoration: none; }
         <div class="page-hero-breadcrumb">
             <a href="index.html">Home</a>
         </div>
-        <span class="page-hero-tag hero-badge">Software &amp; Marketing Studio</span>
+        <!-- <span class="page-hero-tag hero-badge">Software Products &amp; Systems Studio</span> -->
         <h1 class="page-hero-title hero-title">Think<br><span class="word-accent">Beyond</span> <span class="word-light">Logic</span></h1>
-        <p class="page-hero-sub hero-desc">Ailexity builds practical software, product platforms, and growth systems for businesses that need a stronger digital backbone.</p>
+        <p class="page-hero-sub hero-desc">Ailexity runs on two engines: in-house software products like Ailexity POS and Tedo, and system design for companies — the software systems, operational systems, and funnels your business grows on.</p>
         <div class="hero-cta">
             <a href="book-demo.html" class="btn-dark-pill">Book a Strategy Call <i class="ti-calendar"></i></a>
             <a href="website-pricing.html" class="btn-ghost-pill">View Services <i class="ti-arrow-right"></i></a>
         </div>
     </div>
 </section>
+
+
 
 <!-- ===== OFFERINGS ===== -->
 <section class="offerings-section">
@@ -1748,8 +2908,8 @@ a:hover { text-decoration: none; }
                     <span>In-House Products</span>
                 </div>
                 <div class="stat-item">
-                    <strong>6+</strong>
-                    <span>Core Services</span>
+                    <strong>5+</strong>
+                    <span>Client Systems Shipped</span>
                 </div>
                 <div class="stat-item">
                     <strong>Pune, India</strong>
@@ -1758,40 +2918,80 @@ a:hover { text-decoration: none; }
             </div>
             <div class="offerings-label">What We Offer</div>
         </div>
+
+
+<!-- offers -->
+
+        
         <div class="offerings-grid">
             <div class="offering-card reveal reveal-d1">
-                <div class="offering-icon"><i class="ti-desktop"></i></div>
-                <h3>Website Development</h3>
-                <p>Modern, fast, and responsive websites and landing pages built to convert visitors into customers.</p>
+                <div class="offering-icon"><i class="ti-package"></i></div>
+                <h3>In-House Software Products</h3>
+                <p>Ailexity POS and Ailexity Tedo — products we design, build, and run ourselves, sharpened daily by real businesses using them.</p>
             </div>
             <div class="offering-card reveal reveal-d2">
-                <div class="offering-icon"><i class="ti-search"></i></div>
-                <h3>SEO &amp; Search Visibility</h3>
-                <p>On-page and technical SEO, site structure, and content optimisation to help your business rank and get found on Google.</p>
+                <div class="offering-icon"><i class="ti-settings"></i></div>
+                <h3>Software System Design</h3>
+                <p>CRM, POS, ERP, LMS, apps, and dashboards — architected as one connected system instead of a pile of disconnected tools.</p>
             </div>
             <div class="offering-card reveal reveal-d3">
-                <div class="offering-icon"><i class="ti-settings"></i></div>
-                <h3>Business Software</h3>
-                <p>Custom CRM, POS, ERP, LMS, and booking systems tailored to how your business actually operates.</p>
+                <div class="offering-icon"><i class="ti-loop"></i></div>
+                <h3>Operational System Design</h3>
+                <p>We map how your business actually runs, then design the workflows, automations, and SOPs your team executes every day.</p>
             </div>
             <div class="offering-card reveal reveal-d1">
-                <div class="offering-icon"><i class="ti-lock"></i></div>
-                <h3>Website Security &amp; Hardening</h3>
-                <p>SSL, firewalls, malware monitoring, and security audits to keep your website and data protected.</p>
+                <div class="offering-icon"><i class="ti-filter"></i></div>
+                <h3>Growth &amp; Sales Funnels</h3>
+                <p>Funnels engineered end to end — landing pages, campaigns, follow-ups, and tracking that turn attention into paying customers.</p>
             </div>
             <div class="offering-card reveal reveal-d2">
-                <div class="offering-icon"><i class="ti-cloud"></i></div>
-                <h3>Cloud &amp; Server Management</h3>
-                <p>Hosting setup, cloud infrastructure, backups, and performance monitoring so your systems stay fast and online.</p>
+                <div class="offering-icon"><i class="ti-world"></i></div>
+                <h3>Websites &amp; Brand Presence</h3>
+                <p>Fast, modern, SEO-ready websites and brand design — the front door of every funnel and system we build.</p>
             </div>
             <div class="offering-card reveal reveal-d3">
-                <div class="offering-icon"><i class="ti-headphone-alt"></i></div>
-                <h3>Maintenance &amp; Support</h3>
-                <p>Ongoing updates, bug fixes, and technical support to keep every system running smoothly after launch.</p>
+                <div class="offering-icon"><i class="ti-shield"></i></div>
+                <h3>Cloud, Security &amp; Support</h3>
+                <p>Hosting, hardening, backups, and ongoing support so every system we ship stays fast, safe, and online.</p>
             </div>
         </div>
     </div>
 </section>
+
+
+<!-- ===== CAPABILITY MARQUEE ===== -->
+<div class="cap-marquee reveal" aria-label="What we build">
+    <div class="cap-track">
+        <div class="cap-set">
+            <span class="cap-item"><i class="ti-package"></i>Software Products</span>
+            <span class="cap-item"><i class="ti-star"></i>System Design</span>
+            <span class="cap-item"><i class="ti-star"></i>POS &amp; Billing</span>
+            <span class="cap-item"><i class="ti-star"></i>CRM &amp; ERP</span>
+            <span class="cap-item"><i class="ti-star"></i>Web Development</span>
+            <span class="cap-item"><i class="ti-star"></i>Mobile Apps</span>
+            <span class="cap-item"><i class="ti-star"></i>Growth Funnels</span>
+            <span class="cap-item"><i class="ti-star"></i>Automation</span>
+            <span class="cap-item"><i class="ti-star"></i>Cloud &amp; Hosting</span>
+            <span class="cap-item"><i class="ti-star"></i>Brand &amp; UI/UX</span>
+            <span class="cap-item"><i class="ti-star"></i>SEO</span>
+            <span class="cap-item"><i class="ti-star"></i>Operational Systems</span>
+        </div>
+        <div class="cap-set" aria-hidden="true">
+            <span class="cap-item"><i class="ti-package"></i>Software Products</span>
+            <span class="cap-item"><i class="ti-star"></i>System Design</span>
+            <span class="cap-item"><i class="ti-star"></i>POS &amp; Billing</span>
+            <span class="cap-item"><i class="ti-star"></i>CRM &amp; ERP</span>
+            <span class="cap-item"><i class="ti-star"></i>Web Development</span>
+            <span class="cap-item"><i class="ti-star"></i>Mobile Apps</span>
+            <span class="cap-item"><i class="ti-star"></i>Growth Funnels</span>
+            <span class="cap-item"><i class="ti-star"></i>Automation</span>
+            <span class="cap-item"><i class="ti-star"></i>Cloud &amp; Hosting</span>
+            <span class="cap-item"><i class="ti-star"></i>Brand &amp; UI/UX</span>
+            <span class="cap-item"><i class="ti-star"></i>SEO</span>
+            <span class="cap-item"><i class="ti-star"></i>Operational Systems</span>
+        </div>
+    </div>
+</div>
 
 <!-- ===== COMPANY PROFILE ===== -->
 <section class="company-profile-section">
@@ -1799,13 +2999,13 @@ a:hover { text-decoration: none; }
         <div class="company-profile-grid">
             <div class="profile-copy reveal">
                 <span class="sec-tag">Company Profile</span>
-                <h2 class="sec-heading">A focused studio for software, products, and measurable growth.</h2>
-                <p>Ailexity partners with founders, local businesses, and growing teams to turn operational problems into reliable digital systems. We work across strategy, UI, engineering, automation, and marketing so the final solution is useful after launch, not only impressive on day one.</p>
-                <p>Our team is based in Pune and builds with a practical, business-first approach: clear scopes, fast communication, stable delivery, and support for the next stage of growth.</p>
+                <h2 class="sec-heading">One studio, two engines: our own products and your systems.</h2>
+                <p>Ailexity does two things with full focus. We build and operate our own software products — Ailexity POS and Ailexity Tedo. And we design the systems companies run on: software systems, operational systems, and the sales and marketing funnels that keep them fed with customers.</p>
+                <p>Because we run products of our own, we design client systems like owners rather than vendors — clear scopes, practical builds, and systems that keep working long after handover. Based in Pune, working locally and remotely.</p>
                 <ul class="profile-list">
-                    <li><i class="ti-check"></i><span>Product-minded execution from discovery to launch.</span></li>
-                    <li><i class="ti-check"></i><span>Business software for restaurants, education, healthcare, retail, services, and startups.</span></li>
-                    <li><i class="ti-check"></i><span>Marketing systems designed around leads, conversions, and long-term brand trust.</span></li>
+                    <li><i class="ti-check"></i><span>In-house products refined every day by real market use.</span></li>
+                    <li><i class="ti-check"></i><span>Software and operational systems designed around how your business actually runs.</span></li>
+                    <li><i class="ti-check"></i><span>Funnels engineered for leads, conversions, and repeat customers.</span></li>
                 </ul>
             </div>
             <div class="profile-panel reveal reveal-d2">
@@ -1815,25 +3015,25 @@ a:hover { text-decoration: none; }
                         <span>Serving clients locally and remotely</span>
                     </div>
                     <div class="profile-fact">
-                        <strong>Software + Marketing</strong>
-                        <span>One team for build and growth</span>
+                        <strong>Products + Systems</strong>
+                        <span>One team to build and grow</span>
                     </div>
                 </div>
                 <div class="profile-capability-grid">
                     <div class="profile-capability">
-                        <i class="ti-world"></i>
-                        <h3>Websites &amp; SEO</h3>
-                        <p>Fast, modern websites and landing pages built with strong on-page SEO foundations so customers can find and trust you.</p>
+                        <i class="ti-package"></i>
+                        <h3>In-House Products</h3>
+                        <p>Ailexity POS (live) and Ailexity Tedo (in development) — conceived, built, shipped, and improved by our own team.</p>
                     </div>
                     <div class="profile-capability">
                         <i class="ti-settings"></i>
-                        <h3>Business Software</h3>
-                        <p>Custom CRM, POS, ERP, LMS, appointment platforms, dashboards, and workflow tools built around how your business runs.</p>
+                        <h3>System Design</h3>
+                        <p>Software systems and operational systems — CRM, POS, ERP, workflows, and automation designed as one connected machine.</p>
                     </div>
                     <div class="profile-capability">
-                        <i class="ti-shield"></i>
-                        <h3>Security &amp; Cloud</h3>
-                        <p>Website hardening, backups, monitoring, and cloud infrastructure management to keep your systems safe and online.</p>
+                        <i class="ti-filter"></i>
+                        <h3>Funnels &amp; Growth</h3>
+                        <p>Websites, campaigns, and follow-up funnels engineered to turn attention into enquiries and enquiries into revenue.</p>
                     </div>
                 </div>
                 <div class="profile-panel-foot">
@@ -1851,62 +3051,107 @@ a:hover { text-decoration: none; }
     </div>
 </section>
 
+
+
 <!-- ===== SERVICES ===== -->
-<section id="service" class="services-section">
+<section id="service" class="services-section wwd-window">
     <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-6 reveal">
+        <div class="ins-head reveal">
+            <div>
                 <span class="sec-tag">What We Do</span>
-                <h2 class="sec-heading">Two Pillars of<br>Digital Excellence</h2>
+                <h2 class="sec-heading mb-0">Two Cores. One Studio.</h2>
             </div>
-            <div class="col-lg-6 d-flex align-items-end reveal reveal-d2">
-                <p class="sec-sub mb-0">We combine engineering precision with creative marketing strategy — delivering end-to-end digital solutions that scale with your business.</p>
+            <a href="website-pricing.html" class="sec-head-link">See all services <i class="ti-arrow-right"></i></a>
+        </div>
+        <div class="ins-controls reveal">
+            <button class="ins-arrow" type="button" data-rail="wwdRail" data-dir="-1" aria-label="Previous services"><i class="ti-angle-left"></i></button>
+            <button class="ins-arrow" type="button" data-rail="wwdRail" data-dir="1" aria-label="Next services"><i class="ti-angle-right"></i></button>
+        </div>
+        <div class="wwd-rail reveal" id="wwdRail">
+            <div class="wwd-card">
+                <div class="wwd-icon"><i class="ti-shopping-cart"></i></div>
+                <div class="wwd-meta"><span class="ins-type">Core 01</span><span class="ins-dot">·</span><span class="ins-chip">Live Product</span></div>
+                <h3>Ailexity POS</h3>
+                <p>Our flagship billing &amp; inventory platform — live in restaurants, cafés, cloud kitchens, and retail. Billing, stock, and AI insights in one fast cloud system.</p>
+                <a href="https://ailexity.in/" class="wwd-link">Explore Ailexity POS <i class="ti-arrow-right"></i></a>
+            </div>
+            <div class="wwd-card">
+                <div class="wwd-icon"><i class="ti-share"></i></div>
+                <div class="wwd-meta"><span class="ins-type">Core 01</span><span class="ins-dot">·</span><span class="ins-chip">In Development</span></div>
+                <h3>Ailexity Tedo</h3>
+                <p>A technical networking platform for developers — share knowledge, showcase your work, and find the people to build the next big thing with.</p>
+                <a href="https://www.ailexitytedo.com" target="_blank" class="wwd-link">Preview Tedo <i class="ti-arrow-right"></i></a>
+            </div>
+            <div class="wwd-card">
+                <div class="wwd-icon"><i class="ti-settings"></i></div>
+                <div class="wwd-meta"><span class="ins-type">Core 02</span><span class="ins-dot">·</span><span class="ins-chip">Systems</span></div>
+                <h3>Software System Design</h3>
+                <p>CRM, POS, ERP, LMS, apps, and dashboards — architected as one connected system instead of a pile of disconnected tools.</p>
+                <a href="website-pricing.html#software" class="wwd-link">See Services <i class="ti-arrow-right"></i></a>
+            </div>
+            <div class="wwd-card">
+                <div class="wwd-icon"><i class="ti-loop"></i></div>
+                <div class="wwd-meta"><span class="ins-type">Core 02</span><span class="ins-dot">·</span><span class="ins-chip">Systems</span></div>
+                <h3>Operational System Design</h3>
+                <p>We map how your business actually runs, then design the workflows, automations, and SOPs your team executes every day.</p>
+                <a href="website-pricing.html#software" class="wwd-link">See Services <i class="ti-arrow-right"></i></a>
+            </div>
+            <div class="wwd-card">
+                <div class="wwd-icon"><i class="ti-filter"></i></div>
+                <div class="wwd-meta"><span class="ins-type">Core 02</span><span class="ins-dot">·</span><span class="ins-chip">Growth</span></div>
+                <h3>Growth &amp; Sales Funnels</h3>
+                <p>Landing pages, campaigns, follow-ups, and tracking — funnels engineered end to end to turn attention into paying customers.</p>
+                <a href="website-pricing.html#marketing" class="wwd-link">Marketing Plans <i class="ti-arrow-right"></i></a>
+            </div>
+            <div class="wwd-card">
+                <div class="wwd-icon"><i class="ti-world"></i></div>
+                <div class="wwd-meta"><span class="ins-type">Core 02</span><span class="ins-dot">·</span><span class="ins-chip">Growth</span></div>
+                <h3>Websites &amp; Brand Presence</h3>
+                <p>Fast, modern, SEO-ready websites and brand design — the front door of every funnel and system we build.</p>
+                <a href="website-pricing.html" class="wwd-link">See Services <i class="ti-arrow-right"></i></a>
+            </div>
+            <div class="wwd-card">
+                <div class="wwd-icon"><i class="ti-shield"></i></div>
+                <div class="wwd-meta"><span class="ins-type">Core 02</span><span class="ins-dot">·</span><span class="ins-chip">Care</span></div>
+                <h3>Cloud, Security &amp; Support</h3>
+                <p>Hosting, hardening, backups, and ongoing support so every system we ship stays fast, safe, and online.</p>
+                <a href="website-pricing.html#software" class="wwd-link">See Services <i class="ti-arrow-right"></i></a>
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-md-6 mb-4 reveal reveal-d1">
-                <div class="service-card">
-                    <span class="service-num">01</span>
-                    <div class="service-icon-wrap">
-                        <i class="ti-settings"></i>
-                    </div>
-                    <h3>Software Development</h3>
-                    <p>Custom software solutions built to streamline operations — from CRM systems and ERP platforms to LMS and enterprise applications.</p>
-                    <ul class="service-list">
-                        <li>Website Building for Businesses</li>
-                        <li>POS &amp; Inventory Systems</li>
-                        <li>Custom CRM Development</li>
-                        <li>Mobile &amp; Web Applications</li>
-                    </ul>
-                    <a href="website-pricing.html" class="service-link">See All Services <i class="ti-arrow-right"></i></a>
+        <div class="wwd-strip reveal">
+            <div class="core-strip-item">
+                <i class="ti-write"></i>
+                <div>
+                    <strong>Clear, fixed scopes</strong>
+                    <span>No surprise costs mid-project</span>
                 </div>
             </div>
-            <div class="col-md-6 mb-4 reveal reveal-d2">
-                <div class="service-card">
-                    <span class="service-num">02</span>
-                    <div class="service-icon-wrap">
-                        <i class="ti-pencil-alt"></i>
-                    </div>
-                    <h3>Marketing</h3>
-                    <p>Comprehensive marketing solutions including digital advertising, social media, SEO, email campaigns, and brand strategy that drives measurable growth.</p>
-                    <ul class="service-list">
-                        <li>Digital Advertising &amp; PPC</li>
-                        <li>Social Media Marketing</li>
-                        <li>SEO &amp; Search Optimization</li>
-                        <li>Content &amp; Brand Strategy</li>
-                    </ul>
-                    <a href="website-pricing.html" class="service-link">See All Services <i class="ti-arrow-right"></i></a>
+            <div class="core-strip-item">
+                <i class="ti-comments"></i>
+                <div>
+                    <strong>Weekly updates</strong>
+                    <span>You always know the status</span>
+                </div>
+            </div>
+            <div class="core-strip-item">
+                <i class="ti-timer"></i>
+                <div>
+                    <strong>Fast turnarounds</strong>
+                    <span>Most builds ship in weeks</span>
+                </div>
+            </div>
+            <div class="core-strip-item">
+                <i class="ti-headphone-alt"></i>
+                <div>
+                    <strong>Post-launch support</strong>
+                    <span>We stay after the handover</span>
                 </div>
             </div>
         </div>
-
-        <div class="row mt-3">
-            <div class="col-12 text-center reveal">
-                <a href="book-demo.html" class="btn-dark-pill" style="display:inline-flex;">
-                    <i class="ti-calendar"></i> Book a Free Demo
-                </a>
-            </div>
+        <div class="text-center reveal" style="margin-top:1.25rem;">
+            <a href="book-demo.html" class="btn-dark-pill" style="display:inline-flex;">
+                <i class="ti-calendar"></i> Book a Free Demo
+            </a>
         </div>
     </div>
 </section>
@@ -1914,11 +3159,11 @@ a:hover { text-decoration: none; }
 <!-- ===== PRODUCTS ===== -->
 <section id="products" class="products-section">
     <div class="container">
-        <div class="row mb-5">
+        <div class="row mb-4">
             <div class="col-12 text-center reveal">
-                <span class="sec-tag">Our Products</span>
+                <span class="sec-tag">Core 01 — Our Products</span>
                 <h2 class="sec-heading">Built by Ailexity, Powered by Vision</h2>
-                <p class="sec-sub mx-auto text-center">From live platforms solving real problems to exciting upcoming launches — here's what we're building.</p>
+                <p class="sec-sub mx-auto text-center">Software products we own end to end — from live platforms in the market to what's shipping next.</p>
             </div>
         </div>
 
@@ -1932,8 +3177,22 @@ a:hover { text-decoration: none; }
                             Live Product — In the Market
                         </div>
                         <h2>Ailexity POS</h2>
-                        <p>Our flagship billing &amp; inventory platform — live and powering restaurants, cafés, cloud kitchens, and retail. A fast, cloud-based point-of-sale that runs billing, orders, stock, and AI insights from one simple system.</p>
-                        <ul class="product-features">
+                        <p>Our flagship billing &amp; inventory platform — live in restaurants, cafés, cloud kitchens, and retail. Billing, orders, stock, and AI insights in one fast cloud system.</p>
+                        <div class="product-specs">
+                            <div>
+                                <span>Status</span>
+                                <strong>Live in Market</strong>
+                            </div>
+                            <div>
+                                <span>Platform</span>
+                                <strong>Cloud / Web</strong>
+                            </div>
+                            <div>
+                                <span>Built For</span>
+                                <strong>F&amp;B &amp; Retail</strong>
+                            </div>
+                        </div>
+                        <ul class="product-features two-col">
                             <li>
                                 <span class="feat-icon"><i class="ti-check"></i></span>
                                 Lightning-fast billing — dine-in, takeaway &amp; delivery
@@ -1970,11 +3229,22 @@ a:hover { text-decoration: none; }
                         <i class="ti-pulse" style="font-size:0.7rem;"></i>
                         In Development
                     </div>
-                    <div class="upcoming-icon-box">
-                        <i class="ti-share"></i>
-                    </div>
                     <h2>Ailexity Tedo</h2>
-                    <p>A technical networking platform built for developers — connect, collaborate, and grow. Tedo brings engineers together to share knowledge, showcase their work, and find the people to build the next big thing with.</p>
+                    <p>A technical networking platform for developers — share knowledge, showcase your work, and find the people to build the next big thing with.</p>
+                    <div class="product-specs specs-light">
+                        <div>
+                            <span>Status</span>
+                            <strong>In Development</strong>
+                        </div>
+                        <div>
+                            <span>Platform</span>
+                            <strong>Web / Mobile</strong>
+                        </div>
+                        <div>
+                            <span>Built For</span>
+                            <strong>Developers</strong>
+                        </div>
+                    </div>
                     <div class="progress-label">
                         <span>Development Progress</span>
                         <span>65%</span>
@@ -1986,11 +3256,184 @@ a:hover { text-decoration: none; }
                         <li>Developer profiles &amp; technical portfolios</li>
                         <li>Knowledge sharing &amp; community discussions</li>
                         <li>Find collaborators &amp; build together</li>
-                        <li>A curated tech feed tuned to your stack</li>
                     </ul>
                     <a href="https://www.ailexitytedo.com" target="_blank" class="btn-upcoming-cta">
                         Preview Tedo <i class="ti-arrow-right"></i>
                     </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="product-band reveal">
+            <div class="product-band-copy">
+                <strong>Want a system like this for your own business?</strong>
+                <p>That's exactly what Core 02 is — we design and build the software, you own the result. Most builds ship in weeks, not months.</p>
+            </div>
+            <div class="product-band-actions">
+                <a href="book-demo.html" class="btn-dark-pill" style="display:inline-flex;"><i class="ti-calendar"></i> Book a Strategy Call</a>
+                <a href="website-pricing.html" class="btn-ghost-pill" style="display:inline-flex;">See Pricing <i class="ti-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CLIENTS ===== -->
+<section id="clients" class="clients-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 reveal">
+                <span class="sec-tag">Our Clients</span>
+                <h2 class="sec-heading">Businesses That Run on Our Systems</h2>
+            </div>
+            <div class="col-lg-6 d-flex align-items-end reveal reveal-d2">
+                <p class="sec-sub mb-0">From energy consulting to travel, retail, events, and fragrance — companies trust Ailexity with the software, systems, and funnels behind their growth. Hover a card to see the work.</p>
+            </div>
+        </div>
+    </div>
+    <div class="clients-marquee reveal">
+        <div class="clients-track" id="clientsTrack">
+            <div class="clients-set">
+                <div class="client-card">
+                    <div class="client-card-inner">
+                        <div class="client-face client-face-front client-bg-surya">
+                            <span class="client-flip-hint"><i class="ti-reload"></i> Details</span>
+                            <h4>SuryaSync Energy</h4>
+                            <span class="client-service-tag">System Design &amp; Consulting</span>
+                        </div>
+                        <div class="client-face client-face-back">
+                            <h5>SuryaSync Energy</h5>
+                            <p>Designed the operational system behind their energy business — from lead intake and site surveys to project tracking and consulting workflows, all running as one connected process.</p>
+                            <div class="client-chips"><span>System Design</span><span>Consulting</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <div class="client-card-inner">
+                        <div class="client-face client-face-front client-bg-ogod">
+                            <span class="client-flip-hint"><i class="ti-reload"></i> Details</span>
+                            <h4>Ogod Travels</h4>
+                            <span class="client-service-tag">App Development</span>
+                        </div>
+                        <div class="client-face client-face-back">
+                            <h5>Ogod Travels</h5>
+                            <p>Built their travel app from the ground up — trip discovery, bookings, and itinerary management in one clean, fast mobile experience for travellers on the move.</p>
+                            <div class="client-chips"><span>App Development</span><span>UI/UX</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <div class="client-card-inner">
+                        <div class="client-face client-face-front client-bg-raj">
+                            <span class="client-flip-hint"><i class="ti-reload"></i> Details</span>
+                            <h4>Raj Tiles &amp; Marbles</h4>
+                            <span class="client-service-tag">Marketing</span>
+                        </div>
+                        <div class="client-face client-face-back">
+                            <h5>Raj Tiles &amp; Marbles</h5>
+                            <p>A local marketing engine — lead-generation funnels, campaigns, and follow-up systems that turn online enquiries into showroom visits and orders.</p>
+                            <div class="client-chips"><span>Marketing</span><span>Lead Funnels</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <div class="client-card-inner">
+                        <div class="client-face client-face-front client-bg-heaven">
+                            <span class="client-flip-hint"><i class="ti-reload"></i> Details</span>
+                            <h4>Heaven Craze</h4>
+                            <span class="client-service-tag">Social Media, Marketing &amp; Events</span>
+                        </div>
+                        <div class="client-face client-face-back">
+                            <h5>Heaven Craze</h5>
+                            <p>We run their social media presence and marketing, and collaborate on events — content systems, promotion funnels, and on-ground activations working together.</p>
+                            <div class="client-chips"><span>Social Media</span><span>Marketing</span><span>Events</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <div class="client-card-inner">
+                        <div class="client-face client-face-front client-bg-vibella">
+                            <span class="client-flip-hint"><i class="ti-reload"></i> Details</span>
+                            <h4>Vibella Perfumes</h4>
+                            <span class="client-service-tag">Website &amp; Brand Design</span>
+                        </div>
+                        <div class="client-face client-face-back">
+                            <h5>Vibella Perfumes</h5>
+                            <p>Designed their brand identity and website — a fragrance-first look with packaging-grade polish, built to carry the brand from shelf to screen.</p>
+                            <div class="client-chips"><span>Brand Design</span><span>Website</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="clients-set" aria-hidden="true">
+                <div class="client-card">
+                    <div class="client-card-inner">
+                        <div class="client-face client-face-front client-bg-surya">
+                            <span class="client-flip-hint"><i class="ti-reload"></i> Details</span>
+                            <h4>SuryaSync Energy</h4>
+                            <span class="client-service-tag">System Design &amp; Consulting</span>
+                        </div>
+                        <div class="client-face client-face-back">
+                            <h5>SuryaSync Energy</h5>
+                            <p>Designed the operational system behind their energy business — from lead intake and site surveys to project tracking and consulting workflows, all running as one connected process.</p>
+                            <div class="client-chips"><span>System Design</span><span>Consulting</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <div class="client-card-inner">
+                        <div class="client-face client-face-front client-bg-ogod">
+                            <span class="client-flip-hint"><i class="ti-reload"></i> Details</span>
+                            <h4>Ogod Travels</h4>
+                            <span class="client-service-tag">App Development</span>
+                        </div>
+                        <div class="client-face client-face-back">
+                            <h5>Ogod Travels</h5>
+                            <p>Built their travel app from the ground up — trip discovery, bookings, and itinerary management in one clean, fast mobile experience for travellers on the move.</p>
+                            <div class="client-chips"><span>App Development</span><span>UI/UX</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <div class="client-card-inner">
+                        <div class="client-face client-face-front client-bg-raj">
+                            <span class="client-flip-hint"><i class="ti-reload"></i> Details</span>
+                            <h4>Raj Tiles &amp; Marbles</h4>
+                            <span class="client-service-tag">Marketing</span>
+                        </div>
+                        <div class="client-face client-face-back">
+                            <h5>Raj Tiles &amp; Marbles</h5>
+                            <p>A local marketing engine — lead-generation funnels, campaigns, and follow-up systems that turn online enquiries into showroom visits and orders.</p>
+                            <div class="client-chips"><span>Marketing</span><span>Lead Funnels</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <div class="client-card-inner">
+                        <div class="client-face client-face-front client-bg-heaven">
+                            <span class="client-flip-hint"><i class="ti-reload"></i> Details</span>
+                            <h4>Heaven Craze</h4>
+                            <span class="client-service-tag">Social Media, Marketing &amp; Events</span>
+                        </div>
+                        <div class="client-face client-face-back">
+                            <h5>Heaven Craze</h5>
+                            <p>We run their social media presence and marketing, and collaborate on events — content systems, promotion funnels, and on-ground activations working together.</p>
+                            <div class="client-chips"><span>Social Media</span><span>Marketing</span><span>Events</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="client-card">
+                    <div class="client-card-inner">
+                        <div class="client-face client-face-front client-bg-vibella">
+                            <span class="client-flip-hint"><i class="ti-reload"></i> Details</span>
+                            <h4>Vibella Perfumes</h4>
+                            <span class="client-service-tag">Website &amp; Brand Design</span>
+                        </div>
+                        <div class="client-face client-face-back">
+                            <h5>Vibella Perfumes</h5>
+                            <p>Designed their brand identity and website — a fragrance-first look with packaging-grade polish, built to carry the brand from shelf to screen.</p>
+                            <div class="client-chips"><span>Brand Design</span><span>Website</span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -2003,61 +3446,61 @@ a:hover { text-decoration: none; }
         <div class="row mb-5">
             <div class="col-lg-6 reveal">
                 <span class="sec-tag">Industries</span>
-                <h2 class="sec-heading">Scalable Solutions for Every Sector</h2>
+                <h2 class="sec-heading">Scalable Systems for Every Sector</h2>
             </div>
             <div class="col-lg-6 d-flex align-items-end reveal reveal-d2">
-                <p class="sec-sub mb-0">Global brands from technology to education trust Ailexity to build stable, secure, and scalable digital experiences.</p>
+                <p class="sec-sub mb-0">From energy and travel to retail and hospitality — we design software systems, operational systems, and funnels around how each sector actually works.</p>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-lg-4 col-md-6 mb-4 reveal reveal-d1">
-                <div class="industry-card">
-                    <div class="industry-icon-box"><i class="ti-heart"></i></div>
+        <div class="industries-grid reveal">
+            <div class="industry-cell">
+                <div class="industry-cell-head">
+                    <i class="ti-heart"></i>
                     <h4>Healthcare</h4>
-                    <p>HIPAA-compliant platforms with patient management, telemedicine, and EHR systems built for privacy and performance.</p>
-                    <a href="website-pricing.html" class="industry-link">Learn more <i class="ti-arrow-right"></i></a>
                 </div>
+                <p>Patient management, appointment flows, and record systems built for privacy, reliability, and busy front desks.</p>
+                <div class="industry-sys"><span>Patient CRM</span><span>Appointments</span><span>Records</span></div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4 reveal reveal-d2">
-                <div class="industry-card">
-                    <div class="industry-icon-box"><i class="ti-server"></i></div>
+            <div class="industry-cell">
+                <div class="industry-cell-head">
+                    <i class="ti-server"></i>
                     <h4>Technology</h4>
-                    <p>Accelerate development cycles with robust platforms that guarantee up to 99.99% uptime and collaborative workflows.</p>
-                    <a href="website-pricing.html" class="industry-link">Learn more <i class="ti-arrow-right"></i></a>
                 </div>
+                <p>Platforms, dashboards, and internal tools for startups and tech teams that need to ship fast without breaking things.</p>
+                <div class="industry-sys"><span>SaaS Platforms</span><span>Dashboards</span><span>APIs</span></div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4 reveal reveal-d3">
-                <div class="industry-card">
-                    <div class="industry-icon-box"><i class="ti-shopping-cart"></i></div>
-                    <h4>E-Commerce</h4>
-                    <p>High-performance stores that handle peak traffic, manage inventory, and deliver seamless shopping across channels.</p>
-                    <a href="website-pricing.html" class="industry-link">Learn more <i class="ti-arrow-right"></i></a>
+            <div class="industry-cell">
+                <div class="industry-cell-head">
+                    <i class="ti-shopping-cart"></i>
+                    <h4>E-Commerce &amp; Retail</h4>
                 </div>
+                <p>Storefronts, inventory, and billing connected as one system — from online catalogue to counter sale.</p>
+                <div class="industry-sys"><span>Storefronts</span><span>Inventory</span><span>POS &amp; Billing</span></div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4 reveal reveal-d1">
-                <div class="industry-card">
-                    <div class="industry-icon-box"><i class="ti-book"></i></div>
+            <div class="industry-cell">
+                <div class="industry-cell-head">
+                    <i class="ti-book"></i>
                     <h4>Education</h4>
-                    <p>Engaging LMS platforms with virtual classrooms, student portals, and collaborative tools for modern learning.</p>
-                    <a href="website-pricing.html" class="industry-link">Learn more <i class="ti-arrow-right"></i></a>
                 </div>
+                <p>Learning platforms, student portals, and admissions funnels that keep classes organised and seats filled.</p>
+                <div class="industry-sys"><span>LMS</span><span>Student Portals</span><span>Admissions Funnels</span></div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4 reveal reveal-d2">
-                <div class="industry-card">
-                    <div class="industry-icon-box"><i class="ti-stats-up"></i></div>
-                    <h4>Finance</h4>
-                    <p>Secure fintech platforms with real-time transactions, fraud detection, and compliance-grade banking infrastructure.</p>
-                    <a href="website-pricing.html" class="industry-link">Learn more <i class="ti-arrow-right"></i></a>
+            <div class="industry-cell">
+                <div class="industry-cell-head">
+                    <i class="ti-stats-up"></i>
+                    <h4>Services &amp; Consulting</h4>
                 </div>
+                <p>Lead pipelines, project tracking, and client systems for consultants and service businesses — like our work for SuryaSync.</p>
+                <div class="industry-sys"><span>Lead Pipelines</span><span>Project Tracking</span><span>Client CRM</span></div>
             </div>
-            <div class="col-lg-4 col-md-6 mb-4 reveal reveal-d3">
-                <div class="industry-card">
-                    <div class="industry-icon-box"><i class="ti-home"></i></div>
-                    <h4>Hospitality</h4>
-                    <p>Integrated booking systems and PMS solutions that transform guest experiences for hotels, restaurants, and travel brands.</p>
-                    <a href="website-pricing.html" class="industry-link">Learn more <i class="ti-arrow-right"></i></a>
+            <div class="industry-cell">
+                <div class="industry-cell-head">
+                    <i class="ti-home"></i>
+                    <h4>Hospitality &amp; Travel</h4>
                 </div>
+                <p>Booking systems, POS, and guest workflows for restaurants, hotels, and travel brands — like the Ogod Travels app.</p>
+                <div class="industry-sys"><span>Bookings</span><span>Restaurant POS</span><span>Guest CRM</span></div>
             </div>
         </div>
 
@@ -2081,44 +3524,75 @@ a:hover { text-decoration: none; }
             </div>
         </div>
 
-        <div class="row position-relative">
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 reveal reveal-d1">
-                <div class="process-step">
-                    <div class="process-connector"></div>
-                    <div class="process-num">01</div>
-                    <h5>Discovery</h5>
-                    <p>We understand your vision, goals, and requirements through collaborative workshops and in-depth research.</p>
+        <div class="process-panel reveal">
+            <div class="process-cell">
+                <div class="process-kicker">
+                    <strong>Step 01</strong>
+                    <em>Week 0–1</em>
+                </div>
+                <h5>Discovery</h5>
+                <p>We map how your business runs today — goals, bottlenecks, current tools — and define exactly what the system needs to do.</p>
+                <div class="process-outputs">
+                    <span class="process-outputs-label">You get</span>
+                    <ul>
+                        <li>Scope document &amp; fixed quote</li>
+                        <li>System map of your operations</li>
+                        <li>Delivery timeline</li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 reveal reveal-d2">
-                <div class="process-step">
-                    <div class="process-connector"></div>
-                    <div class="process-num">02</div>
-                    <h5>Design</h5>
-                    <p>Our designers craft intuitive interfaces and user experiences perfectly aligned with your brand and audience.</p>
+            <div class="process-cell">
+                <div class="process-kicker">
+                    <strong>Step 02</strong>
+                    <em>Week 1–2</em>
+                </div>
+                <h5>Design</h5>
+                <p>We design the system and the funnel around it — interfaces, workflows, and the path that turns a visitor into a customer.</p>
+                <div class="process-outputs">
+                    <span class="process-outputs-label">You get</span>
+                    <ul>
+                        <li>Wireframes &amp; UI designs</li>
+                        <li>Funnel &amp; workflow blueprint</li>
+                        <li>Build plan you approve</li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 mb-5 mb-lg-0 reveal reveal-d3">
-                <div class="process-step">
-                    <div class="process-connector"></div>
-                    <div class="process-num">03</div>
-                    <h5>Development</h5>
-                    <p>Our engineers build robust, scalable solutions using the most appropriate modern technologies for your project.</p>
+            <div class="process-cell">
+                <div class="process-kicker">
+                    <strong>Step 03</strong>
+                    <em>Week 2–5</em>
+                </div>
+                <h5>Build</h5>
+                <p>Engineering, integrations, and content come together — with weekly check-ins so you see progress, not surprises.</p>
+                <div class="process-outputs">
+                    <span class="process-outputs-label">You get</span>
+                    <ul>
+                        <li>Working system on staging</li>
+                        <li>Integrations &amp; automations</li>
+                        <li>Testing &amp; fixes before launch</li>
+                    </ul>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6 reveal reveal-d4">
-                <div class="process-step">
-                    <div class="process-num">04</div>
-                    <h5>Launch &amp; Support</h5>
-                    <p>We ensure smooth deployment and provide ongoing maintenance, updates, and dedicated post-launch support.</p>
+            <div class="process-cell">
+                <div class="process-kicker">
+                    <strong>Step 04</strong>
+                    <em>Ongoing</em>
+                </div>
+                <h5>Launch &amp; Grow</h5>
+                <p>We deploy, train your team, and stay on — monitoring, maintenance, and funnel tuning as your numbers come in.</p>
+                <div class="process-outputs">
+                    <span class="process-outputs-label">You get</span>
+                    <ul>
+                        <li>Go-live &amp; team training</li>
+                        <li>Analytics &amp; reporting setup</li>
+                        <li>Support &amp; growth plan</li>
+                    </ul>
                 </div>
             </div>
         </div>
-
-        <div class="row mt-5">
-            <div class="col-12 text-center reveal">
-                <a href="book-demo.html" class="btn-dark-pill" style="display:inline-flex;">Start Your Project</a>
-            </div>
+        <div class="process-note reveal">
+            <p><strong>Typical engagement: 2–6 weeks</strong> from first call to launch, depending on scope. Products like websites and funnels ship faster; full systems take longer.</p>
+            <a href="book-demo.html" class="btn-dark-pill" style="display:inline-flex;">Start Your Project</a>
         </div>
     </div>
 </section>
@@ -2126,81 +3600,97 @@ a:hover { text-decoration: none; }
 <!-- ===== BLOG ===== -->
 <section id="blog" class="blog-section">
     <div class="container">
-        <div class="row mb-5">
-            <div class="col-lg-6 reveal">
-                <span class="sec-tag">Insights</span>
-                <h2 class="sec-heading">Latest from Ailexity</h2>
-            </div>
-            <div class="col-lg-6 d-flex align-items-end reveal reveal-d2">
-                <p class="sec-sub mb-0">Explore the emerging technology trends and ideas shaping the digital future we're building together.</p>
-            </div>
+        <div class="ins-head reveal">
+            <h2 class="sec-heading mb-0">Latest Insights</h2>
+            <a href="blogs.html" class="sec-head-link">See all insights <i class="ti-arrow-right"></i></a>
         </div>
-
-        <div class="row">
-            <div class="col-md-4 mb-4 reveal reveal-d1">
-                <div class="blog-card">
-                    <div class="blog-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1655720828018-edd2daec9349?q=80&w=2032&auto=format&fit=crop" alt="AI Agents">
-                    </div>
-                    <div class="blog-body">
-                        <span class="blog-tag">AI &amp; Automation</span>
-                        <h6>AI Agents Revolution: The Rise of Autonomous Workflows</h6>
-                        <p>How multi-agent AI systems are transforming business operations with autonomous decision-making in 2025.</p>
-                        <a href="blogs.html" class="blog-read">Read Article <i class="ti-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 reveal reveal-d2">
-                <div class="blog-card">
-                    <div class="blog-img-wrap">
-                        <img src="https://images.unsplash.com/photo-1677756119517-756a188d2d94?q=80&w=2050&auto=format&fit=crop" alt="Multimodal AI">
-                    </div>
-                    <div class="blog-body">
-                        <span class="blog-tag">Technology</span>
-                        <h6>Multimodal AI: Beyond Text to Vision, Voice &amp; Video</h6>
-                        <p>Exploring the latest GPT-4o, Gemini 2.0, and Claude integrations that process multiple data types simultaneously.</p>
-                        <a href="blogs.html" class="blog-read">Read Article <i class="ti-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 mb-4 reveal reveal-d3">
-                <div class="blog-card">
-                    <div class="blog-img-wrap">
-                        <img src="https://assets.paperjam.lu/images/articles/quantum-ai-solving-the-unsolva/0.5/0.5/640/426/672857.jpg" alt="Quantum AI">
-                    </div>
-                    <div class="blog-body">
-                        <span class="blog-tag">Future Tech</span>
-                        <h6>Quantum-AI Convergence: The Next Computing Frontier</h6>
-                        <p>How quantum computing breakthroughs are accelerating AI model training and solving previously impossible problems.</p>
-                        <a href="blogs.html" class="blog-read">Read Article <i class="ti-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
+        <div class="ins-controls reveal">
+            <button class="ins-arrow" type="button" data-rail="insightsRail" data-dir="-1" aria-label="Previous insights"><i class="ti-angle-left"></i></button>
+            <button class="ins-arrow" type="button" data-rail="insightsRail" data-dir="1" aria-label="Next insights"><i class="ti-angle-right"></i></button>
         </div>
-
-        <div class="text-center mt-4 reveal">
-            <a href="blogs.html" class="show-more-link">View All Articles</a>
+        <div class="ins-rail reveal" id="insightsRail">
+            <a href="blogs.html" class="ins-card">
+                <div class="ins-card-media"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800&auto=format&fit=crop" alt="AI Infrastructure"></div>
+                <div class="ins-meta"><span class="ins-type">Article</span><span class="ins-dot">·</span><span class="ins-chip">AI Infrastructure</span><span class="ins-chip">Hardware</span></div>
+                <h3 class="ins-title">The $11 Billion Bet: What SambaNova's Mega-Round Signals About the AI Infrastructure Gold Rush</h3>
+                <span class="ins-foot">7 min read</span>
+            </a>
+            <a href="blogs.html" class="ins-card">
+                <div class="ins-card-media"><img src="https://images.unsplash.com/photo-1739805591936-39f03383c9a9?q=80&w=800&auto=format&fit=crop" alt="AI Models"></div>
+                <div class="ins-meta"><span class="ins-type">Analysis</span><span class="ins-dot">·</span><span class="ins-chip">AI Models</span></div>
+                <h3 class="ins-title">Grok 4.5 vs. the Frontier: Is &quot;Claude-Class Performance at a Lower Price&quot; Real or Just Marketing?</h3>
+                <span class="ins-foot">6 min read</span>
+            </a>
+            <a href="blogs.html" class="ins-card">
+                <div class="ins-card-media"><img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?q=80&w=800&auto=format&fit=crop" alt="Agentic AI"></div>
+                <div class="ins-meta"><span class="ins-type">Blog</span><span class="ins-dot">·</span><span class="ins-chip">Agentic AI</span><span class="ins-chip">Automation</span></div>
+                <h3 class="ins-title">The Agent Era Arrives: What Autonomous AI Actually Does in Your Workflow</h3>
+                <span class="ins-foot">7 min read</span>
+            </a>
+            <a href="blogs.html" class="ins-card">
+                <div class="ins-card-media"><img src="https://images.unsplash.com/photo-1592478411213-6153e4ebc07d?q=80&w=800&auto=format&fit=crop" alt="Multimodal AI"></div>
+                <div class="ins-meta"><span class="ins-type">Blog</span><span class="ins-dot">·</span><span class="ins-chip">Multimodal AI</span></div>
+                <h3 class="ins-title">Multimodal Is the New Baseline, Not a Premium Feature</h3>
+                <span class="ins-foot">5 min read</span>
+            </a>
+            <a href="blogs.html" class="ins-card">
+                <div class="ins-card-media"><img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800&auto=format&fit=crop" alt="Semiconductors"></div>
+                <div class="ins-meta"><span class="ins-type">Analysis</span><span class="ins-dot">·</span><span class="ins-chip">Semiconductors</span></div>
+                <h3 class="ins-title">When Compute Is King: Why Every Big Tech Story Is Secretly About Chips</h3>
+                <span class="ins-foot">6 min read</span>
+            </a>
+            <a href="blogs.html" class="ins-card">
+                <div class="ins-card-media"><img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?q=80&w=800&auto=format&fit=crop" alt="AI in Biotech"></div>
+                <div class="ins-meta"><span class="ins-type">Article</span><span class="ins-dot">·</span><span class="ins-chip">AI in Biotech</span></div>
+                <h3 class="ins-title">AI-Designed Vaccines Hit Human Trials — The Quiet Biotech Breakthrough</h3>
+                <span class="ins-foot">7 min read</span>
+            </a>
         </div>
     </div>
+    <script>
+    (function(){
+        function initRail(rail){
+            var btns = document.querySelectorAll('.ins-arrow[data-rail="' + rail.id + '"]');
+            function step(){
+                var card = rail.firstElementChild;
+                var gap = parseInt(getComputedStyle(rail).columnGap) || 24;
+                return card ? card.offsetWidth + gap : Math.round(rail.clientWidth * 0.8);
+            }
+            function update(){
+                var max = rail.scrollWidth - rail.clientWidth - 2;
+                btns.forEach(function(b){
+                    var dir = parseInt(b.getAttribute('data-dir'), 10);
+                    b.disabled = dir < 0 ? rail.scrollLeft <= 2 : rail.scrollLeft >= max;
+                });
+            }
+            btns.forEach(function(b){
+                b.addEventListener('click', function(){
+                    rail.scrollBy({ left: parseInt(b.getAttribute('data-dir'), 10) * step(), behavior: 'smooth' });
+                });
+            });
+            rail.addEventListener('scroll', update, { passive: true });
+            window.addEventListener('resize', update);
+            update();
+        }
+        document.querySelectorAll('.ins-rail, .wwd-rail').forEach(initRail);
+    })();
+    </script>
 </section>
 
-<!-- ===== CONTACT ===== -->
-<section id="contact" class="contact-section">
-    <div class="container contact-inner text-center">
-        <span class="sec-tag" style="background:rgba(255,110,66,0.12);color:var(--accent);">Contact Us</span>
-        <h2 class="sec-heading" style="color:white;">Let's Build Something Together</h2>
-        <p class="sec-sub mx-auto" style="color:rgba(255,255,255,0.5);">Have a project in mind? We'd love to hear from you.</p>
-        <button class="btn-contact-modal" onclick="openContactModal()">
-            Send Us a Message &nbsp;<i class="ti-arrow-right"></i>
-        </button>
-    </div>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="container">
-            <div class="sf-grid">
-                <div>
-                    <img src="assets/imgs/ailexity logo white.png" alt="Ailexity" class="sf-logo">
+<!-- ===== FOOTER (incl. contact CTA) ===== -->
+<footer class="site-footer" id="contact">
+    <div class="container">
+        <div class="sf-cta reveal">
+            <div>
+                <span class="sec-tag" style="background:rgba(255,110,66,0.12);color:var(--accent);">Contact Us</span>
+                <h3 class="sf-cta-heading">Let's Build Something Together</h3>
+                <p class="sf-cta-sub">Tell us what you're building — we reply within 24 hours.</p>
+            </div>
+            <button type="button" class="btn-accent-pill" onclick="openContactModal()">Send Us a Message <i class="ti-arrow-right"></i></button>
+        </div>
+        <div class="sf-grid">
+            <div>
+                <img src="assets/imgs/ailexity logo white.png" alt="Ailexity" class="sf-logo">
                     <p class="sf-tagline">Digital solutions that move your business forward — from websites to enterprise software.</p>
                     <div class="sf-social">
                         <a href="https://www.linkedin.com/company/ailexity/posts/?feedView=all" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="ti-linkedin"></i></a>
@@ -2231,7 +3721,7 @@ a:hover { text-decoration: none; }
                     <ul class="sf-links">
                         <li><i class="ti-email"></i><a href="mailto:ailexity.info@gmail.com">ailexity.info@gmail.com</a></li>
                         <li><i class="ti-mobile"></i><a href="tel:+919270587627">+91 92705 87627</a></li>
-                        <li><i class="ti-mobile"></i><a href="tel:+918554956773"> +91 85549 56773</a></li>
+                        <li><i class="ti-mobile"></i><a href="tel:+918554956773">+91 85549 56773</a></li>
                         <li><i class="ti-location-pin"></i><span>Joyville Hadapsar, Shewalewadi, Pune — 412307</span></li>
                     </ul>
                 </div>
@@ -2242,7 +3732,6 @@ a:hover { text-decoration: none; }
             </div>
         </div>
     </footer>
-</section>
 
 <!-- Scripts -->
 <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
@@ -2294,6 +3783,19 @@ a:hover { text-decoration: none; }
             });
         }, { threshold: 0.3 });
         progressObserver.observe(progressFill);
+    }
+
+    // Client cards: tap to flip on touch devices, pause marquee while flipped
+    var clientsTrack = document.getElementById('clientsTrack');
+    var canHover = window.matchMedia && window.matchMedia('(hover: hover)').matches;
+    if (clientsTrack && !canHover) {
+        clientsTrack.querySelectorAll('.client-card').forEach(function(card) {
+            card.addEventListener('click', function() {
+                card.classList.toggle('flipped');
+                var anyFlipped = clientsTrack.querySelector('.client-card.flipped');
+                clientsTrack.classList.toggle('paused', !!anyFlipped);
+            });
+        });
     }
 
     // Animated counters

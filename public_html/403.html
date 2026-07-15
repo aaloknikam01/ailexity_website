@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>403 — Access Denied | Ailexity</title>
+    <link rel="icon" type="image/png" href="/assets/imgs/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; }
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #e4e4e4;
+            display: flex;
+            padding: clamp(16px, 4vw, 48px);
+        }
+        .err-card {
+            flex: 1;
+            background: #f9f9f9;
+            border-radius: 20px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.10);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: clamp(2rem, 6vw, 4rem);
+        }
+        .err-code {
+            font-size: clamp(6rem, 18vw, 11rem);
+            font-weight: 800;
+            line-height: 1;
+            color: #e0192e;
+            letter-spacing: -0.02em;
+            user-select: none;
+        }
+        .err-code .zero {
+            position: relative;
+            display: inline-block;
+            z-index: 1;
+        }
+        .ghost {
+            position: absolute;
+            left: 50%;
+            top: -0.28em;
+            width: 0.56em;
+            transform: translateX(-56%) rotate(-12deg);
+            z-index: -1;
+        }
+        .err-title {
+            font-size: clamp(1.15rem, 3vw, 1.5rem);
+            font-weight: 700;
+            color: #171717;
+            margin-top: 0.75rem;
+        }
+        .err-text {
+            font-size: clamp(0.78rem, 1.6vw, 0.88rem);
+            color: #3d3d3d;
+            line-height: 1.7;
+            margin-top: 0.75rem;
+            max-width: 420px;
+        }
+        .err-text a {
+            color: #e0192e;
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .err-text a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+    <main class="err-card">
+        <div class="err-code" aria-label="Error 403">4<span class="zero"><svg class="ghost" viewBox="0 0 120 96" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M60 6 C31 6 14 28 14 55 V138 C14 145 22 147 26 141 C30 135 38 135 42 141 C46 147 54 147 58 141 C62 135 70 135 74 141 C78 147 86 147 90 141 C94 135 102 135 106 141 C110 147 118 145 118 138 V55 C118 28 89 6 60 6 Z"
+                  transform="translate(-6 0)"
+                  fill="#ffffff" stroke="#d2d2d2" stroke-width="4"/>
+            <ellipse cx="40" cy="52" rx="7.5" ry="11" fill="#171717" transform="rotate(-8 40 52)"/>
+            <ellipse cx="72" cy="50" rx="7.5" ry="11" fill="#171717" transform="rotate(-8 72 50)"/>
+        </svg>0</span>3</div>
+        <h1 class="err-title">Access denied</h1>
+        <p class="err-text">You don't have permission to view this page. Go back, or head over to <a href="/">Home</a>.</p>
+    </main>
+</body>
+</html>

@@ -275,13 +275,14 @@ a:hover { text-decoration: none; }
     width: 400px; height: 400px;
     background: radial-gradient(circle, rgba(255,110,66,0.1) 0%, transparent 70%);
     top: -100px; right: -80px;
-    animation: none;
+    animation: floatOrb 16s ease-in-out infinite;
 }
 .ph-orb-2 {
     width: 300px; height: 300px;
     background: radial-gradient(circle, rgba(99,102,241,0.08) 0%, transparent 70%);
     bottom: -60px; left: -40px;
-    animation: none;
+    animation: floatOrb 20s ease-in-out infinite;
+    animation-delay: -6s;
 }
 @keyframes floatOrb {
     0%,100% { transform: translate(0,0) scale(1); }
@@ -538,7 +539,7 @@ a:hover { text-decoration: none; }
 
 /* ===== CONTACT SECTION ===== */
 .contact-section {
-    padding: 7rem 0 0;
+    padding: 5rem 0 0;
     background: var(--dark);
     color: white;
     position: relative;
@@ -803,28 +804,50 @@ a:hover { text-decoration: none; }
 .site-footer {
     background: var(--dark);
     border-top: 1px solid rgba(255,255,255,0.06);
-    padding: 3.5rem 0 0;
+    padding: 2.25rem 0 0;
     position: relative;
     z-index: 1;
+}
+.sf-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.25rem;
+    flex-wrap: wrap;
+    padding-bottom: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.sf-cta-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: white;
+    margin: 0 0 0.25rem;
+}
+.sf-cta-sub {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.45);
+    margin: 0;
 }
 .sf-grid {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr 1.4fr;
-    gap: 2rem 2.5rem;
-    padding-bottom: 2.5rem;
+    gap: 1.5rem 2.5rem;
+    padding-bottom: 1.5rem;
     border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 .sf-logo {
-    height: 26px;
+    height: 22px;
     width: auto;
     display: block;
-    margin-bottom: 0.85rem;
+    margin-bottom: 0.65rem;
 }
 .sf-tagline {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     color: rgba(255,255,255,0.45);
-    line-height: 1.6;
-    margin-bottom: 1rem;
+    line-height: 1.5;
+    margin-bottom: 0.75rem;
     max-width: 210px;
 }
 .sf-social {
@@ -832,15 +855,15 @@ a:hover { text-decoration: none; }
     gap: 0.6rem;
 }
 .sf-social a {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     border-radius: 7px;
     border: 1px solid rgba(255,255,255,0.15);
     display: flex;
     align-items: center;
     justify-content: center;
     color: rgba(255,255,255,0.5);
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     text-decoration: none;
     transition: var(--transition);
 }
@@ -851,12 +874,12 @@ a:hover { text-decoration: none; }
     transform: translateY(-2px);
 }
 .sf-heading {
-    font-size: 0.7rem;
+    font-size: 0.68rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.85);
-    margin-bottom: 0.9rem;
+    margin-bottom: 0.65rem;
 }
 .sf-links {
     list-style: none;
@@ -864,23 +887,23 @@ a:hover { text-decoration: none; }
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 0.4rem;
 }
 .sf-links li {
     display: flex;
     align-items: flex-start;
     gap: 0.45rem;
-    font-size: 0.8rem;
+    font-size: 0.78rem;
 }
 .sf-links a, .sf-links span {
     color: rgba(255,255,255,0.5);
     text-decoration: none;
     transition: var(--transition);
-    line-height: 1.4;
+    line-height: 1.35;
 }
 .sf-links a:hover { color: var(--accent); }
 .sf-links i {
-    font-size: 0.75rem;
+    font-size: 0.73rem;
     color: var(--accent);
     margin-top: 2px;
     flex-shrink: 0;
@@ -891,10 +914,10 @@ a:hover { text-decoration: none; }
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 0.5rem;
-    padding: 1.1rem 0;
+    padding: 0.85rem 0;
 }
 .sf-bottom p {
-    font-size: 0.78rem;
+    font-size: 0.76rem;
     color: rgba(255,255,255,0.3);
     margin: 0;
 }
@@ -1116,8 +1139,12 @@ a:hover { text-decoration: none; }
     .page-hero-title { font-size: 2rem; }
     .page-hero-sub { font-size: 0.92rem; }
     .sec-heading { font-size: 1.85rem; }
-    .contact-section { padding: 4rem 0 0; }
+    .contact-section { padding: 3rem 0 0; }
     .btn-dark-pill, .btn-ghost-pill, .btn-accent-pill { padding: 11px 22px; font-size: 0.85rem; }
+    /* Footer CTA strip */
+    .sf-cta { flex-direction: column; align-items: flex-start; padding-bottom: 1.25rem; margin-bottom: 1.25rem; }
+    .sf-cta .btn-accent-pill { width: 100%; justify-content: center; }
+    .sf-cta-heading { font-size: 1.05rem; }
     /* Contact info cards */
     .contact-info-row { gap: 1rem 1.5rem; margin: 1.75rem 0 1.5rem; }
     /* Contact modal */
@@ -1125,11 +1152,90 @@ a:hover { text-decoration: none; }
     .c-modal-title { font-size: 1.1rem; }
     /* Footer bottom bar */
     .sf-bottom { flex-direction: column; text-align: center; gap: 0.25rem; }
-    .site-footer { padding-top: 2.5rem; }
-    .sf-grid { grid-template-columns: 1fr 1fr; }
+    .site-footer { padding-top: 1.75rem; }
+    .sf-grid { grid-template-columns: 1fr 1fr; padding-bottom: 1.25rem; }
     /* Shared icon boxes */
     .icon-box { width: 46px; height: 46px; font-size: 1.1rem; }
 }
+/* ===== WIDE LAYOUT — minimal side gaps =====
+   Bootstrap caps .container at 1140px, leaving large empty margins on
+   wide screens. Widen it so content nearly fills the viewport with a
+   small, consistent side padding. (.navbar > .container keeps its own
+   full-width rule, so the nav is unaffected.) */
+.container {
+    max-width: 1840px;
+    padding-left: clamp(1rem, 2vw, 2rem);
+    padding-right: clamp(1rem, 2vw, 2rem);
+}
+
+/* Wide-screen header balance (shared): the "heading left / intro right"
+   rows keep the intro paragraph filling its column instead of leaving a
+   gap, and anchor it to the right edge on very wide screens. */
+@media (min-width: 1200px) {
+    .col-lg-6.align-items-end > .sec-sub { max-width: 720px; }
+}
+@media (min-width: 1500px) {
+    .col-lg-6.align-items-end > .sec-sub { margin-left: auto; }
+}
+
+/* ===== CAPABILITY MARQUEE (continuous ribbon, like the clients strip) ===== */
+.cap-marquee {
+    position: relative;
+    background: var(--dark);
+    border-top: 1px solid rgba(255,255,255,0.07);
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    overflow: hidden;
+}
+.cap-marquee::before,
+.cap-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+}
+.cap-marquee::before { left: 0;  background: linear-gradient(90deg, var(--dark), transparent); }
+.cap-marquee::after  { right: 0; background: linear-gradient(270deg, var(--dark), transparent); }
+.cap-track {
+    display: flex;
+    width: max-content;
+    animation: capScroll 38s linear infinite;
+    will-change: transform;
+}
+.cap-marquee:hover .cap-track,
+.cap-track.paused { animation-play-state: paused; }
+@keyframes capScroll {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
+}
+.cap-set { display: flex; align-items: center; flex-shrink: 0; }
+.cap-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1.15rem 2.1rem;
+    font-size: 0.98rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    color: rgba(255,255,255,0.92);
+    white-space: nowrap;
+}
+.cap-item i {
+    font-size: 0.72rem;
+    color: var(--accent);
+}
+@media (max-width: 767px) {
+    .cap-item { padding: 0.9rem 1.4rem; font-size: 0.88rem; gap: 9px; }
+    .cap-marquee::before, .cap-marquee::after { width: 60px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cap-track { animation: none; }
+    .cap-marquee { overflow-x: auto; }
+    .ph-orb-1, .ph-orb-2 { animation: none !important; }
+}
+
 @media (max-width: 575px) {
     .page-hero { padding: 90px 0 40px; }
     .page-hero-title { font-size: 1.65rem; }

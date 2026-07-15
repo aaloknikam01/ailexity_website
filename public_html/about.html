@@ -661,19 +661,18 @@
     </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
-<section id="contact" class="contact-section">
-    <div class="container contact-inner text-center">
-        <span class="sec-tag" style="background:rgba(255,110,66,0.12);color:var(--accent);">Contact Us</span>
-        <h2 class="sec-heading" style="color:white;">Let's Build Something Together</h2>
-        <p class="sec-sub mx-auto" style="color:rgba(255,255,255,0.5);">Have a project in mind? We'd love to hear from you.</p>
-        <button class="btn-contact-modal" onclick="openContactModal()">
-            Send Us a Message &nbsp;<i class="ti-arrow-right"></i>
-        </button>
-    </div>
-    <footer class="site-footer">
-        <div class="container">
-            <div class="sf-grid">
+<!-- ===== FOOTER (incl. contact CTA) ===== -->
+<footer class="site-footer" id="contact">
+    <div class="container">
+        <div class="sf-cta reveal">
+            <div>
+                <span class="sec-tag" style="background:rgba(255,110,66,0.12);color:var(--accent);">Contact Us</span>
+                <h3 class="sf-cta-heading">Let's Build Something Together</h3>
+                <p class="sf-cta-sub">Have a project in mind? We'd love to hear from you.</p>
+            </div>
+            <button type="button" class="btn-accent-pill" onclick="openContactModal()">Send Us a Message <i class="ti-arrow-right"></i></button>
+        </div>
+        <div class="sf-grid">
                 <div>
                     <img src="assets/imgs/ailexity logo white.png" alt="Ailexity" class="sf-logo">
                     <p class="sf-tagline">Digital solutions that move your business forward — from websites to enterprise software.</p>
@@ -706,7 +705,7 @@
                     <ul class="sf-links">
                         <li><i class="ti-email"></i><a href="mailto:ailexity.info@gmail.com">ailexity.info@gmail.com</a></li>
                         <li><i class="ti-mobile"></i><a href="tel:+919270587627">+91 92705 87627</a></li>
-                        <li><i class="ti-mobile"></i><a href="tel:+918554956773"> +91 8554956773</a></li>
+                        <li><i class="ti-mobile"></i><a href="tel:+918554956773">+91 85549 56773</a></li>
                         <li><i class="ti-location-pin"></i><span>Joyville Hadapsar, Shewalewadi, Pune — 412307</span></li>
                     </ul>
                 </div>
@@ -717,7 +716,6 @@
             </div>
         </div>
     </footer>
-</section>
 
 <script src="assets/vendors/jquery/jquery-3.4.1.js"></script>
 <script src="assets/vendors/bootstrap/bootstrap.bundle.js"></script>

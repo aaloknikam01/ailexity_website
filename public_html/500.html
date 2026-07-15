@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex">
+    <title>Site Under Maintenance | Ailexity</title>
+    <link rel="icon" type="image/png" href="/assets/imgs/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { height: 100%; }
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #e4e4e4;
+            display: flex;
+            padding: clamp(16px, 4vw, 48px);
+        }
+        .err-card {
+            flex: 1;
+            background: #f9f9f9;
+            border-radius: 20px;
+            box-shadow: 0 24px 60px rgba(0, 0, 0, 0.10);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: clamp(2rem, 6vw, 4rem);
+        }
+        .cone-art { width: clamp(96px, 16vw, 130px); height: auto; }
+        .err-title {
+            font-size: clamp(1.2rem, 3vw, 1.55rem);
+            font-weight: 700;
+            color: #171717;
+            margin-top: 1rem;
+        }
+        .err-text {
+            font-size: clamp(0.78rem, 1.6vw, 0.88rem);
+            color: #3d3d3d;
+            line-height: 1.7;
+            margin-top: 0.6rem;
+            max-width: 360px;
+        }
+        .socials {
+            display: flex;
+            gap: 10px;
+            margin-top: 1.1rem;
+        }
+        .socials a {
+            width: 36px; height: 36px;
+            border: 1.5px solid #171717;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #171717;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .socials a:hover { background: #171717; color: #f9f9f9; }
+        .socials svg { width: 15px; height: 15px; display: block; }
+        .email-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 1.6rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .email-label { font-size: 0.82rem; color: #171717; }
+        .email-pill {
+            border: 1.5px solid #171717;
+            border-radius: 8px;
+            padding: 7px 16px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            color: #171717;
+            text-decoration: none;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .email-pill:hover { background: #171717; color: #f9f9f9; }
+    </style>
+</head>
+<body>
+    <main class="err-card">
+        <svg class="cone-art" viewBox="0 0 220 170" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <ellipse cx="112" cy="158" rx="78" ry="7" fill="rgba(0,0,0,0.07)"/>
+            <!-- fallen cone behind -->
+            <g transform="translate(14 96) rotate(-72 30 30)">
+                <path d="M30 2 Q34 -3 38 2 L54 58 H14 Z" fill="#e0192e" stroke="#171717" stroke-width="3" stroke-linejoin="round"/>
+                <path d="M22.5 28 h23 l3.5 12 h-30 Z" fill="#ffffff" stroke="#171717" stroke-width="3" stroke-linejoin="round"/>
+            </g>
+            <!-- main cone -->
+            <g>
+                <path d="M114 12 Q120 4 126 12 L152 118 H88 Z" fill="#e0192e" stroke="#171717" stroke-width="3.5" stroke-linejoin="round"/>
+                <path d="M103.5 55 h33 l5 20 h-43 Z" fill="#ffffff" stroke="#171717" stroke-width="3.5" stroke-linejoin="round"/>
+                <rect x="76" y="116" width="88" height="14" rx="4" fill="#e0192e" stroke="#171717" stroke-width="3.5"/>
+                <rect x="60" y="130" width="120" height="20" rx="5" fill="#e0192e" stroke="#171717" stroke-width="3.5"/>
+            </g>
+        </svg>
+        <h1 class="err-title">Site is Under maintenance</h1>
+        <p class="err-text">You can still reach us at our<br>social media accounts</p>
+        <div class="socials">
+            <a href="https://www.linkedin.com/company/ailexity/posts/?feedView=all" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S.02 4.88.02 3.5 1.13 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zm8.12 0h4.37v1.91h.06c.61-1.16 2.1-2.38 4.32-2.38 4.62 0 5.47 3.04 5.47 6.99V22h-4.56v-6.62c0-1.58-.03-3.61-2.2-3.61-2.2 0-2.54 1.72-2.54 3.5V22H8.34V8z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/ailexity.info/" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5.5"/><circle cx="12" cy="12" r="4.5"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor" stroke="none"/></svg>
+            </a>
+            <a href="mailto:ailexity.info@gmail.com" aria-label="Email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="20" height="16" rx="2.5"/><path d="M3.5 6.5 12 13.5l8.5-7"/></svg>
+            </a>
+            <a href="tel:+919270587627" aria-label="Phone">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.22a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </a>
+        </div>
+        <div class="email-row">
+            <span class="email-label">Send us an Email</span>
+            <a class="email-pill" href="mailto:ailexity.info@gmail.com">ailexity.info@gmail.com</a>
+        </div>
+    </main>
+</body>
+</html>
